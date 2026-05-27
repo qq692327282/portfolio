@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NŌMA Studio — Shopify Store Design Concept</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #FAFAF8; color: #1A1A1A; font-family: 'DM Sans', sans-serif; }
+
+/* === CASE HEADER === */
+.case-header { background: #1A1A1A; color: #FAFAF8; padding: 80px 40px; text-align: center; }
+.case-header .tag { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #888; }
+.case-header h1 { font-family: 'DM Serif Display', serif; font-size: 56px; margin-top: 20px; font-weight: 400; }
+.case-header .sub { font-size: 14px; color: #999; margin-top: 16px; letter-spacing: 1px; }
+.case-meta { display: flex; justify-content: center; gap: 60px; margin-top: 40px; }
+.case-meta .item { text-align: center; }
+.case-meta .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #666; }
+.case-meta .value { font-size: 14px; margin-top: 6px; color: #ccc; }
+
+/* === BROWSER FRAME === */
+.browser-frame { max-width: 1200px; margin: 60px auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+.browser-bar { background: #F0F0F0; padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
+.browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+.browser-dot.r { background: #FF5F57; }
+.browser-dot.y { background: #FFBD2E; }
+.browser-dot.g { background: #28CA41; }
+.browser-url { flex: 1; background: #fff; border-radius: 4px; padding: 6px 12px; font-size: 11px; color: #888; margin-left: 12px; }
+.browser-content { padding: 0; }
+
+/* === STORE HEADER === */
+.store-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid #F0F0F0; }
+.store-logo { font-family: 'DM Serif Display', serif; font-size: 24px; letter-spacing: 4px; }
+.store-nav { display: flex; gap: 32px; font-size: 13px; letter-spacing: 1px; color: #666; }
+.store-nav span { cursor: pointer; }
+.store-nav span:hover { color: #1A1A1A; }
+.store-icons { display: flex; gap: 16px; font-size: 13px; color: #666; }
+
+/* === HERO === */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+.hero-img { background: linear-gradient(135deg, #E8E4DF 0%, #D4CFC8 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.hero-img .product-shape { width: 200px; height: 260px; background: #fff; border-radius: 80px 80px 20px 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); position: relative; }
+.hero-img .product-shape::after { content: ''; position: absolute; top: 40px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px; border-radius: 50%; background: rgba(0,0,0,0.05); }
+.hero-text { display: flex; flex-direction: column; justify-content: center; padding: 60px; }
+.hero-text .overline { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #999; }
+.hero-text h2 { font-family: 'DM Serif Display', serif; font-size: 48px; font-weight: 400; line-height: 1.2; margin-top: 16px; }
+.hero-text p { font-size: 14px; color: #888; line-height: 1.8; margin-top: 20px; max-width: 360px; }
+.hero-text .cta { display: inline-block; margin-top: 30px; padding: 14px 40px; background: #1A1A1A; color: #fff; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; width: fit-content; }
+
+/* === PRODUCT GRID === */
+.section-title { text-align: center; padding: 60px 40px 40px; }
+.section-title h3 { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; }
+.section-title .line { width: 40px; height: 1px; background: #1A1A1A; margin: 16px auto 0; }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding: 0 40px 60px; }
+.product-card { padding: 20px; cursor: pointer; }
+.product-card:hover .product-img { transform: scale(1.02); }
+.product-img { aspect-ratio: 3/4; margin-bottom: 16px; transition: transform 0.3s; display: flex; align-items: center; justify-content: center; }
+.product-img.p1 { background: #F5F2EE; }
+.product-img.p2 { background: #EDEAE6; }
+.product-img.p3 { background: #F0EDE8; }
+.product-img.p4 { background: #E8E5E0; }
+.product-img .shape { width: 60%; height: 70%; border-radius: 4px; position: relative; }
+.product-img .shape.vase { border-radius: 40% 40% 10% 10%; background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+.product-img .shape.candle { border-radius: 50% 50% 8px 8px; background: #F8F6F2; box-shadow: 0 8px 30px rgba(0,0,0,0.06); width: 50%; }
+.product-img .shape.bowl { border-radius: 0 0 50% 50%; background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.06); height: 50%; margin-top: auto; }
+.product-img .shape.plate { border-radius: 50%; background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.06); width: 70%; height: 50%; }
+.product-name { font-size: 14px; font-weight: 500; }
+.product-price { font-size: 13px; color: #888; margin-top: 4px; }
+
+/* === PRODUCT DETAIL === */
+.product-detail { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+.pd-gallery { background: #F5F2EE; display: flex; align-items: center; justify-content: center; position: relative; }
+.pd-gallery .main-product { width: 280px; height: 360px; background: #fff; border-radius: 100px 100px 24px 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
+.pd-gallery .thumb-strip { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; }
+.pd-gallery .thumb { width: 50px; height: 50px; background: #E8E4DF; border-radius: 4px; border: 2px solid transparent; }
+.pd-gallery .thumb.active { border-color: #1A1A1A; }
+.pd-info { padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+.pd-info .breadcrumb { font-size: 11px; color: #999; letter-spacing: 1px; }
+.pd-info h2 { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; margin-top: 12px; }
+.pd-info .price { font-size: 24px; margin-top: 12px; font-weight: 500; }
+.pd-info .desc { font-size: 14px; color: #888; line-height: 1.8; margin-top: 20px; }
+.pd-info .options { margin-top: 24px; }
+.pd-info .option-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 10px; }
+.pd-info .option-row { display: flex; gap: 10px; }
+.pd-info .option-btn { padding: 10px 20px; border: 1px solid #DDD; font-size: 13px; cursor: pointer; background: #fff; }
+.pd-info .option-btn.active { border-color: #1A1A1A; background: #1A1A1A; color: #fff; }
+.pd-info .add-cart { margin-top: 30px; padding: 16px 48px; background: #1A1A1A; color: #fff; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; width: 100%; }
+.pd-info .shipping { font-size: 12px; color: #999; margin-top: 16px; text-align: center; }
+
+/* === COLLECTION === */
+.collection-header { background: #F0EDE8; padding: 60px 40px; text-align: center; }
+.collection-header h3 { font-family: 'DM Serif Display', serif; font-size: 36px; font-weight: 400; }
+.collection-header .count { font-size: 13px; color: #888; margin-top: 8px; }
+.collection-filters { display: flex; justify-content: center; gap: 20px; padding: 20px; border-bottom: 1px solid #F0F0F0; }
+.collection-filters span { font-size: 12px; letter-spacing: 1px; color: #888; cursor: pointer; padding: 8px 16px; }
+.collection-filters span.active { color: #1A1A1A; border-bottom: 1px solid #1A1A1A; }
+
+/* === FOOTER === */
+.store-footer { background: #1A1A1A; color: #999; padding: 60px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+.store-footer .footer-logo { font-family: 'DM Serif Display', serif; font-size: 20px; color: #fff; letter-spacing: 4px; }
+.store-footer .footer-desc { font-size: 13px; line-height: 1.8; margin-top: 16px; max-width: 300px; }
+.store-footer h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #666; margin-bottom: 16px; }
+.store-footer ul { list-style: none; }
+.store-footer li { font-size: 13px; margin-bottom: 8px; color: #888; }
+
+/* === SECTION DIVIDER === */
+.section-divider { max-width: 1200px; margin: 80px auto; text-align: center; }
+.section-divider .num { font-size: 11px; letter-spacing: 4px; color: #ccc; }
+.section-divider h3 { font-family: 'DM Serif Display', serif; font-size: 28px; font-weight: 400; margin-top: 12px; }
+.section-divider .desc { font-size: 14px; color: #999; margin-top: 8px; }
+
+/* === FOOTER === */
+.case-footer { text-align: center; padding: 60px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #ccc; }
+</style>
+</head>
+<body>
+
+<!-- CASE HEADER -->
+<div class="case-header">
+  <div class="tag">Shopify Store Design Concept</div>
+  <h1>NŌMA Studio</h1>
+  <div class="sub">Minimalist Home Goods — Shopify DTC Store</div>
+  <div class="case-meta">
+    <div class="item"><div class="label">Platform</div><div class="value">Shopify</div></div>
+    <div class="item"><div class="label">Industry</div><div class="value">Home & Living</div></div>
+    <div class="item"><div class="label">Scope</div><div class="value">Full Store Design</div></div>
+    <div class="item"><div class="label">Year</div><div class="value">2026</div></div>
+  </div>
+</div>
+
+<!-- 1. HOMEPAGE -->
+<div class="section-divider">
+  <div class="num">01</div>
+  <h3>Homepage</h3>
+  <div class="desc">Hero banner with product showcase and brand story</div>
+</div>
+
+<div class="browser-frame">
+  <div class="browser-bar">
+    <div class="browser-dot r"></div>
+    <div class="browser-dot y"></div>
+    <div class="browser-dot g"></div>
+    <div class="browser-url">nomastudio.com</div>
+  </div>
+  <div class="browser-content">
+    <!-- Store Header -->
+    <div class="store-header">
+      <div class="store-logo">NŌMA</div>
+      <div class="store-nav">
+        <span>Shop</span>
+        <span>Collections</span>
+        <span>Our Story</span>
+        <span>Journal</span>
+      </div>
+      <div class="store-icons">
+        <span>Search</span>
+        <span>Account</span>
+        <span>Cart (0)</span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-img">
+        <div class="product-shape"></div>
+      </div>
+      <div class="hero-text">
+        <div class="overline">New Collection</div>
+        <h2>Objects for<br>Quiet Living</h2>
+        <p>Handcrafted ceramics and botanical candles, designed for the moments between moments.</p>
+        <div class="cta">Shop Collection →</div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="section-title">
+      <h3>Featured Products</h3>
+      <div class="line"></div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img p1"><div class="shape vase"></div></div>
+        <div class="product-name">Silo Vase — Sand</div>
+        <div class="product-price">$78.00</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img p2"><div class="shape candle"></div></div>
+        <div class="product-name">Hinoki Candle — 240g</div>
+        <div class="product-price">$48.00</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img p3"><div class="shape bowl"></div></div>
+        <div class="product-name">Drift Bowl — Fog</div>
+        <div class="product-price">$62.00</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img p4"><div class="shape plate"></div></div>
+        <div class="product-name">Orbit Plate — Bone</div>
+        <div class="product-price">$54.00</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="store-footer">
+      <div>
+        <div class="footer-logo">NŌMA</div>
+        <div class="footer-desc">Objects for quiet living. Handcrafted ceramics and botanical candles from our studio in Portland, Oregon.</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul><li>All Products</li><li>Ceramics</li><li>Candles</li><li>Gift Sets</li></ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul><li>Our Story</li><li>Studio</li><li>Sustainability</li><li>Press</li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li>Shipping</li><li>Returns</li><li>Contact</li><li>FAQ</li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. PRODUCT DETAIL PAGE -->
+<div class="section-divider">
+  <div class="num">02</div>
+  <h3>Product Detail Page</h3>
+  <div class="desc">Clean layout with gallery, product info, and purchase options</div>
+</div>
+
+<div class="browser-frame">
+  <div class="browser-bar">
+    <div class="browser-dot r"></div>
+    <div class="browser-dot y"></div>
+    <div class="browser-dot g"></div>
+    <div class="browser-url">nomastudio.com/products/silo-vase-sand</div>
+  </div>
+  <div class="browser-content">
+    <div class="store-header">
+      <div class="store-logo">NŌMA</div>
+      <div class="store-nav">
+        <span>Shop</span><span>Collections</span><span>Our Story</span><span>Journal</span>
+      </div>
+      <div class="store-icons">
+        <span>Search</span><span>Account</span><span>Cart (0)</span>
+      </div>
+    </div>
+    <div class="product-detail">
+      <div class="pd-gallery">
+        <div class="thumb-strip">
+          <div class="thumb active"></div>
+          <div class="thumb"></div>
+          <div class="thumb"></div>
+          <div class="thumb"></div>
+        </div>
+        <div class="main-product"></div>
+      </div>
+      <div class="pd-info">
+        <div class="breadcrumb">Home / Ceramics / Silo Vase</div>
+        <h2>Silo Vase — Sand</h2>
+        <div class="price">$78.00</div>
+        <div class="desc">A sculptural vase inspired by grain silos of the Pacific Northwest. Hand-thrown on the wheel using locally sourced stoneware clay, finished in our signature sand glaze.</div>
+        <div class="options">
+          <div class="option-label">Size</div>
+          <div class="option-row">
+            <div class="option-btn">Small</div>
+            <div class="option-btn active">Medium</div>
+            <div class="option-btn">Large</div>
+          </div>
+        </div>
+        <button class="add-cart">Add to Cart</button>
+        <div class="shipping">Free shipping on orders over $100 · Ships in 3-5 days</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. COLLECTION PAGE -->
+<div class="section-divider">
+  <div class="num">03</div>
+  <h3>Collection Page</h3>
+  <div class="desc">Filtered grid layout with category navigation</div>
+</div>
+
+<div class="browser-frame">
+  <div class="browser-bar">
+    <div class="browser-dot r"></div>
+    <div class="browser-dot y"></div>
+    <div class="browser-dot g"></div>
+    <div class="browser-url">nomastudio.com/collections/ceramics</div>
+  </div>
+  <div class="browser-content">
+    <div class="store-header">
+      <div class="store-logo">NŌMA</div>
+      <div class="store-nav">
+        <span>Shop</span><span>Collections</span><span>Our Story</span><span>Journal</span>
+      </div>
+      <div class="store-icons">
+        <span>Search</span><span>Account</span><span>Cart (0)</span>
+      </div>
+    </div>
+    <div class="collection-header">
+      <h3>Ceramics</h3>
+      <div class="count">12 products</div>
+    </div>
+    <div class="collection-filters">
+      <span class="active">All</span>
+      <span>Vases</span>
+      <span>Bowls</span>
+      <span>Plates</span>
+      <span>Cups</span>
+    </div>
+    <div class="product-grid" style="padding: 40px;">
+      <div class="product-card">
+        <div class="product-img p1"><div class="shape vase"></div></div>
+        <div class="product-name">Silo Vase — Sand</div>
+        <div class="product-price">$78.00</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img p3"><div class="shape bowl"></div></div>
+        <div class="product-name">Drift Bowl — Fog</div>
+        <div class="product-price">$62.00</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img p4"><div class="shape plate"></div></div>
+        <div class="product-name">Orbit Plate — Bone</div>
+        <div class="product-price">$54.00</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img p2"><div class="shape vase" style="border-radius:30%;"></div></div>
+        <div class="product-name">Arc Mug — Dusk</div>
+        <div class="product-price">$34.00</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="case-footer">
+  NŌMA Studio — Shopify Store Design Concept — Concept Project by Ezreal
+</div>
+
+</body>
+</html>

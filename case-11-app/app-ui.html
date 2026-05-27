@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALM SPACE — App UI Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --lavender: #E8E0F0;
+      --lavender-light: #F3EFF8;
+      --lavender-deep: #C5B5D8;
+      --sage: #B8C5A0;
+      --sage-light: #D4DCC6;
+      --sage-deep: #8FA66F;
+      --cream: #FFF8F0;
+      --cream-deep: #F5EDE0;
+      --charcoal: #2D2D2D;
+      --charcoal-light: #5A5A5A;
+      --accent: #6B8DD6;
+      --accent-light: #A3B8E8;
+      --accent-deep: #4A6FB8;
+      --white: #FFFFFF;
+      --bg: #FAFAFA;
+      --phone-w: 280px;
+      --phone-h: 580px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-xl: 36px;
+      --radius-phone: 40px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.10);
+      --shadow-phone: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--charcoal);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HERO / BRAND HEADER ===== */
+    .brand-hero {
+      background: linear-gradient(160deg, var(--lavender) 0%, var(--cream) 40%, var(--sage-light) 100%);
+      padding: 80px 40px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(107, 141, 214, 0.08);
+    }
+
+    .brand-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(184, 197, 160, 0.12);
+    }
+
+    .brand-icon {
+      width: 88px;
+      height: 88px;
+      background: var(--white);
+      border-radius: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-icon svg { width: 48px; height: 48px; }
+
+    .brand-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-subtitle {
+      font-size: 15px;
+      color: var(--charcoal-light);
+      font-weight: 300;
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== NAV ===== */
+    .nav-bar {
+      background: var(--white);
+      border-bottom: 1px solid #eee;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .nav-bar a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--charcoal-light);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-bar a:hover { color: var(--accent); }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 80px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--charcoal-light);
+      font-weight: 300;
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    /* ===== COLOR PALETTE ===== */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .color-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .color-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .color-swatch {
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px 16px;
+    }
+
+    .color-swatch span {
+      font-size: 12px;
+      font-weight: 500;
+      font-family: 'DM Sans', monospace;
+      opacity: 0.85;
+      color: var(--white);
+      background: rgba(0,0,0,0.15);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .color-swatch.light-text span {
+      color: var(--charcoal);
+      background: rgba(255,255,255,0.5);
+    }
+
+    .color-info {
+      padding: 16px;
+    }
+
+    .color-name {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .color-use {
+      font-size: 12px;
+      color: var(--charcoal-light);
+    }
+
+    /* ===== PHONE MOCKUPS ===== */
+    .phones-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      justify-items: center;
+      align-items: start;
+    }
+
+    .phone-wrapper {
+      text-align: center;
+    }
+
+    .phone-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--charcoal-light);
+      margin-bottom: 20px;
+    }
+
+    .phone {
+      width: var(--phone-w);
+      height: var(--phone-h);
+      background: var(--charcoal);
+      border-radius: var(--radius-phone);
+      padding: 12px;
+      box-shadow: var(--shadow-phone);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 26px;
+      background: var(--charcoal);
+      border-radius: 0 0 18px 18px;
+      z-index: 20;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: var(--cream);
+      border-radius: calc(var(--radius-phone) - 8px);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Status bar */
+    .status-bar {
+      height: 44px;
+      padding: 10px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      position: relative;
+      z-index: 10;
+    }
+
+    .status-bar .time { font-weight: 600; }
+    .status-bar .icons { display: flex; gap: 4px; align-items: center; }
+    .status-bar .icons svg { width: 14px; height: 14px; }
+
+    /* Home indicator */
+    .home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 4px;
+      background: var(--charcoal);
+      border-radius: 4px;
+      opacity: 0.2;
+      z-index: 20;
+    }
+
+    /* Phone content */
+    .screen-content {
+      padding: 0 20px 20px;
+      height: calc(100% - 44px);
+      overflow: hidden;
+    }
+
+    /* ===== HOME SCREEN ===== */
+    .home-greeting {
+      font-size: 11px;
+      color: var(--charcoal-light);
+      font-weight: 400;
+      margin-bottom: 2px;
+    }
+
+    .home-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .quote-card {
+      background: linear-gradient(135deg, var(--lavender) 0%, var(--lavender-light) 100%);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .quote-icon {
+      font-size: 28px;
+      line-height: 1;
+      color: var(--lavender-deep);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 6px;
+    }
+
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+
+    .quote-author {
+      font-size: 10px;
+      color: var(--charcoal-light);
+      font-weight: 500;
+    }
+
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .section-header-row h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .section-header-row a {
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .session-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .session-card {
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .session-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .session-thumb svg { width: 20px; height: 20px; }
+
+    .session-info { flex: 1; min-width: 0; }
+
+    .session-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 2px;
+    }
+
+    .session-meta {
+      font-size: 10px;
+      color: var(--charcoal-light);
+    }
+
+    .session-play {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .session-play svg { width: 12px; height: 12px; fill: white; }
+
+    /* Tab bar */
+    .tab-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-bottom: 16px;
+      border-top: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .tab-item svg { width: 22px; height: 22px; }
+    .tab-item span { font-size: 9px; font-weight: 500; }
+    .tab-item.active svg { color: var(--accent); }
+    .tab-item.active span { color: var(--accent); }
+    .tab-item:not(.active) svg { color: #bbb; }
+    .tab-item:not(.active) span { color: #bbb; }
+
+    /* ===== EXPLORE SCREEN ===== */
+    .explore-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .explore-header h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .search-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border-radius: 30px;
+      padding: 10px 16px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-pill svg { width: 16px; height: 16px; color: #bbb; flex-shrink: 0; }
+
+    .search-pill span {
+      font-size: 12px;
+      color: #bbb;
+      font-weight: 400;
+    }
+
+    .explore-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .explore-tag {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--white);
+      color: var(--charcoal-light);
+      border: 1px solid #eee;
+    }
+
+    .explore-tag.active {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .category-card {
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 88px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card svg {
+      width: 22px;
+      height: 22px;
+      margin-bottom: 8px;
+    }
+
+    .category-card .cat-name {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .category-card .cat-count {
+      font-size: 9px;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+
+    /* ===== PLAYER SCREEN ===== */
+    .player-artwork {
+      width: 160px;
+      height: 160px;
+      border-radius: 30px;
+      margin: 0 auto 18px;
+      background: linear-gradient(135deg, var(--lavender) 0%, var(--sage-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .player-artwork::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .player-artwork svg {
+      width: 48px;
+      height: 48px;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .player-title {
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .player-artist {
+      text-align: center;
+      font-size: 12px;
+      color: var(--charcoal-light);
+      margin-bottom: 20px;
+    }
+
+    .waveform {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      margin-bottom: 8px;
+      height: 40px;
+    }
+
+    .waveform .bar {
+      width: 3px;
+      border-radius: 3px;
+      background: var(--accent-light);
+    }
+
+    .waveform .bar.played { background: var(--accent); }
+
+    .player-time {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--charcoal-light);
+      font-weight: 500;
+      margin-bottom: 20px;
+      font-family: 'DM Sans', monospace;
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .player-controls button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .player-controls button svg { color: var(--charcoal); }
+
+    .play-btn-lg {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-btn-lg svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+      color: white !important;
+    }
+
+    .player-extra {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 16px;
+    }
+
+    .player-extra-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .player-extra-item svg { width: 18px; height: 18px; color: var(--charcoal-light); }
+    .player-extra-item span { font-size: 9px; color: var(--charcoal-light); }
+
+    /* ===== PROFILE SCREEN ===== */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .profile-header h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .profile-avatar-section {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .profile-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage) 0%, var(--lavender) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .profile-name {
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .profile-joined {
+      font-size: 11px;
+      color: var(--charcoal-light);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 14px 10px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 9px;
+      color: var(--charcoal-light);
+      font-weight: 500;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .streak-card {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 18px;
+      color: var(--white);
+    }
+
+    .streak-title {
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-bottom: 6px;
+    }
+
+    .streak-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .streak-number {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .streak-label { font-size: 11px; opacity: 0.85; }
+
+    .streak-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .streak-dot {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      font-weight: 600;
+    }
+
+    .streak-dot.active { background: rgba(255,255,255,0.45); }
+    .streak-dot.today { background: var(--white); color: var(--accent); }
+
+    .recent-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .recent-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .recent-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .recent-icon svg { width: 16px; height: 16px; }
+
+    .recent-info { flex: 1; }
+    .recent-info .r-title { font-size: 11px; font-weight: 600; }
+    .recent-info .r-meta { font-size: 9px; color: var(--charcoal-light); }
+
+    /* ===== DESIGN SYSTEM SECTION ===== */
+    .design-system {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 32px;
+    }
+
+    .ds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .ds-group-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* Buttons */
+    .btn-sample {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-bottom: 12px;
+      margin-right: 8px;
+    }
+
+    .btn-sample.primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 28px;
+      font-size: 14px;
+      box-shadow: 0 4px 14px rgba(107,141,214,0.3);
+    }
+
+    .btn-sample.secondary {
+      background: var(--lavender);
+      color: var(--charcoal);
+      padding: 12px 28px;
+      border-radius: 28px;
+      font-size: 14px;
+    }
+
+    .btn-sample.outline {
+      background: transparent;
+      color: var(--accent);
+      padding: 11px 27px;
+      border-radius: 28px;
+      font-size: 14px;
+      border: 1.5px solid var(--accent);
+    }
+
+    .btn-sample.ghost {
+      background: transparent;
+      color: var(--charcoal-light);
+      padding: 12px 28px;
+      border-radius: 28px;
+      font-size: 14px;
+    }
+
+    .btn-sample.small {
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    .btn-sample.icon-btn {
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    .btn-sample svg { width: 18px; height: 18px; }
+
+    /* Cards */
+    .card-sample {
+      background: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-sample .card-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .card-sample .card-body {
+      font-size: 12px;
+      color: var(--charcoal-light);
+      line-height: 1.5;
+    }
+
+    .card-sample.elevated {
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-sample.gradient {
+      background: linear-gradient(135deg, var(--lavender) 0%, var(--sage-light) 100%);
+    }
+
+    /* Inputs */
+    .input-sample {
+      display: block;
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid #e8e8e8;
+      border-radius: var(--radius-md);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--charcoal);
+      background: var(--white);
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .input-sample:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(107,141,214,0.12);
+    }
+
+    .input-sample::placeholder { color: #c0c0c0; }
+
+    .input-with-icon {
+      position: relative;
+    }
+
+    .input-with-icon svg {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: #bbb;
+    }
+
+    .input-with-icon .input-sample {
+      padding-left: 42px;
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .toggle-label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .toggle-switch {
+      width: 48px;
+      height: 28px;
+      background: #e0e0e0;
+      border-radius: 14px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .toggle-switch.active {
+      background: var(--accent);
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(20px);
+    }
+
+    /* Icons */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--lavender-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .icon-circle:hover { background: var(--lavender); }
+
+    .icon-circle svg {
+      width: 20px;
+      height: 20px;
+      color: var(--charcoal);
+    }
+
+    .icon-label {
+      font-size: 9px;
+      color: var(--charcoal-light);
+      text-align: center;
+    }
+
+    /* ===== TYPOGRAPHY SECTION ===== */
+    .typography-section {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .type-sample {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #f5f5f5;
+      display: flex;
+      align-items: baseline;
+      gap: 32px;
+    }
+
+    .type-sample:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .type-meta {
+      min-width: 180px;
+      flex-shrink: 0;
+    }
+
+    .type-font {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .type-spec {
+      font-size: 11px;
+      color: var(--charcoal-light);
+      line-height: 1.5;
+    }
+
+    .type-preview.h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .type-preview.h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .type-preview.h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .type-preview.body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    .type-preview.body-small {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--charcoal-light);
+      line-height: 1.5;
+    }
+
+    .type-preview.caption {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--charcoal-light);
+      letter-spacing: 0.3px;
+    }
+
+    .type-preview.quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+
+    .type-preview.button-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== USER FLOW ===== */
+    .flow-section {
+      text-align: center;
+    }
+
+    .flow-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .flow-phone {
+      width: 100px;
+      height: 180px;
+      background: var(--charcoal);
+      border-radius: 18px;
+      padding: 6px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .flow-phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .flow-step-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .flow-step-num {
+      font-size: 9px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .flow-arrow {
+      font-size: 20px;
+      color: var(--accent-light);
+      margin-bottom: 28px;
+    }
+
+    /* Mini screen mockups for flow */
+    .mini-screen {
+      width: 100%;
+      height: 100%;
+      padding: 18px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mini-bar {
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .mini-block {
+      height: 20px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .mini-block.accent { background: rgba(107,141,214,0.5); }
+    .mini-block.sage { background: rgba(184,197,160,0.4); }
+    .mini-block.lavender { background: rgba(232,224,240,0.4); }
+
+    .mini-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      margin: 4px auto;
+    }
+
+    .mini-row {
+      display: flex;
+      gap: 4px;
+    }
+
+    .mini-row .mini-block { flex: 1; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 48px 40px;
+      color: var(--charcoal-light);
+      font-size: 13px;
+    }
+
+    .footer-brand {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .footer p { font-weight: 300; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
+      .phones-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .phones-grid {
+        grid-template-columns: 1fr;
+      }
+      .section { padding: 60px 24px; }
+      .brand-hero { padding: 60px 24px; }
+      .design-system,
+      .typography-section { padding: 32px 24px; }
+      .type-sample {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== BRAND HERO ===== -->
+  <header class="brand-hero">
+    <div class="brand-icon">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="18" stroke="#6B8DD6" stroke-width="2" fill="none"/>
+        <circle cx="24" cy="24" r="10" stroke="#B8C5A0" stroke-width="2" fill="none"/>
+        <circle cx="24" cy="24" r="4" fill="#E8E0F0"/>
+        <path d="M24 6 Q30 18 24 24" stroke="#6B8DD6" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <path d="M24 6 Q18 18 24 24" stroke="#B8C5A0" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <path d="M24 42 Q18 30 24 24" stroke="#6B8DD6" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <path d="M24 42 Q30 30 24 24" stroke="#B8C5A0" stroke-width="1.5" fill="none" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="brand-name">CALM SPACE</div>
+    <h1 class="brand-tagline">Find your stillness</h1>
+    <p class="brand-subtitle">A meditation &amp; wellness app designed for clarity, calm, and daily mindfulness practice.</p>
+  </header>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav-bar">
+    <a href="#colors">Colors</a>
+    <a href="#screens">Screens</a>
+    <a href="#design-system">Design System</a>
+    <a href="#typography">Typography</a>
+    <a href="#flow">User Flow</a>
+  </nav>
+
+  <!-- ===== COLOR PALETTE ===== -->
+  <section class="section" id="colors">
+    <div class="section-label">01 — Foundation</div>
+    <h2 class="section-title">Color Palette</h2>
+    <p class="section-desc">A serene palette inspired by nature, soft light, and quiet mornings. Each color serves a purpose in the interface.</p>
+
+    <div class="palette-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #E8E0F0;">
+          <span class="light-text">#E8E0F0</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Soft Lavender</div>
+          <div class="color-use">Backgrounds · Cards · Accent fills</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #B8C5A0;">
+          <span>#B8C5A0</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Warm Sage</div>
+          <div class="color-use">Nature elements · Gradients · Tags</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FFF8F0;">
+          <span class="light-text">#FFF8F0</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Cream</div>
+          <div class="color-use">App background · Light surfaces</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #2D2D2D;">
+          <span>#2D2D2D</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Charcoal</div>
+          <div class="color-use">Primary text · UI elements · Dark mode</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #6B8DD6;">
+          <span>#6B8DD6</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Accent Blue</div>
+          <div class="color-use">Actions · CTAs · Active states</div>
+        </div>
+      </div>
+
+      <div class="color-card">
+        <div class="color-swatch" style="background: #F3EFF8;">
+          <span class="light-text">#F3EFF8</span>
+        </div>
+        <div class="color-info">
+          <div class="color-name">Lavender Light</div>
+          <div class="color-use">Subtle fills · Hover states</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHONE SCREENS ===== -->
+  <section class="section" id="screens">
+    <div class="section-label">02 — App Screens</div>
+    <h2 class="section-title">Core Experience</h2>
+    <p class="section-desc">Four primary screens that guide the user through their mindfulness journey — from discovery to daily practice.</p>
+
+    <div class="phones-grid">
+
+      <!-- HOME SCREEN -->
+      <div class="phone-wrapper">
+        <div class="phone-label">Home</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar" style="color: var(--charcoal);">
+              <span class="time">9:41</span>
+              <span class="icons">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-6zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-8zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-10zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-12z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.874 3 3.877 3.63 2.161 5.378a.485.485 0 0 0-.047.736l.639.522c.176.144.4.193.606.144a11.025 11.025 0 0 1 5.273-1.348c2.054 0 3.952.66 5.523 1.778.205.117.487.054.606-.144l.639-.522z"/><path d="M13.229 8.271a.485.485 0 0 0-.065-.736A8.44 8.44 0 0 0 8 5.5c-1.913 0-3.673.622-5.095 1.669a.485.485 0 0 0-.065.736l.663.547c.167.138.38.182.573.132a6.53 6.53 0 0 1 3.796-1.217 6.53 6.53 0 0 1 3.796 1.217c.193.05.406.006.573-.132l.663-.547z"/><path d="M11.101 10.218a.485.485 0 0 0-.078-.736A5.46 5.46 0 0 0 8 8a5.46 5.46 0 0 0-3.023 1.482a.485.485 0 0 0-.078.736l.667.55c.155.128.358.17.542.127a3.96 3.96 0 0 1 2.019-.878c.776 0 1.497.29 2.019.878.184.043.387.001.542-.127l.667-.55z"/><circle cx="8" cy="13" r="1"/></svg>
+                <svg viewBox="0 0 24 12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="21" y="3.5" width="2" height="5" rx="1"/><rect x="2" y="3" width="12" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="screen-content">
+              <p class="home-greeting">Good morning,</p>
+              <h2 class="home-name">Sarah ✨</h2>
+
+              <div class="quote-card">
+                <div class="quote-icon">"</div>
+                <p class="quote-text">The present moment is filled with joy and happiness. If you are attentive, you will see it.</p>
+                <p class="quote-author">— Thich Nhat Hanh</p>
+              </div>
+
+              <div class="section-header-row">
+                <h3>Today's Sessions</h3>
+                <a href="#">See all</a>
+              </div>
+
+              <div class="session-cards">
+                <div class="session-card">
+                  <div class="session-thumb" style="background: var(--lavender);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  </div>
+                  <div class="session-info">
+                    <div class="session-title">Morning Calm</div>
+                    <div class="session-meta">10 min · Guided</div>
+                  </div>
+                  <div class="session-play">
+                    <svg viewBox="0 0 24 24"><polygon points="8,5 20,12 8,19"/></svg>
+                  </div>
+                </div>
+
+                <div class="session-card">
+                  <div class="session-thumb" style="background: var(--sage-light);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                  </div>
+                  <div class="session-info">
+                    <div class="session-title">Deep Breathing</div>
+                    <div class="session-meta">5 min · Breathing</div>
+                  </div>
+                  <div class="session-play">
+                    <svg viewBox="0 0 24 24"><polygon points="8,5 20,12 8,19"/></svg>
+                  </div>
+                </div>
+
+                <div class="session-card">
+                  <div class="session-thumb" style="background: #E8D8D0;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#B08870" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </div>
+                  <div class="session-info">
+                    <div class="session-title">Stress Relief</div>
+                    <div class="session-meta">15 min · Body Scan</div>
+                  </div>
+                  <div class="session-play">
+                    <svg viewBox="0 0 24 24"><polygon points="8,5 20,12 8,19"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-bar">
+              <div class="tab-item active">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <span>Home</span>
+              </div>
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <span>Explore</span>
+              </div>
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>Library</span>
+              </div>
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Profile</span>
+              </div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPLORE SCREEN -->
+      <div class="phone-wrapper">
+        <div class="phone-label">Explore</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="status-bar" style="color: var(--charcoal);">
+              <span class="time">9:41</span>
+              <span class="icons">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-6zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-8zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-10zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-12z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.874 3 3.877 3.63 2.161 5.378a.485.485 0 0 0-.047.736l.639.522c.176.144.4.193.606.144a11.025 11.025 0 0 1 5.273-1.348c2.054 0 3.952.66 5.523 1.778.205.117.487.054.606-.144l.639-.522z"/><path d="M13.229 8.271a.485.485 0 0 0-.065-.736A8.44 8.44 0 0 0 8 5.5c-1.913 0-3.673.622-5.095 1.669a.485.485 0 0 0-.065.736l.663.547c.167.138.38.182.573.132a6.53 6.53 0 0 1 3.796-1.217 6.53 6.53 0 0 1 3.796 1.217c.193.05.406.006.573-.132l.663-.547z"/><path d="M11.101 10.218a.485.485 0 0 0-.078-.736A5.46 5.46 0 0 0 8 8a5.46 5.46 0 0 0-3.023 1.482a.485.485 0 0 0-.078.736l.667.55c.155.128.358.17.542.127a3.96 3.96 0 0 1 2.019-.878c.776 0 1.497.29 2.019.878.184.043.387.001.542-.127l.667-.55z"/><circle cx="8" cy="13" r="1"/></svg>
+                <svg viewBox="0 0 24 12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="21" y="3.5" width="2" height="5" rx="1"/><rect x="2" y="3" width="12" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="screen-content">
+              <div class="explore-header">
+                <h2>Explore</h2>
+              </div>
+
+              <div class="search-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <span>Search meditations...</span>
+              </div>
+
+              <div class="explore-tags">
+                <span class="explore-tag active">All</span>
+                <span class="explore-tag">Sleep</span>
+                <span class="explore-tag">Focus</span>
+                <span class="explore-tag">Anxiety</span>
+              </div>
+
+              <div class="category-grid">
+                <div class="category-card" style="background: linear-gradient(135deg, #E8E0F0, #D8CCE8);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#6B5B8A" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                  <div>
+                    <div class="cat-name" style="color: #4A3D6B;">Sleep</div>
+                    <div class="cat-count" style="color: #6B5B8A;">24 sessions</div>
+                  </div>
+                </div>
+
+                <div class="category-card" style="background: linear-gradient(135deg, #B8C5A0, #A0B080);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#5A6B40" stroke-width="2"><path d="M12 22c4-4 8-7.58 8-12a8 8 0 1 0-16 0c0 4.42 4 8 8 12z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <div>
+                    <div class="cat-name" style="color: #3A4B28;">Focus</div>
+                    <div class="cat-count" style="color: #5A6B40;">18 sessions</div>
+                  </div>
+                </div>
+
+                <div class="category-card" style="background: linear-gradient(135deg, #D4C8B8, #C0B0A0);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#7A6A5A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  <div>
+                    <div class="cat-name" style="color: #5A4A3A;">Anxiety</div>
+                    <div class="cat-count" style="color: #7A6A5A;">16 sessions</div>
+                  </div>
+                </div>
+
+                <div class="category-card" style="background: linear-gradient(135deg, #B8D0E8, #A0C0D8);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4A6880" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 16v-4M12 8h.01"/></svg>
+                  <div>
+                    <div class="cat-name" style="color: #2A4860;">Stress</div>
+                    <div class="cat-count" style="color: #4A6880;">21 sessions</div>
+                  </div>
+                </div>
+
+                <div class="category-card" style="background: linear-gradient(135deg, #E0C8D8, #D0B0C8);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#8A5A78" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  <div>
+                    <div class="cat-name" style="color: #6A3A58;">Self-Love</div>
+                    <div class="cat-count" style="color: #8A5A78;">12 sessions</div>
+                  </div>
+                </div>
+
+                <div class="category-card" style="background: linear-gradient(135deg, #C8D8C0, #B0C8A0);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4A6838" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <div>
+                    <div class="cat-name" style="color: #2A4818;">Community</div>
+                    <div class="cat-count" style="color: #4A6838;">8 sessions</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-bar">
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <span>Home</span>
+              </div>
+              <div class="tab-item active">
+                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+                <span>Explore</span>
+              </div>
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>Library</span>
+              </div>
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Profile</span>
+              </div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAYER SCREEN -->
+      <div class="phone-wrapper">
+        <div class="phone-label">Player</div>
+        <div class="phone">
+          <div class="phone-screen" style="background: var(--white);">
+            <div class="status-bar" style="color: var(--charcoal);">
+              <span class="time">9:41</span>
+              <span class="icons">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-6zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-8zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-10zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-12z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.874 3 3.877 3.63 2.161 5.378a.485.485 0 0 0-.047.736l.639.522c.176.144.4.193.606.144a11.025 11.025 0 0 1 5.273-1.348c2.054 0 3.952.66 5.523 1.778.205.117.487.054.606-.144l.639-.522z"/><path d="M13.229 8.271a.485.485 0 0 0-.065-.736A8.44 8.44 0 0 0 8 5.5c-1.913 0-3.673.622-5.095 1.669a.485.485 0 0 0-.065.736l.663.547c.167.138.38.182.573.132a6.53 6.53 0 0 1 3.796-1.217 6.53 6.53 0 0 1 3.796 1.217c.193.05.406.006.573-.132l.663-.547z"/><path d="M11.101 10.218a.485.485 0 0 0-.078-.736A5.46 5.46 0 0 0 8 8a5.46 5.46 0 0 0-3.023 1.482a.485.485 0 0 0-.078.736l.667.55c.155.128.358.17.542.127a3.96 3.96 0 0 1 2.019-.878c.776 0 1.497.29 2.019.878.184.043.387.001.542-.127l.667-.55z"/><circle cx="8" cy="13" r="1"/></svg>
+                <svg viewBox="0 0 24 12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="21" y="3.5" width="2" height="5" rx="1"/><rect x="2" y="3" width="12" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="screen-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+              <div class="player-artwork">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+
+              <div class="player-title">Morning Calm</div>
+              <div class="player-artist">Narrated by Emma Collins</div>
+
+              <div class="waveform" id="waveform"></div>
+
+              <div class="player-time">
+                <span>4:23</span>
+                <span>10:00</span>
+              </div>
+
+              <div class="player-controls">
+                <button>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="19,20 9,12 19,4"/><line x1="5" y1="4" x2="5" y2="20"/></svg>
+                </button>
+                <button class="play-btn-lg">
+                  <svg viewBox="0 0 24 24"><polygon points="8,5 20,12 8,19"/></svg>
+                </button>
+                <button>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5,4 15,12 5,20"/><line x1="19" y1="4" x2="19" y2="20"/></svg>
+                </button>
+              </div>
+
+              <div class="player-extra">
+                <div class="player-extra-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                  <span>Timer</span>
+                </div>
+                <div class="player-extra-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16,6 12,2 8,6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                  <span>Share</span>
+                </div>
+                <div class="player-extra-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  <span>Favorite</span>
+                </div>
+              </div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE SCREEN -->
+      <div class="phone-wrapper">
+        <div class="phone-label">Profile</div>
+        <div class="phone">
+          <div class="phone-screen" style="background: var(--white);">
+            <div class="status-bar" style="color: var(--charcoal);">
+              <span class="time">9:41</span>
+              <span class="icons">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-6zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-8zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-10zm3-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-12z"/></svg>
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.874 3 3.877 3.63 2.161 5.378a.485.485 0 0 0-.047.736l.639.522c.176.144.4.193.606.144a11.025 11.025 0 0 1 5.273-1.348c2.054 0 3.952.66 5.523 1.778.205.117.487.054.606-.144l.639-.522z"/><path d="M13.229 8.271a.485.485 0 0 0-.065-.736A8.44 8.44 0 0 0 8 5.5c-1.913 0-3.673.622-5.095 1.669a.485.485 0 0 0-.065.736l.663.547c.167.138.38.182.573.132a6.53 6.53 0 0 1 3.796-1.217 6.53 6.53 0 0 1 3.796 1.217c.193.05.406.006.573-.132l.663-.547z"/><path d="M11.101 10.218a.485.485 0 0 0-.078-.736A5.46 5.46 0 0 0 8 8a5.46 5.46 0 0 0-3.023 1.482a.485.485 0 0 0-.078.736l.667.55c.155.128.358.17.542.127a3.96 3.96 0 0 1 2.019-.878c.776 0 1.497.29 2.019.878.184.043.387.001.542-.127l.667-.55z"/><circle cx="8" cy="13" r="1"/></svg>
+                <svg viewBox="0 0 24 12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" stroke="currentColor" fill="none" stroke-width="1.5"/><rect x="21" y="3.5" width="2" height="5" rx="1"/><rect x="2" y="3" width="12" height="6" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="screen-content" style="background: var(--white);">
+              <div class="profile-header">
+                <h2>Profile</h2>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--charcoal-light)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+
+              <div class="profile-avatar-section">
+                <div class="profile-avatar">S</div>
+                <div>
+                  <div class="profile-name">Sarah Mitchell</div>
+                  <div class="profile-joined">Joined March 2024</div>
+                </div>
+              </div>
+
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-value">142</div>
+                  <div class="stat-label">Sessions</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value">38h</div>
+                  <div class="stat-label">Total Time</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value">4.8</div>
+                  <div class="stat-label">Avg Mood</div>
+                </div>
+              </div>
+
+              <div class="streak-card">
+                <div class="streak-title">Current Streak</div>
+                <div class="streak-row">
+                  <div class="streak-number">12</div>
+                  <div class="streak-label">days in a row 🔥</div>
+                </div>
+                <div class="streak-dots">
+                  <div class="streak-dot active">M</div>
+                  <div class="streak-dot active">T</div>
+                  <div class="streak-dot active">W</div>
+                  <div class="streak-dot active">T</div>
+                  <div class="streak-dot active">F</div>
+                  <div class="streak-dot today">S</div>
+                  <div class="streak-dot">S</div>
+                </div>
+              </div>
+
+              <div class="section-header-row" style="margin-top: 6px;">
+                <h3 style="font-size: 12px;">Recent Activity</h3>
+                <a href="#" style="font-size: 10px;">See all</a>
+              </div>
+
+              <div class="recent-list">
+                <div class="recent-item">
+                  <div class="recent-icon" style="background: var(--lavender-light);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  </div>
+                  <div class="recent-info">
+                    <div class="r-title">Morning Calm</div>
+                    <div class="r-meta">Today · 10 min</div>
+                  </div>
+                </div>
+                <div class="recent-item">
+                  <div class="recent-icon" style="background: var(--sage-light);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  </div>
+                  <div class="recent-info">
+                    <div class="r-title">Group Meditation</div>
+                    <div class="r-meta">Yesterday · 20 min</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-bar">
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <span>Home</span>
+              </div>
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <span>Explore</span>
+              </div>
+              <div class="tab-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>Library</span>
+              </div>
+              <div class="tab-item active">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Profile</span>
+              </div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== DESIGN SYSTEM ===== -->
+  <section class="section" id="design-system">
+    <div class="section-label">03 — Components</div>
+    <h2 class="section-title">Design System</h2>
+    <p class="section-desc">Reusable components that bring consistency, clarity, and calm to every interaction.</p>
+
+    <div class="design-system">
+      <div class="ds-grid">
+        <!-- BUTTONS -->
+        <div>
+          <div class="ds-group-title">Buttons</div>
+          <button class="btn-sample primary">Start Session</button><br>
+          <button class="btn-sample secondary">Continue</button><br>
+          <button class="btn-sample outline">Learn More</button><br>
+          <button class="btn-sample ghost">Skip</button><br>
+          <button class="btn-sample primary small">Download</button>
+          <button class="btn-sample secondary small">Share</button><br><br>
+          <button class="btn-sample primary icon-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 20,12 8,19"/></svg>
+          </button>
+          <button class="btn-sample secondary icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <button class="btn-sample outline icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+          </button>
+        </div>
+
+        <!-- CARDS -->
+        <div>
+          <div class="ds-group-title">Cards</div>
+          <div class="card-sample">
+            <div class="card-title">Morning Meditation</div>
+            <div class="card-body">Start your day with intention and calm through a guided 10-minute session.</div>
+          </div>
+          <div class="card-sample elevated">
+            <div class="card-title">Elevated Card</div>
+            <div class="card-body">Higher shadow for emphasis and layering in the interface.</div>
+          </div>
+          <div class="card-sample gradient">
+            <div class="card-title">Gradient Card</div>
+            <div class="card-body">Used for featured content and highlights.</div>
+          </div>
+        </div>
+
+        <!-- INPUTS -->
+        <div>
+          <div class="ds-group-title">Inputs &amp; Controls</div>
+          <input class="input-sample" type="text" placeholder="Enter your name...">
+          <div class="input-with-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input class="input-sample" type="text" placeholder="Search meditations...">
+          </div>
+          <div class="toggle-row">
+            <span class="toggle-label">Daily Reminder</span>
+            <div class="toggle-switch active"></div>
+          </div>
+          <div class="toggle-row">
+            <span class="toggle-label">Dark Mode</span>
+            <div class="toggle-switch"></div>
+          </div>
+          <div class="toggle-row">
+            <span class="toggle-label">Haptic Feedback</span>
+            <div class="toggle-switch active"></div>
+          </div>
+        </div>
+
+        <!-- ICONS -->
+        <div>
+          <div class="ds-group-title">Iconography</div>
+          <div class="icon-grid">
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              </div>
+              <span class="icon-label">Home</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              </div>
+              <span class="icon-label">Search</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="8,5 20,12 8,19"/></svg>
+              </div>
+              <span class="icon-label">Play</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <span class="icon-label">Favorite</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <span class="icon-label">Profile</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              </div>
+              <span class="icon-label">Sleep</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <span class="icon-label">Timer</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+              </div>
+              <span class="icon-label">Settings</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              </div>
+              <span class="icon-label">Alerts</span>
+            </div>
+            <div class="icon-item">
+              <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+              </div>
+              <span class="icon-label">Volume</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TYPOGRAPHY ===== -->
+  <section class="section" id="typography">
+    <div class="section-label">04 — Type System</div>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-desc">A thoughtful typographic scale that balances readability with personality — clean sans-serifs paired with an elegant serif for emphasis.</p>
+
+    <div class="typography-section">
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">DM Sans — Bold</div>
+          <div class="type-spec">34px / 700<br>Line-height: 1.2</div>
+        </div>
+        <div class="type-preview h1">Good morning, Sarah</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">DM Sans — SemiBold</div>
+          <div class="type-spec">24px / 600<br>Line-height: 1.3</div>
+        </div>
+        <div class="type-preview h2">Explore Meditations</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">DM Sans — SemiBold</div>
+          <div class="type-spec">18px / 600<br>Line-height: 1.4</div>
+        </div>
+        <div class="type-preview h3">Today's Sessions</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">Inter — Regular</div>
+          <div class="type-spec">15px / 400<br>Line-height: 1.6</div>
+        </div>
+        <div class="type-preview body">Find your inner peace with guided meditations designed to bring clarity and calm to your everyday life.</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">Playfair Display — Italic</div>
+          <div class="type-spec">20px / 400i<br>Line-height: 1.5</div>
+        </div>
+        <div class="type-preview quote">"The present moment is filled with joy and happiness."</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">Inter — Regular</div>
+          <div class="type-spec">13px / 400<br>Line-height: 1.5</div>
+        </div>
+        <div class="type-preview body-small">Start with just 5 minutes a day. Build your practice at your own pace, wherever you feel comfortable.</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">Inter — Medium</div>
+          <div class="type-spec">11px / 500<br>Letter-spacing: 0.3px</div>
+        </div>
+        <div class="type-preview caption">10 MIN · GUIDED · BEGINNER</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-meta">
+          <div class="type-font">Inter — SemiBold</div>
+          <div class="type-spec">14px / 600<br>Letter-spacing: 0.5px</div>
+        </div>
+        <div class="type-preview button-text">Start Session →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== USER FLOW ===== -->
+  <section class="section flow-section" id="flow">
+    <div class="section-label">05 — Journey</div>
+    <h2 class="section-title" style="margin: 0 auto 12px;">User Flow</h2>
+    <p class="section-desc" style="margin: 0 auto;">The path from first open to daily practice — designed to feel effortless at every step.</p>
+
+    <div class="flow-container">
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 01</div>
+        <div class="flow-phone">
+          <div class="flow-phone-screen" style="background: linear-gradient(135deg, var(--lavender), var(--cream));">
+            <div class="mini-screen">
+              <div style="flex:1"></div>
+              <div class="mini-circle" style="width:36px;height:36px;background:rgba(107,141,214,0.3);"></div>
+              <div class="mini-bar" style="width:60%;margin:4px auto;background:rgba(45,45,45,0.2);"></div>
+              <div class="mini-bar" style="width:40%;margin:0 auto 6px;background:rgba(45,45,45,0.12);"></div>
+              <div class="mini-block accent" style="height:14px;border-radius:7px;width:70%;margin:0 auto;"></div>
+              <div style="flex:1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step-label">Welcome</div>
+      </div>
+
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 02</div>
+        <div class="flow-phone">
+          <div class="flow-phone-screen" style="background: var(--cream);">
+            <div class="mini-screen">
+              <div class="mini-bar" style="width:50%;background:rgba(45,45,45,0.15);"></div>
+              <div class="mini-block lavender" style="height:50px;border-radius:10px;"></div>
+              <div class="mini-row">
+                <div class="mini-block sage"></div>
+                <div class="mini-block" style="background:rgba(208,176,144,0.3);"></div>
+              </div>
+              <div class="mini-row">
+                <div class="mini-block" style="background:rgba(107,141,214,0.2);"></div>
+                <div class="mini-block sage"></div>
+              </div>
+              <div class="mini-block accent" style="height:14px;border-radius:7px;width:60%;margin:4px auto;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step-label">Choose Focus</div>
+      </div>
+
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 03</div>
+        <div class="flow-phone">
+          <div class="flow-phone-screen" style="background: var(--white);">
+            <div class="mini-screen">
+              <div class="mini-circle" style="width:44px;height:44px;background:linear-gradient(135deg,var(--lavender),var(--sage-light));margin:8px auto;"></div>
+              <div class="mini-bar" style="width:50%;margin:6px auto;background:rgba(45,45,45,0.15);"></div>
+              <div class="mini-bar" style="width:30%;margin:0 auto 8px;background:rgba(45,45,45,0.1);"></div>
+              <div style="display:flex;gap:2px;justify-content:center;height:24px;align-items:center;">
+                <div style="width:2px;height:8px;background:var(--accent-light);border-radius:2px;"></div>
+                <div style="width:2px;height:14px;background:var(--accent);border-radius:2px;"></div>
+                <div style="width:2px;height:10px;background:var(--accent-light);border-radius:2px;"></div>
+                <div style="width:2px;height:18px;background:var(--accent);border-radius:2px;"></div>
+                <div style="width:2px;height:6px;background:var(--accent-light);border-radius:2px;"></div>
+                <div style="width:2px;height:12px;background:var(--accent);border-radius:2px;"></div>
+                <div style="width:2px;height:16px;background:var(--accent-light);border-radius:2px;"></div>
+                <div style="width:2px;height:8px;background:var(--accent);border-radius:2px;"></div>
+              </div>
+              <div class="mini-circle" style="width:28px;height:28px;background:var(--accent);margin:8px auto;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step-label">Meditate</div>
+      </div>
+
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 04</div>
+        <div class="flow-phone">
+          <div class="flow-phone-screen" style="background: var(--white);">
+            <div class="mini-screen">
+              <div class="mini-circle" style="width:32px;height:32px;background:var(--sage);margin:4px auto;"></div>
+              <div class="mini-bar" style="width:35%;margin:0 auto 6px;background:rgba(45,45,45,0.15);"></div>
+              <div style="display:flex;gap:6px;justify-content:center;margin-bottom:6px;">
+                <div style="width:30px;height:24px;border-radius:6px;background:rgba(107,141,214,0.2);"></div>
+                <div style="width:30px;height:24px;border-radius:6px;background:rgba(184,197,160,0.3);"></div>
+                <div style="width:30px;height:24px;border-radius:6px;background:rgba(232,224,240,0.4);"></div>
+              </div>
+              <div class="mini-block" style="height:28px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));opacity:0.6;"></div>
+              <div style="display:flex;gap:3px;margin-top:4px;">
+                <div class="mini-block" style="flex:1;height:4px;border-radius:2px;background:var(--accent);"></div>
+                <div class="mini-block" style="flex:1;height:4px;border-radius:2px;background:var(--accent);"></div>
+                <div class="mini-block" style="flex:1;height:4px;border-radius:2px;background:var(--accent);"></div>
+                <div class="mini-block" style="flex:1;height:4px;border-radius:2px;background:var(--accent);"></div>
+                <div class="mini-block" style="flex:1;height:4px;border-radius:2px;background:var(--accent-light);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step-label">Track Progress</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-brand">CALM SPACE</div>
+    <p>A concept project by portfolio design. Crafted with care and intention.</p>
+  </footer>
+
+  <!-- ===== WAVEFORM GENERATION SCRIPT ===== -->
+  <script>
+    // Generate waveform bars
+    const waveform = document.getElementById('waveform');
+    const totalBars = 48;
+    const playedPercent = 0.43;
+
+    for (let i = 0; i < totalBars; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'bar' + (i / totalBars < playedPercent ? ' played' : '');
+
+      // Generate organic-looking heights
+      const center = totalBars / 2;
+      const dist = Math.abs(i - center) / center;
+      const base = 8 + Math.sin(i * 0.3) * 8 + Math.cos(i * 0.7) * 6;
+      const height = Math.max(4, base * (1 - dist * 0.3));
+
+      bar.style.height = height + 'px';
+      waveform.appendChild(bar);
+    }
+  </script>
+
+</body>
+</html>

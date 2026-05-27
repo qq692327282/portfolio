@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURUM — Luxury Jewelry Brand Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           AURUM — Ultra-Minimal Luxury Jewelry Brand
+           ============================================ */
+
+        :root {
+            --white: #FFFFFF;
+            --champagne: #C9A96E;
+            --charcoal: #1A1A1A;
+            --warm-gray: #9A9590;
+            --blush: #F0E8E0;
+            --gold-light: #D4B882;
+            --gold-dark: #B8963E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+
+        /* Typography */
+        .display-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .body-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.03em;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           SECTION 1: Brand Header & Hero
+           ============================================ */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--champagne), transparent);
+        }
+
+        .brand-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 7rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--charcoal);
+            margin-right: -0.4em;
+            text-align: center;
+            position: relative;
+        }
+
+        .brand-logo::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--champagne);
+            margin: 2rem auto;
+        }
+
+        .tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            margin-top: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--warm-gray);
+            margin-top: 3rem;
+            letter-spacing: 0.05em;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scroll-indicator span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--champagne), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* ============================================
+           Navigation
+           ============================================ */
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(201,169,110,0.1);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--champagne);
+        }
+
+        /* ============================================
+           Section Labels
+           ============================================ */
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            max-width: 500px;
+            line-height: 1.9;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-divider {
+            width: 30px;
+            height: 1px;
+            background: var(--champagne);
+            margin: 2rem auto;
+        }
+
+        /* ============================================
+           SECTION 2: Color Palette
+           ============================================ */
+
+        .color-palette-section {
+            padding: 8rem 4rem;
+            background: var(--blush);
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .color-card {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-4px);
+        }
+
+        .color-swatch.white {
+            background: var(--white);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+        }
+
+        .color-swatch.champagne {
+            background: var(--champagne);
+        }
+
+        .color-swatch.charcoal {
+            background: var(--charcoal);
+        }
+
+        .color-swatch.warm-gray {
+            background: var(--warm-gray);
+        }
+
+        .color-swatch.blush {
+            background: var(--blush);
+            box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+        }
+
+        .color-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+
+        .color-hex {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.1em;
+        }
+
+        .color-usage {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            color: var(--warm-gray);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        /* ============================================
+           SECTION 3: Typography
+           ============================================ */
+
+        .typography-section {
+            padding: 8rem 4rem;
+            background: var(--white);
+        }
+
+        .type-showcase {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .type-row {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: baseline;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(201,169,110,0.15);
+        }
+
+        .type-row:last-child {
+            border-bottom: none;
+        }
+
+        .type-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .type-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--champagne);
+        }
+
+        .type-spec {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            color: var(--warm-gray);
+        }
+
+        .type-sample.display-xxl {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            letter-spacing: 0.1em;
+            line-height: 1;
+        }
+
+        .type-sample.display-xl {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+        }
+
+        .type-sample.display-lg {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--charcoal);
+            letter-spacing: 0.05em;
+            line-height: 1.2;
+        }
+
+        .type-sample.body-lg {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+
+        .type-sample.body-md {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+        }
+
+        .type-sample.body-sm {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--champagne);
+        }
+
+        .type-sample.body-caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            letter-spacing: 0.15em;
+        }
+
+        /* ============================================
+           SECTION 4: Product Showcase
+           ============================================ */
+
+        .products-section {
+            padding: 8rem 4rem;
+            background: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--blush);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Ring CSS Art */
+        .ring-art {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+
+        .ring-band {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--champagne);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .ring-band::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: var(--champagne);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .ring-band::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(201,169,110,0.5);
+        }
+
+        .ring-inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            border: 1px solid rgba(201,169,110,0.3);
+            border-radius: 50%;
+        }
+
+        /* Necklace CSS Art */
+        .necklace-art {
+            position: relative;
+            width: 160px;
+            height: 140px;
+        }
+
+        .necklace-chain {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            border: none;
+            border-top: 2px solid var(--champagne);
+            border-left: 2px solid var(--champagne);
+            border-right: 2px solid var(--champagne);
+            border-radius: 100px 100px 0 0;
+        }
+
+        .necklace-pendant {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 40px;
+            background: var(--champagne);
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+
+        .necklace-pendant::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 10px;
+            background: rgba(255,255,255,0.4);
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+
+        .necklace-link {
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--champagne);
+            border-radius: 50%;
+        }
+
+        /* Earrings CSS Art */
+        .earrings-art {
+            position: relative;
+            width: 140px;
+            height: 130px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .earring {
+            position: relative;
+            width: 30px;
+            height: 80px;
+        }
+
+        .earring-stud {
+            width: 8px;
+            height: 8px;
+            background: var(--champagne);
+            border-radius: 50%;
+            margin: 0 auto 5px;
+            box-shadow: 0 0 10px rgba(201,169,110,0.3);
+        }
+
+        .earring-drop {
+            width: 1px;
+            height: 30px;
+            background: var(--champagne);
+            margin: 0 auto;
+        }
+
+        .earring-gem {
+            width: 20px;
+            height: 25px;
+            background: linear-gradient(135deg, var(--champagne), var(--gold-light));
+            clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+            margin: 3px auto 0;
+            position: relative;
+        }
+
+        .earring-gem::after {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 35%;
+            width: 6px;
+            height: 6px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+        }
+
+        /* Product Details */
+        .product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-collection {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            letter-spacing: 0.1em;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: var(--champagne);
+            padding: 0.3rem 0.8rem;
+        }
+
+        /* ============================================
+           SECTION 5: Social Media Templates
+           ============================================ */
+
+        .social-section {
+            padding: 8rem 4rem;
+            background: var(--blush);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: var(--white);
+            padding: 1.5rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.04);
+        }
+
+        .social-frame {
+            width: 100%;
+            aspect-ratio: 1;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Instagram Post 1: Product */
+        .ig-product {
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border: 1px solid rgba(201,169,110,0.15);
+        }
+
+        .ig-product-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 1.5rem;
+        }
+
+        .ig-product-ring {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--champagne);
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .ig-product-ring::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--champagne);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .ig-product-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            letter-spacing: 0.1em;
+        }
+
+        .ig-product-price {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.15em;
+            margin-top: 0.3rem;
+        }
+
+        /* Instagram Post 2: Lifestyle */
+        .ig-lifestyle {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #2a2520 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .ig-lifestyle::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            bottom: 2rem;
+            border: 1px solid rgba(201,169,110,0.2);
+        }
+
+        .ig-lifestyle-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--champagne);
+            text-align: center;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ig-lifestyle-quote::before {
+            content: '"';
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--champagne);
+            opacity: 0.4;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .ig-lifestyle-brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(201,169,110,0.6);
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Instagram Post 3: Detail */
+        .ig-detail {
+            background: var(--blush);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .ig-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            width: 80%;
+            margin-bottom: 1.5rem;
+        }
+
+        .ig-detail-cell {
+            aspect-ratio: 1;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .ig-detail-cell:nth-child(1) {
+            background: rgba(201,169,110,0.1);
+        }
+
+        .ig-detail-cell:nth-child(4) {
+            background: rgba(201,169,110,0.1);
+        }
+
+        .mini-gem {
+            width: 12px;
+            height: 16px;
+            background: var(--champagne);
+            clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+        }
+
+        .mini-circle {
+            width: 14px;
+            height: 14px;
+            border: 1px solid var(--champagne);
+            border-radius: 50%;
+        }
+
+        .mini-line {
+            width: 20px;
+            height: 1px;
+            background: var(--champagne);
+        }
+
+        .mini-diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--champagne);
+            transform: rotate(45deg);
+        }
+
+        .ig-detail-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-align: center;
+        }
+
+        .social-meta {
+            padding: 0 0.5rem;
+        }
+
+        .social-handle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+
+        .social-caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        .social-type {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================
+           SECTION 6: Lookbook
+           ============================================ */
+
+        .lookbook-section {
+            padding: 8rem 4rem;
+            background: var(--white);
+        }
+
+        .lookbook-spread {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            min-height: 500px;
+        }
+
+        .lookbook-left {
+            background: var(--charcoal);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            position: relative;
+        }
+
+        .lookbook-left::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            right: 2rem;
+            bottom: 2rem;
+            border: 1px solid rgba(201,169,110,0.15);
+        }
+
+        .lookbook-left .brand-logo-small {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--champagne);
+            margin-right: -0.3em;
+        }
+
+        .lookbook-left .lookbook-season {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(201,169,110,0.6);
+            margin-top: 1rem;
+        }
+
+        .lookbook-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .lookbook-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--charcoal);
+            letter-spacing: 0.05em;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+        }
+
+        .lookbook-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--warm-gray);
+            line-height: 2;
+            margin-bottom: 2rem;
+        }
+
+        .lookbook-cta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            border-bottom: 1px solid var(--champagne);
+            padding-bottom: 0.3rem;
+            display: inline-block;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            text-decoration: none;
+        }
+
+        .lookbook-cta:hover {
+            opacity: 0.7;
+        }
+
+        /* ============================================
+           SECTION 7: Brand Elements
+           ============================================ */
+
+        .elements-section {
+            padding: 8rem 4rem;
+            background: var(--charcoal);
+        }
+
+        .elements-section .section-label {
+            color: rgba(201,169,110,0.6);
+        }
+
+        .elements-section .section-title {
+            color: var(--white);
+        }
+
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .element-card {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid rgba(201,169,110,0.15);
+            transition: border-color 0.3s ease;
+        }
+
+        .element-card:hover {
+            border-color: var(--champagne);
+        }
+
+        .element-icon {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+        }
+
+        .icon-gem {
+            width: 20px;
+            height: 26px;
+            background: var(--champagne);
+            clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+        }
+
+        .icon-circle {
+            width: 30px;
+            height: 30px;
+            border: 1.5px solid var(--champagne);
+            border-radius: 50%;
+        }
+
+        .icon-line {
+            width: 40px;
+            height: 1.5px;
+            background: var(--champagne);
+        }
+
+        .icon-diamond {
+            width: 18px;
+            height: 18px;
+            background: var(--champagne);
+            transform: rotate(45deg);
+        }
+
+        .element-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--champagne);
+            margin-bottom: 0.5rem;
+        }
+
+        .element-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           Footer
+           ============================================ */
+
+        .footer {
+            padding: 6rem 4rem;
+            background: var(--white);
+            text-align: center;
+            border-top: 1px solid rgba(201,169,110,0.1);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            margin-right: -0.3em;
+        }
+
+        .footer-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            margin-bottom: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-links a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--champagne);
+        }
+
+        .footer-copy {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            color: rgba(154,149,144,0.5);
+            letter-spacing: 0.1em;
+        }
+
+        /* ============================================
+           Responsive
+           ============================================ */
+
+        @media (max-width: 1024px) {
+            .brand-logo { font-size: 4.5rem; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+            .social-grid { grid-template-columns: repeat(2, 1fr); }
+            .palette-grid { grid-template-columns: repeat(3, 1fr); }
+            .type-row { grid-template-columns: 150px 1fr; }
+            .elements-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav { padding: 1.5rem 2rem; }
+            .nav-links { display: none; }
+            .brand-logo { font-size: 3rem; letter-spacing: 0.3em; }
+            .section-title { font-size: 2rem; }
+            .products-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .social-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .palette-grid { grid-template-columns: repeat(2, 1fr); }
+            .type-row { grid-template-columns: 1fr; gap: 1rem; }
+            .lookbook-spread { grid-template-columns: 1fr; }
+            .elements-grid { grid-template-columns: 1fr; }
+            .color-palette-section,
+            .typography-section,
+            .products-section,
+            .social-section,
+            .lookbook-section,
+            .elements-section { padding: 5rem 2rem; }
+            .type-sample.display-xxl { font-size: 3rem; }
+            .type-sample.display-xl { font-size: 2rem; }
+            .type-sample.display-lg { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#" class="nav-logo">AURUM</a>
+        <ul class="nav-links">
+            <li><a href="#palette">Palette</a></li>
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#products">Collection</a></li>
+            <li><a href="#social">Social</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================
+         SECTION 1: Brand Header & Hero
+         ============================================ -->
+
+    <section class="hero" id="hero">
+        <div class="brand-logo display-text">AURUM</div>
+        <div class="tagline">Timeless Elegance</div>
+        <div class="hero-subtitle">Crafted for those who appreciate the extraordinary</div>
+        <div class="scroll-indicator">
+            <span>Explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: Color Palette
+         ============================================ -->
+
+    <section class="color-palette-section" id="palette">
+        <div class="section-header">
+            <div class="section-label">Brand Identity</div>
+            <h2 class="section-title display-text">Color Palette</h2>
+            <div class="section-divider"></div>
+            <p class="section-description body-text">
+                A refined palette inspired by precious metals, soft light, and the quiet luxury of understated elegance.
+            </p>
+        </div>
+
+        <div class="palette-grid">
+            <div class="color-card">
+                <div class="color-swatch white"></div>
+                <div class="color-name">Pure White</div>
+                <div class="color-hex">#FFFFFF</div>
+                <div class="color-usage">Primary Background</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch champagne"></div>
+                <div class="color-name">Champagne Gold</div>
+                <div class="color-hex">#C9A96E</div>
+                <div class="color-usage">Accent & Luxury</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch charcoal"></div>
+                <div class="color-name">Charcoal</div>
+                <div class="color-hex">#1A1A1A</div>
+                <div class="color-usage">Primary Text</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch warm-gray"></div>
+                <div class="color-name">Warm Gray</div>
+                <div class="color-hex">#9A9590</div>
+                <div class="color-usage">Secondary Text</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch blush"></div>
+                <div class="color-name">Blush</div>
+                <div class="color-hex">#F0E8E0</div>
+                <div class="color-usage">Soft Backgrounds</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: Typography
+         ============================================ -->
+
+    <section class="typography-section" id="typography">
+        <div class="section-header">
+            <div class="section-label">Typography System</div>
+            <h2 class="section-title display-text">Type Hierarchy</h2>
+            <div class="section-divider"></div>
+            <p class="section-description body-text">
+                Two complementary typefaces create a balance between classical elegance and modern clarity.
+            </p>
+        </div>
+
+        <div class="type-showcase">
+            <div class="type-row">
+                <div class="type-meta">
+                    <span class="type-label">Display XXL</span>
+                    <span class="type-spec">Cormorant Garamond Light</span>
+                    <span class="type-spec">80px / 300</span>
+                </div>
+                <div class="type-sample display-xxl">AURUM</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <span class="type-label">Display XL</span>
+                    <span class="type-spec">Cormorant Garamond Light</span>
+                    <span class="type-spec">56px / 300</span>
+                </div>
+                <div class="type-sample display-xl">Timeless Elegance</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <span class="type-label">Display LG</span>
+                    <span class="type-spec">Cormorant Garamond Light Italic</span>
+                    <span class="type-spec">40px / 300 Italic</span>
+                </div>
+                <div class="type-sample display-lg">The art of adornment</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <span class="type-label">Body Large</span>
+                    <span class="type-spec">Inter Light</span>
+                    <span class="type-spec">18px / 300</span>
+                </div>
+                <div class="type-sample body-lg">Each piece in our collection is meticulously handcrafted by master artisans, combining centuries-old techniques with contemporary design sensibility.</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <span class="type-label">Body Medium</span>
+                    <span class="type-spec">Inter Light</span>
+                    <span class="type-spec">14px / 300</span>
+                </div>
+                <div class="type-sample body-md">Our commitment to excellence extends beyond the finished piece. Every gemstone is ethically sourced, every setting perfected to showcase its natural brilliance.</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <span class="type-label">Label</span>
+                    <span class="type-spec">Inter Regular</span>
+                    <span class="type-spec">11px / 400 / Caps</span>
+                </div>
+                <div class="type-sample body-sm">The Celestial Collection — Autumn/Winter</div>
+            </div>
+
+            <div class="type-row">
+                <div class="type-meta">
+                    <span class="type-label">Caption</span>
+                    <span class="type-spec">Inter Light</span>
+                    <span class="type-spec">10px / 300</span>
+                </div>
+                <div class="type-sample body-caption">18K Rose Gold · VS1 Diamond · 0.75 Carat · Handcrafted in Italy</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: Product Showcase
+         ============================================ -->
+
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <div class="section-label">The Collection</div>
+            <h2 class="section-title display-text">Signature Pieces</h2>
+            <div class="section-divider"></div>
+            <p class="section-description body-text">
+                Three iconic designs that define the essence of AURUM — where tradition meets modern refinement.
+            </p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Ring -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-tag">Signature</span>
+                    <div class="ring-art">
+                        <div class="ring-band">
+                            <div class="ring-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-collection">Celestial Collection</div>
+                <div class="product-name display-text">Étoile Ring</div>
+                <div class="product-price">18K Gold · VS1 Diamond</div>
+                <div class="product-price" style="margin-top: 0.3rem;">$12,400</div>
+            </div>
+
+            <!-- Necklace -->
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="necklace-art">
+                        <div class="necklace-chain"></div>
+                        <div class="necklace-link"></div>
+                        <div class="necklace-pendant"></div>
+                    </div>
+                </div>
+                <div class="product-collection">Heritage Line</div>
+                <div class="product-name display-text">Solstice Pendant</div>
+                <div class="product-price">18K Gold · Emerald</div>
+                <div class="product-price" style="margin-top: 0.3rem;">$8,900</div>
+            </div>
+
+            <!-- Earrings -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-tag">New</span>
+                    <div class="earrings-art">
+                        <div class="earring">
+                            <div class="earring-stud"></div>
+                            <div class="earring-drop"></div>
+                            <div class="earring-gem"></div>
+                        </div>
+                        <div class="earring">
+                            <div class="earring-stud"></div>
+                            <div class="earring-drop"></div>
+                            <div class="earring-gem"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-collection">Lumière Series</div>
+                <div class="product-name display-text">Aura Drops</div>
+                <div class="product-price">18K Gold · Sapphire</div>
+                <div class="product-price" style="margin-top: 0.3rem;">$6,200</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: Social Media Templates
+         ============================================ -->
+
+    <section class="social-section" id="social">
+        <div class="section-header">
+            <div class="section-label">Digital Presence</div>
+            <h2 class="section-title display-text">Social Templates</h2>
+            <div class="section-divider"></div>
+            <p class="section-description body-text">
+                Curated Instagram templates that maintain brand consistency across every touchpoint.
+            </p>
+        </div>
+
+        <div class="social-grid">
+            <!-- Instagram Post 1: Product -->
+            <div class="social-card">
+                <div class="social-frame ig-product">
+                    <div class="ig-product-label">New Arrival</div>
+                    <div class="ig-product-ring"></div>
+                    <div class="ig-product-name display-text">Étoile Ring</div>
+                    <div class="ig-product-price">From $12,400</div>
+                </div>
+                <div class="social-meta">
+                    <div class="social-type">Product Feature</div>
+                    <div class="social-handle">@aurum.jewellery</div>
+                    <div class="social-caption">The Étoile Ring — where starlight meets craftsmanship. Now available in our atelier. ✦</div>
+                </div>
+            </div>
+
+            <!-- Instagram Post 2: Lifestyle -->
+            <div class="social-card">
+                <div class="social-frame ig-lifestyle">
+                    <div class="ig-lifestyle-quote">
+                        Elegance is not about being noticed,<br>it's about being remembered.
+                    </div>
+                    <div class="ig-lifestyle-brand">AURUM</div>
+                </div>
+                <div class="social-meta">
+                    <div class="social-type">Lifestyle Quote</div>
+                    <div class="social-handle">@aurum.jewellery</div>
+                    <div class="social-caption">The philosophy behind every piece we create. Timeless beauty, eternal elegance. ✦</div>
+                </div>
+            </div>
+
+            <!-- Instagram Post 3: Detail -->
+            <div class="social-card">
+                <div class="social-frame ig-detail">
+                    <div class="ig-detail-grid">
+                        <div class="ig-detail-cell"><div class="mini-gem"></div></div>
+                        <div class="ig-detail-cell"><div class="mini-circle"></div></div>
+                        <div class="ig-detail-cell"><div class="mini-line"></div></div>
+                        <div class="ig-detail-cell"><div class="mini-diamond"></div></div>
+                    </div>
+                    <div class="ig-detail-text">Craftsmanship<br>in Every Detail</div>
+                </div>
+                <div class="social-meta">
+                    <div class="social-type">Detail Showcase</div>
+                    <div class="social-handle">@aurum.jewellery</div>
+                    <div class="social-caption">400 hours of meticulous handcrafting. One extraordinary piece. The art is in the details. ✦</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: Lookbook
+         ============================================ -->
+
+    <section class="lookbook-section" id="lookbook">
+        <div class="section-header">
+            <div class="section-label">Campaign</div>
+            <h2 class="section-title display-text">Lookbook Spread</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="lookbook-spread">
+            <div class="lookbook-left">
+                <div class="brand-logo-small display-text">AURUM</div>
+                <div class="lookbook-season">Autumn · Winter 2025</div>
+            </div>
+            <div class="lookbook-right">
+                <div class="section-label">The Celestial Collection</div>
+                <h3 class="lookbook-title display-text">Where Starlight<br>Meets Craft</h3>
+                <p class="lookbook-text body-text">
+                    Inspired by the eternal dance of celestial bodies, this collection captures the luminous beauty of the cosmos in precious metal and stone. Each piece is a constellation of artistry — handcrafted by master jewelers in our Florentine atelier using techniques passed down through generations.
+                </p>
+                <a href="#" class="lookbook-cta">View Full Collection →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: Brand Elements
+         ============================================ -->
+
+    <section class="elements-section" id="elements">
+        <div class="section-header">
+            <div class="section-label">Design System</div>
+            <h2 class="section-title display-text">Brand Elements</h2>
+            <div class="section-divider"></div>
+            <p class="section-description body-text" style="color: rgba(255,255,255,0.4);">
+                Core visual elements that form the foundation of the AURUM identity system.
+            </p>
+        </div>
+
+        <div class="elements-grid">
+            <div class="element-card">
+                <div class="element-icon">
+                    <div class="icon-gem"></div>
+                </div>
+                <div class="element-name">Gemstone</div>
+                <div class="element-desc">Primary mark for product-focused applications</div>
+            </div>
+            <div class="element-card">
+                <div class="element-icon">
+                    <div class="icon-circle"></div>
+                </div>
+                <div class="element-name">Monogram</div>
+                <div class="element-desc">Circular emblem for embossing and stamps</div>
+            </div>
+            <div class="element-card">
+                <div class="element-icon">
+                    <div class="icon-line"></div>
+                </div>
+                <div class="element-name">Divider</div>
+                <div class="element-desc">Elegant separator for layouts and compositions</div>
+            </div>
+            <div class="element-card">
+                <div class="element-icon">
+                    <div class="icon-diamond"></div>
+                </div>
+                <div class="element-name">Accent</div>
+                <div class="element-desc">Geometric detail for pattern and texture</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         Footer
+         ============================================ -->
+
+    <footer class="footer">
+        <div class="footer-logo display-text">AURUM</div>
+        <div class="footer-tagline">Timeless Elegance</div>
+        <div class="footer-links">
+            <a href="#">Collection</a>
+            <a href="#">Atelier</a>
+            <a href="#">Heritage</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-copy">© 2025 AURUM. Concept project by portfolio design.</div>
+    </footer>
+
+</body>
+</html>

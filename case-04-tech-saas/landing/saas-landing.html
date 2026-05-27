@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLOW — SaaS Landing Page Design Concept</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0A0A0F; color: #E8E8ED; font-family: 'Inter', sans-serif; }
+
+/* === CASE HEADER === */
+.case-header { background: #0A0A0F; padding: 100px 40px; text-align: center; position: relative; overflow: hidden; }
+.case-header::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(99,102,241,0.15) 0%, transparent 70%); }
+.case-header .tag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #6366F1; position: relative; }
+.case-header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 72px; font-weight: 700; letter-spacing: -2px; margin-top: 20px; position: relative; background: linear-gradient(135deg, #E8E8ED 0%, #A5A5B0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.case-header .sub { font-size: 14px; color: #6B6B78; margin-top: 16px; letter-spacing: 1px; position: relative; }
+.case-meta { display: flex; justify-content: center; gap: 60px; margin-top: 50px; position: relative; }
+.case-meta .item { text-align: center; }
+.case-meta .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #4A4A58; }
+.case-meta .value { font-size: 14px; margin-top: 6px; color: #8B8B98; }
+
+/* === NAVBAR === */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 2px; color: #fff; }
+.nav-logo span { color: #6366F1; }
+.nav-links { display: flex; gap: 32px; font-size: 13px; color: #6B6B78; }
+.nav-links span:hover { color: #E8E8ED; cursor: pointer; }
+.nav-cta { padding: 10px 24px; background: #6366F1; color: #fff; font-size: 13px; font-weight: 500; border-radius: 6px; cursor: pointer; }
+
+/* === HERO === */
+.hero { padding: 100px 40px 80px; text-align: center; position: relative; max-width: 1000px; margin: 0 auto; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; font-size: 12px; color: #6366F1; margin-bottom: 30px; }
+.hero-badge .dot { width: 6px; height: 6px; background: #6366F1; border-radius: 50%; }
+.hero h2 { font-family: 'Space Grotesk', sans-serif; font-size: 64px; font-weight: 700; line-height: 1.1; letter-spacing: -2px; }
+.hero h2 .gradient { background: linear-gradient(135deg, #6366F1 0%, #A855F7 50%, #EC4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { font-size: 18px; color: #6B6B78; line-height: 1.7; margin-top: 24px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.hero-buttons { display: flex; justify-content: center; gap: 16px; margin-top: 40px; }
+.btn-primary { padding: 16px 40px; background: #6366F1; color: #fff; font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; border: none; }
+.btn-secondary { padding: 16px 40px; background: transparent; color: #E8E8ED; font-size: 15px; font-weight: 500; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.12); }
+
+/* === DASHBOARD MOCKUP === */
+.dashboard { max-width: 1000px; margin: 0 auto; padding: 0 40px 80px; }
+.dash-frame { background: #12121A; border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.4); }
+.dash-bar { padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.dash-dot { width: 10px; height: 10px; border-radius: 50%; }
+.dash-dot.r { background: #FF5F57; }
+.dash-dot.y { background: #FFBD2E; }
+.dash-dot.g { background: #28CA41; }
+.dash-body { display: grid; grid-template-columns: 200px 1fr; min-height: 400px; }
+.dash-sidebar { background: #0E0E14; padding: 20px; border-right: 1px solid rgba(255,255,255,0.04); }
+.dash-sidebar .side-item { padding: 10px 12px; font-size: 13px; color: #6B6B78; border-radius: 6px; margin-bottom: 4px; cursor: pointer; }
+.dash-sidebar .side-item.active { background: rgba(99,102,241,0.1); color: #6366F1; }
+.dash-sidebar .side-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #4A4A58; margin-bottom: 12px; margin-top: 20px; }
+.dash-main { padding: 24px; }
+.dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.dash-header h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; }
+.dash-header .search { padding: 8px 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; font-size: 12px; color: #6B6B78; width: 200px; }
+
+/* Stats Cards */
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; padding: 20px; }
+.stat-card .stat-label { font-size: 11px; color: #6B6B78; letter-spacing: 1px; text-transform: uppercase; }
+.stat-card .stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-top: 8px; }
+.stat-card .stat-change { font-size: 12px; margin-top: 4px; }
+.stat-card .stat-change.up { color: #22C55E; }
+.stat-card .stat-change.down { color: #EF4444; }
+
+/* Chart Area */
+.chart-area { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 8px; padding: 20px; height: 180px; position: relative; }
+.chart-area .chart-label { font-size: 12px; color: #6B6B78; margin-bottom: 16px; }
+.chart-line { position: absolute; bottom: 20px; left: 20px; right: 20px; height: 120px; }
+.chart-line svg { width: 100%; height: 100%; }
+
+/* === FEATURES === */
+.features { max-width: 1000px; margin: 0 auto; padding: 80px 40px; }
+.features-header { text-align: center; margin-bottom: 60px; }
+.features-header .label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #6366F1; }
+.features-header h3 { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; margin-top: 16px; letter-spacing: -1px; }
+.features-header p { font-size: 16px; color: #6B6B78; margin-top: 12px; }
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 32px; transition: border-color 0.3s; }
+.feature-card:hover { border-color: rgba(99,102,241,0.3); }
+.feature-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
+.feature-icon.purple { background: rgba(99,102,241,0.1); color: #6366F1; }
+.feature-icon.pink { background: rgba(236,72,153,0.1); color: #EC4899; }
+.feature-icon.green { background: rgba(34,197,94,0.1); color: #22C55E; }
+.feature-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+.feature-card p { font-size: 14px; color: #6B6B78; line-height: 1.6; }
+
+/* === PRICING === */
+.pricing { max-width: 1000px; margin: 0 auto; padding: 80px 40px; }
+.pricing-header { text-align: center; margin-bottom: 60px; }
+.pricing-header .label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #6366F1; }
+.pricing-header h3 { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; margin-top: 16px; letter-spacing: -1px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.price-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 36px; text-align: center; }
+.price-card.featured { border-color: #6366F1; background: rgba(99,102,241,0.05); position: relative; }
+.price-card.featured::before { content: 'Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #6366F1; color: #fff; font-size: 11px; padding: 4px 16px; border-radius: 10px; }
+.price-card .plan-name { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B6B78; }
+.price-card .price { font-family: 'Space Grotesk', sans-serif; font-size: 48px; font-weight: 700; margin-top: 12px; }
+.price-card .price span { font-size: 16px; font-weight: 400; color: #6B6B78; }
+.price-card .desc { font-size: 14px; color: #6B6B78; margin-top: 8px; }
+.price-card ul { list-style: none; margin-top: 24px; text-align: left; }
+.price-card li { font-size: 14px; color: #8B8B98; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.price-card li::before { content: '✓ '; color: #22C55E; }
+.price-card .price-btn { display: block; margin-top: 24px; padding: 14px; background: transparent; border: 1px solid rgba(255,255,255,0.12); color: #E8E8ED; font-size: 14px; font-weight: 500; border-radius: 8px; cursor: pointer; width: 100%; }
+.price-card.featured .price-btn { background: #6366F1; border-color: #6366F1; }
+
+/* === CTA === */
+.cta-section { max-width: 1000px; margin: 0 auto; padding: 80px 40px; text-align: center; }
+.cta-box { background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(168,85,247,0.1) 100%); border: 1px solid rgba(99,102,241,0.2); border-radius: 16px; padding: 60px; }
+.cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -1px; }
+.cta-box p { font-size: 16px; color: #6B6B78; margin-top: 12px; }
+.cta-box .btn-primary { margin-top: 30px; }
+
+/* === FOOTER === */
+.footer { border-top: 1px solid rgba(255,255,255,0.04); padding: 40px; display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; }
+.footer .logo { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #fff; }
+.footer .logo span { color: #6366F1; }
+.footer .links { display: flex; gap: 24px; font-size: 13px; color: #6B6B78; }
+
+.case-footer { text-align: center; padding: 60px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #4A4A58; }
+</style>
+</head>
+<body>
+
+<!-- CASE HEADER -->
+<div class="case-header">
+  <div class="tag">SaaS Landing Page Design Concept</div>
+  <h1>FLOW</h1>
+  <div class="sub">AI-Powered Workflow Automation Platform</div>
+  <div class="case-meta">
+    <div class="item"><div class="label">Industry</div><div class="value">SaaS / AI</div></div>
+    <div class="item"><div class="label">Scope</div><div class="value">Landing Page + Dashboard</div></div>
+    <div class="item"><div class="label">Style</div><div class="value">Dark Mode</div></div>
+    <div class="item"><div class="label">Year</div><div class="value">2026</div></div>
+  </div>
+</div>
+
+<!-- LANDING PAGE -->
+<div style="max-width:1100px; margin:40px auto; padding:0 20px;">
+  <div style="background:#12121A; border:1px solid rgba(255,255,255,0.06); border-radius:12px; overflow:hidden; box-shadow:0 40px 80px rgba(0,0,0,0.4);">
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="nav-logo">FLOW<span>.</span></div>
+      <div class="nav-links">
+        <span>Features</span>
+        <span>Pricing</span>
+        <span>Docs</span>
+        <span>Blog</span>
+      </div>
+      <div class="nav-cta">Get Started</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-badge"><div class="dot"></div> Now with GPT-4o integration</div>
+      <h2>Automate your<br><span class="gradient">entire workflow</span></h2>
+      <p>FLOW connects your tools, automates repetitive tasks, and uses AI to make decisions — so you can focus on what actually matters.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Start Free Trial →</button>
+        <button class="btn-secondary">Watch Demo</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Mockup -->
+    <div class="dashboard">
+      <div class="dash-frame">
+        <div class="dash-bar">
+          <div class="dash-dot r"></div>
+          <div class="dash-dot y"></div>
+          <div class="dash-dot g"></div>
+        </div>
+        <div class="dash-body">
+          <div class="dash-sidebar">
+            <div class="side-label">Main</div>
+            <div class="side-item active">Dashboard</div>
+            <div class="side-item">Workflows</div>
+            <div class="side-item">Automations</div>
+            <div class="side-item">Analytics</div>
+            <div class="side-label">Settings</div>
+            <div class="side-item">Integrations</div>
+            <div class="side-item">Team</div>
+            <div class="side-item">Billing</div>
+          </div>
+          <div class="dash-main">
+            <div class="dash-header">
+              <h3>Dashboard</h3>
+              <div class="search">Search...</div>
+            </div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="stat-label">Workflows</div>
+                <div class="stat-value">128</div>
+                <div class="stat-change up">↑ 12% this week</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Tasks Saved</div>
+                <div class="stat-value">2.4k</div>
+                <div class="stat-change up">↑ 28% this month</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Time Saved</div>
+                <div class="stat-value">186h</div>
+                <div class="stat-change up">↑ 34% this month</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Success Rate</div>
+                <div class="stat-value">99.2%</div>
+                <div class="stat-change down">↓ 0.1% this week</div>
+              </div>
+            </div>
+            <div class="chart-area">
+              <div class="chart-label">Automation Activity — Last 30 Days</div>
+              <div class="chart-line">
+                <svg viewBox="0 0 800 120" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.3"/>
+                      <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,100 C50,90 100,80 150,70 C200,60 250,65 300,50 C350,35 400,40 450,30 C500,20 550,25 600,15 C650,10 700,20 750,8 L800,5 L800,120 L0,120 Z" fill="url(#grad)"/>
+                  <path d="M0,100 C50,90 100,80 150,70 C200,60 250,65 300,50 C350,35 400,40 450,30 C500,20 550,25 600,15 C650,10 700,20 750,8 L800,5" fill="none" stroke="#6366F1" stroke-width="2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features">
+      <div class="features-header">
+        <div class="label">Features</div>
+        <h3>Everything you need to<br>automate at scale</h3>
+        <p>Powerful tools that work together seamlessly</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon purple">⚡</div>
+          <h4>AI-Powered Routing</h4>
+          <p>Smart decision trees that adapt to your data in real-time. No more manual branching.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon pink">🔗</div>
+          <h4>200+ Integrations</h4>
+          <p>Connect Slack, Notion, GitHub, Stripe, and more. One-click setup for popular tools.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon green">📊</div>
+          <h4>Real-time Analytics</h4>
+          <p>Track every automation with detailed metrics. Know exactly what's saving you time.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="pricing">
+      <div class="pricing-header">
+        <div class="label">Pricing</div>
+        <h3>Simple, transparent pricing</h3>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="plan-name">Starter</div>
+          <div class="price">$0<span>/mo</span></div>
+          <div class="desc">For individuals getting started</div>
+          <ul>
+            <li>5 workflows</li>
+            <li>100 tasks/month</li>
+            <li>Basic integrations</li>
+            <li>Email support</li>
+          </ul>
+          <button class="price-btn">Get Started</button>
+        </div>
+        <div class="price-card featured">
+          <div class="plan-name">Pro</div>
+          <div class="price">$29<span>/mo</span></div>
+          <div class="desc">For growing teams</div>
+          <ul>
+            <li>Unlimited workflows</li>
+            <li>10,000 tasks/month</li>
+            <li>All integrations</li>
+            <li>AI-powered routing</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="price-btn">Start Free Trial</button>
+        </div>
+        <div class="price-card">
+          <div class="plan-name">Enterprise</div>
+          <div class="price">$99<span>/mo</span></div>
+          <div class="desc">For large organizations</div>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Unlimited tasks</li>
+            <li>Custom integrations</li>
+            <li>SSO & SAML</li>
+            <li>Dedicated support</li>
+          </ul>
+          <button class="price-btn">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="cta-box">
+        <h3>Ready to automate?</h3>
+        <p>Start your 14-day free trial. No credit card required.</p>
+        <button class="btn-primary">Get Started Free →</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="logo">FLOW<span>.</span></div>
+      <div class="links">
+        <span>Privacy</span>
+        <span>Terms</span>
+        <span>Status</span>
+        <span>© 2026 FLOW</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="case-footer">
+  FLOW — SaaS Landing Page Design Concept — Concept Project by Ezreal
+</div>
+
+</body>
+</html>

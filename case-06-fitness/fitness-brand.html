@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VLTG — Voltage Fitness Brand Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════════════
+     VLTG — VOLTAGE FITNESS BRAND SYSTEM
+     ═══════════════════════════════════════════════ */
+  :root {
+    --black: #0D0D0D;
+    --black-light: #1A1A1A;
+    --black-mid: #141414;
+    --blue: #00D4FF;
+    --blue-dim: rgba(0, 212, 255, 0.15);
+    --blue-glow: rgba(0, 212, 255, 0.4);
+    --green: #39FF14;
+    --green-dim: rgba(57, 255, 20, 0.15);
+    --green-glow: rgba(57, 255, 20, 0.4);
+    --white: #FFFFFF;
+    --gray: #888888;
+    --gray-light: #CCCCCC;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── Section Labels ── */
+  .section-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+    display: inline-block;
+    border: 1px solid var(--blue-dim);
+    padding: 6px 16px;
+    background: var(--blue-dim);
+  }
+
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue-dim), var(--blue), var(--blue-dim), transparent);
+    margin: 0;
+  }
+
+  /* ═══════════════════════════════════════════════
+     HERO / HEADER SECTION
+     ═══════════════════════════════════════════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--blue-dim) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--green-dim) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulse-glow 5s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+  }
+
+  /* Grid lines background */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .logo-bolt {
+    width: 80px;
+    height: 120px;
+    position: relative;
+    margin-right: -8px;
+  }
+
+  .logo-bolt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-30%);
+    width: 0;
+    height: 0;
+    border-left: 28px solid transparent;
+    border-right: 28px solid transparent;
+    border-bottom: 55px solid var(--blue);
+    filter: drop-shadow(0 0 20px var(--blue-glow));
+  }
+
+  .logo-bolt::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-70%);
+    width: 0;
+    height: 0;
+    border-left: 28px solid transparent;
+    border-right: 28px solid transparent;
+    border-top: 55px solid var(--blue);
+    filter: drop-shadow(0 0 20px var(--blue-glow));
+  }
+
+  .logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 120px;
+    font-weight: 900;
+    letter-spacing: 20px;
+    color: var(--white);
+    text-shadow: 0 0 40px var(--blue-glow), 0 0 80px rgba(0, 212, 255, 0.2);
+    line-height: 1;
+  }
+
+  .tagline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 18px;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    margin-bottom: 50px;
+  }
+
+  .tagline span {
+    color: var(--green);
+    text-shadow: 0 0 20px var(--green-glow);
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 48px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--blue);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  }
+
+  .hero-cta:hover {
+    background: var(--green);
+    box-shadow: 0 0 30px var(--green-glow);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  .scroll-indicator span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--gray);
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--blue), transparent);
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { opacity: 0.3; height: 30px; }
+    50% { opacity: 1; height: 50px; }
+  }
+
+  /* ═══════════════════════════════════════════════
+     COLOR PALETTE SECTION
+     ═══════════════════════════════════════════════ */
+  .palette-section {
+    padding: 120px 80px;
+    background: var(--black-light);
+  }
+
+  .palette-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .palette-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 20px;
+  }
+
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .color-card {
+    background: var(--black-mid);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .color-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .color-swatch {
+    height: 200px;
+    position: relative;
+  }
+
+  .color-swatch.black-swatch {
+    background: var(--black);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .color-swatch.blue-swatch {
+    background: var(--blue);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+  }
+
+  .color-swatch.green-swatch {
+    background: var(--green);
+    box-shadow: 0 10px 40px rgba(57, 255, 20, 0.3);
+  }
+
+  .color-swatch.white-swatch {
+    background: var(--white);
+  }
+
+  .color-info {
+    padding: 24px;
+  }
+
+  .color-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .color-hex {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 2px;
+  }
+
+  .color-usage {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* Gradient bar */
+  .gradient-bar {
+    grid-column: 1 / -1;
+    height: 60px;
+    background: linear-gradient(90deg, var(--black) 0%, var(--blue) 35%, var(--green) 65%, var(--white) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--black);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* ═══════════════════════════════════════════════
+     PRODUCT SHOWCASE
+     ═══════════════════════════════════════════════ */
+  .products-section {
+    padding: 120px 80px;
+    background: var(--black);
+    position: relative;
+  }
+
+  .products-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--green-dim) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .products-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .products-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 20px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .product-card {
+    background: var(--black-light);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card:hover::before {
+    opacity: 1;
+  }
+
+  .product-card:hover {
+    border-color: rgba(0, 212, 255, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  /* CSS Shape: T-Shirt */
+  .product-shape-tshirt {
+    width: 180px;
+    height: 200px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+
+  .tshirt-body {
+    width: 140px;
+    height: 150px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 8px 8px;
+    border: 2px solid var(--blue);
+    border-top: none;
+  }
+
+  .tshirt-body::before {
+    content: 'VLTG';
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--blue);
+    text-shadow: 0 0 10px var(--blue-glow);
+    letter-spacing: 4px;
+  }
+
+  .tshirt-sleeve-left {
+    width: 40px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    position: absolute;
+    top: 30px;
+    left: 0;
+    transform: rotate(-20deg);
+    border: 2px solid var(--blue);
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+  }
+
+  .tshirt-sleeve-right {
+    width: 40px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    position: absolute;
+    top: 30px;
+    right: 0;
+    transform: rotate(20deg);
+    border: 2px solid var(--blue);
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+  }
+
+  .tshirt-collar {
+    width: 50px;
+    height: 20px;
+    background: var(--black-light);
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 25px 25px;
+    border: 2px solid var(--blue);
+    border-top: none;
+  }
+
+  /* CSS Shape: Leggings */
+  .product-shape-leggings {
+    width: 140px;
+    height: 220px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+
+  .leggings-waist {
+    width: 120px;
+    height: 30px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid var(--green);
+    border-radius: 6px 6px 0 0;
+  }
+
+  .leggings-waist::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 4px;
+    background: var(--green);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--green-glow);
+  }
+
+  .leggings-left {
+    width: 50px;
+    height: 160px;
+    background: linear-gradient(180deg, #1a1a1a, #222222, #1a1a1a);
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    border: 2px solid var(--green);
+    border-top: none;
+    border-radius: 0 0 8px 12px;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  }
+
+  .leggings-left::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--green), transparent);
+    opacity: 0.3;
+  }
+
+  .leggings-right {
+    width: 50px;
+    height: 160px;
+    background: linear-gradient(180deg, #1a1a1a, #222222, #1a1a1a);
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    border: 2px solid var(--green);
+    border-top: none;
+    border-radius: 0 0 12px 8px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+  }
+
+  .leggings-right::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(-90deg, var(--green), transparent);
+    opacity: 0.3;
+  }
+
+  .leggings-crotch {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* CSS Shape: Tank Top */
+  .product-shape-tank {
+    width: 160px;
+    height: 210px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+
+  .tank-body {
+    width: 120px;
+    height: 160px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 6px 6px;
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    border-top: none;
+  }
+
+  .tank-body::before {
+    content: '⚡';
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    filter: drop-shadow(0 0 10px var(--blue));
+  }
+
+  .tank-strap-left {
+    width: 20px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    position: absolute;
+    top: 30px;
+    left: 35px;
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .tank-strap-right {
+    width: 20px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .tank-neckline {
+    width: 70px;
+    height: 20px;
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 2px solid rgba(0, 212, 255, 0.5);
+    border-radius: 0 0 35px 35px;
+  }
+
+  .product-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+
+  .product-type {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .product-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .product-price.blue { color: var(--blue); text-shadow: 0 0 10px var(--blue-glow); }
+  .product-price.green { color: var(--green); text-shadow: 0 0 10px var(--green-glow); }
+
+  .product-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: 1px solid;
+    margin: 3px;
+  }
+
+  .product-tag.blue-tag {
+    color: var(--blue);
+    border-color: var(--blue-dim);
+    background: var(--blue-dim);
+  }
+
+  .product-tag.green-tag {
+    color: var(--green);
+    border-color: var(--green-dim);
+    background: var(--green-dim);
+  }
+
+  /* ═══════════════════════════════════════════════
+     SOCIAL MEDIA TEMPLATES
+     ═══════════════════════════════════════════════ */
+  .social-section {
+    padding: 120px 80px;
+    background: var(--black-light);
+    position: relative;
+  }
+
+  .social-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .social-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 20px;
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ig-post {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    transition: transform 0.3s ease;
+  }
+
+  .ig-post:hover {
+    transform: scale(1.02);
+  }
+
+  /* Post 1: Motivational */
+  .ig-post-1 {
+    background: linear-gradient(135deg, var(--black) 0%, #0a1628 50%, var(--black) 100%);
+  }
+
+  .ig-post-1::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: ring-pulse 3s ease-in-out infinite;
+  }
+
+  .ig-post-1::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: 180px;
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: ring-pulse 3s ease-in-out infinite 0.5s;
+  }
+
+  @keyframes ring-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.4; }
+  }
+
+  .ig-post-1 .ig-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ig-post-1 .ig-headline .highlight-blue {
+    color: var(--blue);
+    text-shadow: 0 0 20px var(--blue-glow);
+  }
+
+  .ig-post-1 .ig-sub {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--gray);
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ig-brand-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: var(--white);
+    z-index: 2;
+  }
+
+  /* Post 2: Product Launch */
+  .ig-post-2 {
+    background: linear-gradient(160deg, #0a1a0a 0%, var(--black) 40%, #0a1a0a 100%);
+  }
+
+  .ig-post-2 .ig-product-visual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 140px;
+    height: 180px;
+    border: 2px solid var(--green);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(57, 255, 20, 0.03);
+  }
+
+  .ig-post-2 .ig-product-visual::before {
+    content: '⚡';
+    font-size: 48px;
+    filter: drop-shadow(0 0 15px var(--green));
+  }
+
+  .ig-post-2 .ig-product-visual::after {
+    content: '';
+    position: absolute;
+    inset: -15px;
+    border: 1px solid rgba(57, 255, 20, 0.15);
+    border-radius: 12px;
+  }
+
+  .ig-post-2 .ig-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ig-post-2 .ig-headline .highlight-green {
+    color: var(--green);
+    text-shadow: 0 0 20px var(--green-glow);
+  }
+
+  .ig-post-2 .ig-cta {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 8px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--black);
+    background: var(--green);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Post 3: Community / Lifestyle */
+  .ig-post-3 {
+    background: linear-gradient(180deg, var(--black) 0%, #0d0d1a 100%);
+  }
+
+  .ig-post-3 .ig-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.5;
+  }
+
+  .ig-post-3 .ig-headline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ig-post-3 .ig-stat {
+    display: flex;
+    gap: 30px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ig-post-3 .stat-item {
+    text-align: left;
+  }
+
+  .ig-post-3 .stat-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--blue);
+    text-shadow: 0 0 10px var(--blue-glow);
+  }
+
+  .ig-post-3 .stat-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+  }
+
+  .ig-post-3 .ig-hashtags {
+    font-size: 11px;
+    color: var(--blue);
+    margin-top: 14px;
+    position: relative;
+    z-index: 1;
+    opacity: 0.7;
+  }
+
+  /* ── Instagram UI chrome ── */
+  .ig-ui {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+    opacity: 0.4;
+  }
+
+  .ig-ui-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--white);
+    border-radius: 50%;
+  }
+
+  /* ═══════════════════════════════════════════════
+     TYPOGRAPHY SECTION
+     ═══════════════════════════════════════════════ */
+  .type-section {
+    padding: 120px 80px;
+    background: var(--black);
+    position: relative;
+  }
+
+  .type-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .type-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 20px;
+  }
+
+  .type-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .type-block {
+    background: var(--black-light);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 50px;
+  }
+
+  .type-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .type-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--blue-dim);
+  }
+
+  .type-sample-orbitron {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--white), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .type-sample-oswald {
+    font-family: 'Oswald', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .type-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .type-meta-item {
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .type-meta-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .type-meta-value {
+    font-size: 14px;
+    color: var(--white);
+  }
+
+  .type-weights {
+    margin-top: 30px;
+  }
+
+  .type-weight-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .type-weight-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    min-width: 80px;
+  }
+
+  .type-weight-sample {
+    font-size: 24px;
+  }
+
+  .type-weight-sample.orbitron { font-family: 'Orbitron', sans-serif; }
+  .type-weight-sample.oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+  .type-weight-sample.inter { font-family: 'Inter', sans-serif; }
+
+  /* Additional type: Inter */
+  .type-block-full {
+    grid-column: 1 / -1;
+    background: var(--black-light);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 50px;
+  }
+
+  .type-sample-inter {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--gray-light);
+    max-width: 700px;
+  }
+
+  .type-hierarchy-demo {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .hierarchy-item {
+    padding: 20px;
+    border-left: 2px solid;
+    padding-left: 20px;
+  }
+
+  .hierarchy-item.h1-demo { border-color: var(--blue); }
+  .hierarchy-item.h2-demo { border-color: var(--green); }
+  .hierarchy-item.h3-demo { border-color: var(--gray); }
+  .hierarchy-item.body-demo { border-color: rgba(255, 255, 255, 0.1); }
+
+  .hierarchy-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .hierarchy-h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 4px;
+  }
+
+  .hierarchy-h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .hierarchy-h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .hierarchy-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-light);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ */
+  .footer {
+    padding: 60px 80px;
+    background: var(--black-mid);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    color: var(--white);
+  }
+
+  .footer-note {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+  }
+
+  .footer-line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--green));
+  }
+
+  /* ═══════════════════════════════════════════════
+     RESPONSIVE (basic)
+     ═══════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .palette-grid { grid-template-columns: repeat(2, 1fr); }
+    .products-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .social-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .type-container { grid-template-columns: 1fr; }
+    .palette-section, .products-section, .social-section, .type-section { padding: 80px 30px; }
+    .logo-text { font-size: 72px; }
+    .footer { flex-direction: column; gap: 16px; text-align: center; padding: 40px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HERO SECTION
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="logo-mark">
+      <div class="logo-bolt"></div>
+      <div class="logo-text">VLTG</div>
+    </div>
+    <div class="tagline">Move. <span>Beyond.</span></div>
+    <a href="#" class="hero-cta">Explore Collection</a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     COLOR PALETTE
+     ═══════════════════════════════════════════ -->
+<section class="palette-section">
+  <div class="palette-header">
+    <span class="section-label">Brand System</span>
+    <h2>Color Palette</h2>
+  </div>
+  <div class="palette-grid">
+    <div class="color-card">
+      <div class="color-swatch black-swatch"></div>
+      <div class="color-info">
+        <div class="color-name">Deep Black</div>
+        <div class="color-hex">#0D0D0D</div>
+        <div class="color-usage">Primary background. Foundation of the dark, immersive brand world.</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch blue-swatch"></div>
+      <div class="color-info">
+        <div class="color-name">Electric Blue</div>
+        <div class="color-hex">#00D4FF</div>
+        <div class="color-usage">Primary accent. CTAs, highlights, energy-driven moments.</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch green-swatch"></div>
+      <div class="color-info">
+        <div class="color-name">Neon Green</div>
+        <div class="color-hex">#39FF14</div>
+        <div class="color-usage">Secondary accent. Alerts, performance metrics, vitality.</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch white-swatch"></div>
+      <div class="color-info">
+        <div class="color-name">Pure White</div>
+        <div class="color-hex">#FFFFFF</div>
+        <div class="color-usage">Typography &amp; clean space. Balance against the dark canvas.</div>
+      </div>
+    </div>
+    <div class="gradient-bar">Brand Gradient — Power · Energy · Precision</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     PRODUCT SHOWCASE
+     ═══════════════════════════════════════════ -->
+<section class="products-section">
+  <div class="products-header">
+    <span class="section-label">Product Line</span>
+    <h2>Performance Collection</h2>
+  </div>
+  <div class="products-grid">
+
+    <!-- Product 1: T-Shirt -->
+    <div class="product-card">
+      <div class="product-shape-tshirt">
+        <div class="tshirt-collar"></div>
+        <div class="tshirt-sleeve-left"></div>
+        <div class="tshirt-sleeve-right"></div>
+        <div class="tshirt-body"></div>
+      </div>
+      <div class="product-name">Surge Tee</div>
+      <div class="product-type">Performance T-Shirt</div>
+      <div class="product-desc">Moisture-wicking compression fabric with 4-way stretch. Built for high-intensity training.</div>
+      <div class="product-price blue">$68</div>
+      <span class="product-tag blue-tag">Quick-Dry</span>
+      <span class="product-tag blue-tag">Compression</span>
+    </div>
+
+    <!-- Product 2: Leggings -->
+    <div class="product-card">
+      <div class="product-shape-leggings">
+        <div class="leggings-waist"></div>
+        <div class="leggings-left"></div>
+        <div class="leggings-right"></div>
+      </div>
+      <div class="product-name">Volt Tight</div>
+      <div class="product-type">Performance Leggings</div>
+      <div class="product-desc">High-waist design with seamless construction. Reflective accents for low-light visibility.</div>
+      <div class="product-price green">$85</div>
+      <span class="product-tag green-tag">Seamless</span>
+      <span class="product-tag green-tag">Reflective</span>
+    </div>
+
+    <!-- Product 3: Tank Top -->
+    <div class="product-card">
+      <div class="product-shape-tank">
+        <div class="tank-strap-left"></div>
+        <div class="tank-strap-right"></div>
+        <div class="tank-neckline"></div>
+        <div class="tank-body"></div>
+      </div>
+      <div class="product-name">Arc Tank</div>
+      <div class="product-type">Training Tank</div>
+      <div class="product-desc">Ultra-light mesh ventilation with laser-cut perforations. Maximum airflow for peak performance.</div>
+      <div class="product-price blue">$55</div>
+      <span class="product-tag blue-tag">Mesh</span>
+      <span class="product-tag green-tag">Ventilated</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SOCIAL MEDIA TEMPLATES
+     ═══════════════════════════════════════════ -->
+<section class="social-section">
+  <div class="social-header">
+    <span class="section-label">Social Presence</span>
+    <h2>Instagram Templates</h2>
+  </div>
+  <div class="social-grid">
+
+    <!-- Post 1: Motivational -->
+    <div class="ig-post ig-post-1">
+      <div class="ig-brand-tag">VLTG</div>
+      <div class="ig-ui"><span class="ig-ui-dot"></span><span class="ig-ui-dot"></span><span class="ig-ui-dot"></span></div>
+      <div class="ig-headline">
+        Push<br><span class="highlight-blue">Your</span><br>Limits
+      </div>
+      <div class="ig-sub">Every rep counts. Every. Single. One.</div>
+    </div>
+
+    <!-- Post 2: Product Launch -->
+    <div class="ig-post ig-post-2">
+      <div class="ig-brand-tag">VLTG</div>
+      <div class="ig-ui"><span class="ig-ui-dot"></span><span class="ig-ui-dot"></span><span class="ig-ui-dot"></span></div>
+      <div class="ig-product-visual"></div>
+      <div class="ig-headline">
+        New<br><span class="highlight-green">Drop</span><br>Alert
+      </div>
+      <div class="ig-cta">Shop Now →</div>
+    </div>
+
+    <!-- Post 3: Community -->
+    <div class="ig-post ig-post-3">
+      <div class="ig-brand-tag">VLTG</div>
+      <div class="ig-ui"><span class="ig-ui-dot"></span><span class="ig-ui-dot"></span><span class="ig-ui-dot"></span></div>
+      <div class="ig-grid-bg"></div>
+      <div class="ig-headline">
+        Join The<br>Movement
+      </div>
+      <div class="ig-stat">
+        <div class="stat-item">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Athletes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">Cities</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Potential</div>
+        </div>
+      </div>
+      <div class="ig-hashtags">#VLTGArmy #MoveBeyond #VoltageFit</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════════ -->
+<section class="type-section">
+  <div class="type-header">
+    <span class="section-label">Brand Voice</span>
+    <h2>Typography System</h2>
+  </div>
+  <div class="type-container">
+
+    <!-- Orbitron -->
+    <div class="type-block">
+      <div class="type-label">Primary — Display</div>
+      <div class="type-sample-orbitron">VOLTAGE</div>
+      <div class="type-meta">
+        <div class="type-meta-item">
+          <div class="type-meta-label">Typeface</div>
+          <div class="type-meta-value">Orbitron</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="type-meta-label">Use Case</div>
+          <div class="type-meta-value">Logos, Headlines, Accents</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="type-meta-label">Style</div>
+          <div class="type-meta-value">Geometric, Futuristic</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="type-meta-label">Weights</div>
+          <div class="type-meta-value">700 – 900</div>
+        </div>
+      </div>
+      <div class="type-weights">
+        <div class="type-weight-row">
+          <span class="type-weight-name">Bold 700</span>
+          <span class="type-weight-sample orbitron" style="font-weight:700;">SURGE</span>
+        </div>
+        <div class="type-weight-row">
+          <span class="type-weight-name">Black 900</span>
+          <span class="type-weight-sample orbitron" style="font-weight:900;">SURGE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Oswald -->
+    <div class="type-block">
+      <div class="type-label">Secondary — Headlines</div>
+      <div class="type-sample-oswald">MOVE BEYOND</div>
+      <div class="type-meta">
+        <div class="type-meta-item">
+          <div class="type-meta-label">Typeface</div>
+          <div class="type-meta-value">Oswald</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="type-meta-label">Use Case</div>
+          <div class="type-meta-value">Section Headers, Subheads</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="type-meta-label">Style</div>
+          <div class="type-meta-value">Condensed, Powerful</div>
+        </div>
+        <div class="type-meta-item">
+          <div class="type-meta-label">Weights</div>
+          <div class="type-meta-value">400 – 700</div>
+        </div>
+      </div>
+      <div class="type-weights">
+        <div class="type-weight-row">
+          <span class="type-weight-name">Regular 400</span>
+          <span class="type-weight-sample oswald" style="font-weight:400;">Performance</span>
+        </div>
+        <div class="type-weight-row">
+          <span class="type-weight-name">Semi 600</span>
+          <span class="type-weight-sample oswald" style="font-weight:600;">Performance</span>
+        </div>
+        <div class="type-weight-row">
+          <span class="type-weight-name">Bold 700</span>
+          <span class="type-weight-sample oswald" style="font-weight:700;">Performance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inter + Hierarchy Demo -->
+    <div class="type-block-full">
+      <div class="type-label">Tertiary — Body Copy</div>
+      <div class="type-sample-inter">
+        VLTG is more than a brand — it's a movement. Designed for athletes who refuse to settle, every piece in our collection is engineered to push boundaries. From the gym to the streets, voltage runs through everything we do.
+      </div>
+      <div class="type-hierarchy-demo">
+        <div class="hierarchy-item h1-demo">
+          <div class="hierarchy-label">H1 — Orbitron 900 / 32px</div>
+          <div class="hierarchy-h1">PEAK POWER</div>
+        </div>
+        <div class="hierarchy-item h2-demo">
+          <div class="hierarchy-label">H2 — Oswald 600 / 24px</div>
+          <div class="hierarchy-h2">Engineered Motion</div>
+        </div>
+        <div class="hierarchy-item h3-demo">
+          <div class="hierarchy-label">H3 — Oswald 500 / 18px</div>
+          <div class="hierarchy-h3">Technical Fabric</div>
+        </div>
+        <div class="hierarchy-item body-demo">
+          <div class="hierarchy-label">Body — Inter 400 / 14px</div>
+          <div class="hierarchy-body">Four-way stretch meets moisture management for unstoppable comfort.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<div class="footer-line"></div>
+<footer class="footer">
+  <div class="footer-brand">VLTG</div>
+  <div class="footer-note">Concept Brand Design — Portfolio Case Study</div>
+  <div class="footer-note">Move. Beyond. © 2025</div>
+</footer>
+
+</body>
+</html>

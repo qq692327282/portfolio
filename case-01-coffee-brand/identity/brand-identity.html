@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TERRA Coffee Roasters — Brand Identity System</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #F5F0EB; color: #2C2420; font-family: 'Inter', sans-serif; }
+
+/* === COLOR SYSTEM === */
+.colors { display: flex; gap: 0; margin: 60px auto; max-width: 1000px; }
+.color-swatch { flex: 1; height: 160px; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; }
+.color-swatch span { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.color-swatch .hex { font-weight: 600; margin-top: 4px; }
+
+/* === TYPOGRAPHY === */
+.section { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+.section-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8B7355; margin-bottom: 40px; padding-bottom: 12px; border-bottom: 1px solid #D4C8B8; }
+
+/* === LOGO === */
+.logo-section { text-align: center; padding: 80px 40px; }
+.logo-mark { width: 200px; height: 200px; margin: 0 auto 40px; }
+.logo-wordmark { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; letter-spacing: 6px; color: #2C2420; }
+.logo-tagline { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #8B7355; margin-top: 12px; }
+
+/* === VARIATIONS === */
+.variations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 40px 0; }
+.variation-card { background: #fff; padding: 50px 30px; text-align: center; border: 1px solid #E8E0D6; }
+.variation-card.dark { background: #2C2420; }
+.variation-card.dark .logo-wordmark { color: #F5F0EB; }
+.variation-card.dark .logo-tagline { color: #A89880; }
+.variation-card .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A89880; margin-bottom: 30px; }
+
+/* === TYPOGRAPHY DISPLAY === */
+.type-display { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 40px 0; }
+.type-sample h2 { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; margin-bottom: 12px; }
+.type-sample .name { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8B7355; margin-bottom: 8px; }
+.type-sample .usage { font-size: 13px; color: #A89880; margin-top: 16px; }
+.type-sample.sans h2 { font-family: 'Inter', sans-serif; font-weight: 300; letter-spacing: 2px; }
+
+/* === PACKAGING === */
+.packaging { margin: 60px 0; }
+.bag-mockup { width: 320px; height: 440px; margin: 40px auto; background: #2C2420; border-radius: 4px 4px 0 0; position: relative; overflow: hidden; }
+.bag-top { height: 60px; background: #1A1612; display: flex; align-items: center; justify-content: center; }
+.bag-fold { width: 80%; height: 2px; background: #3D3530; }
+.bag-body { padding: 40px 30px; text-align: center; }
+.bag-logo { color: #F5F0EB; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; letter-spacing: 4px; }
+.bag-origin { color: #A89880; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-top: 20px; }
+.bag-detail { color: #D4C8B8; font-size: 12px; margin-top: 8px; }
+.bag-circle { width: 80px; height: 80px; border: 1px solid #8B7355; border-radius: 50%; margin: 30px auto 0; display: flex; align-items: center; justify-content: center; }
+.bag-circle span { color: #8B7355; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; }
+
+/* === SOCIAL MEDIA === */
+.social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+.social-post { aspect-ratio: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 30px; }
+.social-post.post-1 { background: #2C2420; color: #F5F0EB; }
+.social-post.post-2 { background: #F5F0EB; border: 1px solid #D4C8B8; color: #2C2420; }
+.social-post.post-3 { background: #5C7A5E; color: #F5F0EB; }
+.social-post .post-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6; }
+.social-post .post-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-top: 12px; line-height: 1.3; }
+.social-post .post-sub { font-size: 11px; margin-top: 8px; opacity: 0.7; }
+.social-post .post-handle { font-size: 10px; letter-spacing: 1px; margin-top: 20px; opacity: 0.5; }
+
+/* === BUSINESS CARD === */
+.cards-row { display: flex; gap: 30px; justify-content: center; margin: 40px 0; }
+.biz-card { width: 340px; height: 200px; border: 1px solid #D4C8B8; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
+.biz-card.front { background: #2C2420; color: #F5F0EB; border-color: #2C2420; }
+.biz-card.back { background: #fff; }
+.biz-card .card-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; letter-spacing: 3px; }
+.biz-card .card-info { font-size: 11px; line-height: 1.8; color: #A89880; }
+.biz-card.front .card-info { color: #A89880; }
+.biz-card .card-tagline { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #8B7355; }
+
+/* === FOOTER === */
+.footer { text-align: center; padding: 60px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A89880; border-top: 1px solid #E8E0D6; margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- LOGO -->
+<div class="logo-section">
+  <svg class="logo-mark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Coffee bean abstract mark -->
+    <circle cx="100" cy="100" r="90" fill="none" stroke="#2C2420" stroke-width="1.5"/>
+    <path d="M100 30 C60 30, 30 60, 30 100 C30 140, 60 170, 100 170 C140 170, 170 140, 170 100 C170 60, 140 30, 100 30 Z" fill="none" stroke="#2C2420" stroke-width="1"/>
+    <path d="M100 50 Q75 100, 100 150" fill="none" stroke="#2C2420" stroke-width="1.5"/>
+    <path d="M100 50 Q125 100, 100 150" fill="none" stroke="#2C2420" stroke-width="1.5"/>
+    <circle cx="100" cy="100" r="4" fill="#2C2420"/>
+    <!-- TERRA text -->
+    <text x="100" y="195" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="700" letter-spacing="8" fill="#2C2420">TERRA</text>
+  </svg>
+  <div class="logo-wordmark">TERRA</div>
+  <div class="logo-tagline">Coffee Roasters · Est. 2024</div>
+</div>
+
+<!-- COLOR PALETTE -->
+<div class="section">
+  <div class="section-title">Color Palette</div>
+</div>
+<div class="colors">
+  <div class="color-swatch" style="background:#2C2420; color:#F5F0EB;">
+    <span>Espresso</span>
+    <span class="hex">#2C2420</span>
+  </div>
+  <div class="color-swatch" style="background:#8B7355; color:#F5F0EB;">
+    <span>Roast</span>
+    <span class="hex">#8B7355</span>
+  </div>
+  <div class="color-swatch" style="background:#D4C8B8; color:#2C2420;">
+    <span>Crema</span>
+    <span class="hex">#D4C8B8</span>
+  </div>
+  <div class="color-swatch" style="background:#F5F0EB; color:#2C2420;">
+    <span>Parchment</span>
+    <span class="hex">#F5F0EB</span>
+  </div>
+  <div class="color-swatch" style="background:#5C7A5E; color:#F5F0EB;">
+    <span>Olive</span>
+    <span class="hex">#5C7A5E</span>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="section">
+  <div class="section-title">Typography</div>
+  <div class="type-display">
+    <div class="type-sample">
+      <div class="name">Playfair Display — Headlines</div>
+      <h2>Aa Bb Cc</h2>
+      <div class="usage">用于标题、品牌名、大字排版。衬线体传递手工感和品质感。</div>
+    </div>
+    <div class="type-sample sans">
+      <div class="name">Inter — Body Text</div>
+      <h2>Aa Bb Cc</h2>
+      <div class="usage">用于正文、说明文字、UI元素。无衬线体保证现代感和可读性。</div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO VARIATIONS -->
+<div class="section">
+  <div class="section-title">Logo Variations</div>
+  <div class="variations">
+    <div class="variation-card">
+      <div class="label">Primary — Light</div>
+      <div class="logo-wordmark" style="font-size:32px;">TERRA</div>
+      <div class="logo-tagline">Coffee Roasters</div>
+    </div>
+    <div class="variation-card dark">
+      <div class="label" style="color:#A89880;">Primary — Dark</div>
+      <div class="logo-wordmark" style="font-size:32px;">TERRA</div>
+      <div class="logo-tagline">Coffee Roasters</div>
+    </div>
+    <div class="variation-card" style="background:#5C7A5E; color:#F5F0EB;">
+      <div class="label" style="color:rgba(255,255,255,0.6);">Accent</div>
+      <div class="logo-wordmark" style="font-size:32px; color:#F5F0EB;">TERRA</div>
+      <div class="logo-tagline" style="color:rgba(255,255,255,0.7);">Coffee Roasters</div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGING -->
+<div class="section">
+  <div class="section-title">Packaging — 250g Coffee Bag</div>
+  <div class="bag-mockup">
+    <div class="bag-top"><div class="bag-fold"></div></div>
+    <div class="bag-body">
+      <div class="bag-logo">TERRA</div>
+      <div class="bag-origin">Single Origin · Ethiopia Yirgacheffe</div>
+      <div class="bag-detail">Light Roast · Floral & Citrus Notes</div>
+      <div class="bag-circle"><span>250g</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="section">
+  <div class="section-title">Social Media Templates</div>
+  <div class="social-grid">
+    <div class="social-post post-1">
+      <div class="post-label">New Arrival</div>
+      <div class="post-title">Ethiopia<br>Yirgacheffe</div>
+      <div class="post-sub">Light Roast · Floral & Citrus</div>
+      <div class="post-handle">@terra.coffee</div>
+    </div>
+    <div class="social-post post-2">
+      <div class="post-label">Brewing Guide</div>
+      <div class="post-title">Pour Over<br>Method</div>
+      <div class="post-sub">15g · 250ml · 92°C · 3:30</div>
+      <div class="post-handle">@terra.coffee</div>
+    </div>
+    <div class="social-post post-3">
+      <div class="post-label">Weekend Special</div>
+      <div class="post-title">Meet the<br>Farmer</div>
+      <div class="post-sub">Direct Trade · Sidamo Region</div>
+      <div class="post-handle">@terra.coffee</div>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS CARD -->
+<div class="section">
+  <div class="section-title">Business Card</div>
+  <div class="cards-row">
+    <div class="biz-card front">
+      <div class="card-logo">TERRA</div>
+      <div class="card-info">
+        Sarah Chen<br>
+        Founder & Head Roaster<br>
+        sarah@terracoffee.com<br>
+        +1 (415) 555-0192
+      </div>
+    </div>
+    <div class="biz-card back">
+      <div style="text-align:center; margin-top: 20px;">
+        <div class="card-logo" style="color:#2C2420;">TERRA</div>
+        <div class="card-tagline" style="margin-top:12px;">Coffee Roasters</div>
+        <div style="font-size:11px; color:#A89880; margin-top:20px;">
+          123 Roast Street, San Francisco, CA 94102<br>
+          terracoffee.com
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  TERRA Coffee Roasters — Brand Identity System — Concept Project by Ezreal
+</div>
+
+</body>
+</html>

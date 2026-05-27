@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOID Recordings — Brand Identity System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0A0A0A;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== COLOR VARIABLES ===== */
+    :root {
+      --deep-black: #0A0A0A;
+      --soft-black: #111111;
+      --card-black: #161616;
+      --border-dark: #222222;
+      --electric-purple: #8B5CF6;
+      --hot-pink: #FF2D78;
+      --silver: #C0C0C0;
+      --white: #FFFFFF;
+      --muted: #666666;
+      --gradient-main: linear-gradient(135deg, #8B5CF6 0%, #FF2D78 100%);
+      --gradient-subtle: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(255,45,120,0.15) 100%);
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+    .section {
+      padding: 100px 60px;
+      border-bottom: 1px solid var(--border-dark);
+      position: relative;
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--electric-purple);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--electric-purple);
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      letter-spacing: 3px;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .section-desc {
+      color: var(--silver);
+      font-size: 15px;
+      max-width: 600px;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .gradient-text {
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139,92,246,0.1);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 6px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--electric-purple); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--hot-pink); }
+
+    /* ===== HERO / BRAND HEADER ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--deep-black), transparent);
+      pointer-events: none;
+    }
+
+    /* Geometric Logo */
+    .logo-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin-bottom: 48px;
+      animation: logoFloat 6s ease-in-out infinite;
+    }
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .logo-outer {
+      position: absolute;
+      top: 0; left: 0;
+      width: 180px; height: 180px;
+      border: 2px solid var(--electric-purple);
+      transform: rotate(45deg);
+      animation: logoRotate 20s linear infinite;
+    }
+    @keyframes logoRotate {
+      from { transform: rotate(45deg); }
+      to { transform: rotate(405deg); }
+    }
+    .logo-inner {
+      position: absolute;
+      top: 30px; left: 30px;
+      width: 120px; height: 120px;
+      border: 2px solid var(--hot-pink);
+      animation: logoRotate 15s linear infinite reverse;
+    }
+    .logo-core {
+      position: absolute;
+      top: 60px; left: 60px;
+      width: 60px; height: 60px;
+      background: var(--gradient-main);
+      animation: logoRotate 10s linear infinite;
+    }
+    .logo-void {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 8px;
+      color: var(--white);
+      z-index: 2;
+    }
+    /* Grid lines behind logo */
+    .logo-grid {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px; height: 300px;
+      opacity: 0.06;
+      background-image:
+        linear-gradient(var(--electric-purple) 1px, transparent 1px),
+        linear-gradient(90deg, var(--electric-purple) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(60px, 10vw, 140px);
+      letter-spacing: 20px;
+      line-height: 0.9;
+      margin-bottom: 8px;
+    }
+    .hero-subtitle {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 48px;
+    }
+    .tagline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 200;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: var(--silver);
+      border-top: 1px solid var(--border-dark);
+      padding-top: 32px;
+      margin-top: 16px;
+    }
+    .tagline em {
+      font-style: normal;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Scanline overlay */
+    .scanlines {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+    }
+
+    /* ===== COLOR PALETTE SECTION ===== */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .color-card {
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .color-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--electric-purple);
+    }
+    .color-swatch {
+      height: 160px;
+      position: relative;
+    }
+    .color-swatch::after {
+      content: attr(data-hex);
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      padding: 4px 10px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 2px;
+      backdrop-filter: blur(8px);
+    }
+    .color-info {
+      padding: 20px;
+    }
+    .color-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .color-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ===== EVENT POSTER ===== */
+    .poster-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+    }
+    .poster {
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 3/4;
+      background: var(--deep-black);
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .poster-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(139,92,246,0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255,45,120,0.15) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 100%);
+    }
+    /* Abstract geometric shapes */
+    .poster-shapes {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+    }
+    .poster-shapes .shape {
+      position: absolute;
+      border: 1px solid;
+      opacity: 0.15;
+    }
+    .poster-shapes .shape:nth-child(1) {
+      top: 5%; left: 10%;
+      width: 200px; height: 200px;
+      border-color: var(--electric-purple);
+      transform: rotate(45deg);
+    }
+    .poster-shapes .shape:nth-child(2) {
+      top: 15%; right: 5%;
+      width: 150px; height: 150px;
+      border-color: var(--hot-pink);
+      border-radius: 50%;
+    }
+    .poster-shapes .shape:nth-child(3) {
+      bottom: 25%; left: 5%;
+      width: 100px; height: 100px;
+      border-color: var(--silver);
+      transform: rotate(15deg);
+    }
+    .poster-shapes .shape:nth-child(4) {
+      top: 40%; left: 50%;
+      width: 300px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--electric-purple), transparent);
+      border: none;
+      opacity: 0.3;
+    }
+    .poster-shapes .shape:nth-child(5) {
+      top: 0; left: 50%;
+      width: 1px; height: 100%;
+      background: linear-gradient(180deg, transparent, rgba(255,45,120,0.2), transparent);
+      border: none;
+      opacity: 0.3;
+    }
+
+    .poster-content {
+      position: relative;
+      z-index: 2;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+    .poster-header {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+    .poster-main {
+      text-align: center;
+    }
+    .poster-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 12vw, 120px);
+      letter-spacing: 15px;
+      line-height: 0.85;
+      margin-bottom: 8px;
+    }
+    .poster-title .void {
+      display: block;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .poster-title .night {
+      display: block;
+      font-size: 0.5em;
+      letter-spacing: 30px;
+      color: var(--white);
+      -webkit-text-fill-color: var(--white);
+    }
+    .poster-date {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      letter-spacing: 6px;
+      color: var(--hot-pink);
+      margin-top: 20px;
+    }
+    .poster-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .poster-lineup {
+      list-style: none;
+    }
+    .poster-lineup li {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-bottom: 6px;
+    }
+    .poster-lineup li.headliner {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .poster-venue {
+      text-align: right;
+    }
+    .poster-venue-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--white);
+    }
+    .poster-venue-addr {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .poster-border {
+      position: absolute;
+      top: 16px; left: 16px;
+      right: 16px; bottom: 16px;
+      border: 1px solid rgba(139,92,246,0.15);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ===== SOCIAL MEDIA TEMPLATES ===== */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .social-card {
+      aspect-ratio: 1/1;
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .social-card:hover {
+      transform: scale(1.02);
+      border-color: var(--electric-purple);
+    }
+
+    /* New Release Template */
+    .social-new-release {
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a2e 50%, #0A0A0A 100%);
+    }
+    .social-new-release .social-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 60%);
+    }
+    .social-new-release .release-vinyl {
+      position: absolute;
+      top: 50%;
+      right: -20%;
+      transform: translateY(-50%);
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #1a1a1a 18%, transparent 19%),
+        radial-gradient(circle at center, transparent 35%, #111 36%, #111 37%, transparent 38%),
+        radial-gradient(circle at center, #0d0d0d 38%, #1a1a1a 39%, #111 100%);
+      border: 2px solid #222;
+      opacity: 0.6;
+    }
+
+    /* Event Template */
+    .social-event {
+      background: var(--deep-black);
+      border: 1px solid var(--hot-pink);
+    }
+    .social-event .event-stripe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 6px;
+      background: var(--gradient-main);
+    }
+    .social-event .event-grid-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        linear-gradient(rgba(255,45,120,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,45,120,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Artist Spotlight Template */
+    .social-spotlight {
+      background: linear-gradient(180deg, #0A0A0A 0%, #0f0a1a 100%);
+    }
+    .social-spotlight .spotlight-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      border: 1px solid rgba(139,92,246,0.2);
+      box-shadow: 0 0 80px rgba(139,92,246,0.1);
+    }
+
+    .social-content {
+      position: relative;
+      z-index: 2;
+      padding: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .social-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--electric-purple);
+      color: var(--electric-purple);
+      align-self: flex-start;
+    }
+    .social-badge.pink {
+      border-color: var(--hot-pink);
+      color: var(--hot-pink);
+    }
+    .social-main-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 6px;
+      line-height: 1;
+    }
+    .social-main-sub {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 200;
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-top: 8px;
+    }
+    .social-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .social-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .social-cta {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      background: var(--gradient-main);
+      color: var(--white);
+    }
+
+    /* Artist avatar placeholder */
+    .artist-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--electric-purple), var(--hot-pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: relative;
+    }
+    .artist-avatar::after {
+      content: '⬡';
+      font-size: 48px;
+      color: var(--white);
+      opacity: 0.8;
+    }
+
+    .social-template-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ===== VINYL RECORD MOCKUP ===== */
+    .vinyl-showcase {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
+
+    .vinyl-container {
+      position: relative;
+      width: 360px;
+      height: 360px;
+    }
+    .vinyl-record {
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at center, #1a1a1a 0%, #1a1a1a 15%, transparent 15.5%),
+        radial-gradient(circle at center, transparent 15.5%, #111 16%, #1a1a1a 17%),
+        radial-gradient(circle at center, transparent 32%, rgba(139,92,246,0.15) 32.5%, transparent 33%),
+        radial-gradient(circle at center, transparent 33%, #111 33.5%, #0d0d0d 34%),
+        radial-gradient(circle at center, transparent 46%, rgba(255,45,120,0.08) 46.5%, transparent 47%),
+        radial-gradient(circle at center, transparent 47%, #0f0f0f 47.5%, #111 100%);
+      box-shadow:
+        0 0 0 3px #222,
+        0 0 60px rgba(139,92,246,0.15),
+        0 20px 60px rgba(0,0,0,0.5);
+      animation: vinylSpin 8s linear infinite;
+    }
+    .vinyl-record::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: var(--gradient-main);
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.4);
+    }
+    .vinyl-record::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--deep-black);
+      border: 2px solid #333;
+    }
+
+    /* Vinyl grooves */
+    .vinyl-grooves {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: repeating-radial-gradient(
+        circle at center,
+        transparent 0px,
+        transparent 3px,
+        rgba(255,255,255,0.02) 3px,
+        rgba(255,255,255,0.02) 4px
+      );
+    }
+
+    /* Vinyl label text */
+    .vinyl-label-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .vinyl-label-text .label-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 4px;
+      color: var(--white);
+    }
+    .vinyl-label-text .label-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 2px;
+    }
+
+    @keyframes vinylSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Vinyl Sleeve */
+    .vinyl-sleeve {
+      width: 360px;
+      height: 360px;
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+    }
+    .vinyl-sleeve::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse at 30% 30%, rgba(139,92,246,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 70%, rgba(255,45,120,0.1) 0%, transparent 60%);
+    }
+    .vinyl-sleeve::after {
+      content: '';
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 120px; height: 120px;
+      border: 1px solid rgba(139,92,246,0.1);
+      transform: rotate(45deg);
+    }
+    .sleeve-content {
+      position: relative;
+      z-index: 2;
+    }
+    .sleeve-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--electric-purple);
+      margin-bottom: 8px;
+    }
+    .sleeve-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 6px;
+      line-height: 1;
+    }
+    .sleeve-artist {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-top: 8px;
+    }
+
+    /* ===== TYPOGRAPHY SECTION ===== */
+    .type-showcase {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+    .type-item {
+      padding: 40px;
+      border: 1px solid var(--border-dark);
+      background: var(--card-black);
+      transition: border-color 0.3s;
+    }
+    .type-item:hover { border-color: var(--electric-purple); }
+    .type-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .type-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--electric-purple);
+    }
+    .type-use {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .type-specimen-bebas {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      letter-spacing: 8px;
+      line-height: 1;
+    }
+    .type-specimen-space {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+    .type-specimen-outfit {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 200;
+      font-size: 32px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+    .type-specimen-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 2;
+      color: var(--silver);
+      letter-spacing: 1px;
+    }
+    .type-weights {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .type-weight {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 60px;
+      text-align: center;
+      border-top: 1px solid var(--border-dark);
+    }
+    footer .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 8px;
+      color: var(--silver);
+      margin-bottom: 16px;
+    }
+    footer .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 2px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .section { padding: 60px 24px; }
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 20px; }
+      .hero { padding: 100px 24px; }
+      .poster-content { padding: 28px; }
+      .vinyl-showcase { gap: 40px; }
+      .vinyl-container, .vinyl-record, .vinyl-sleeve { width: 280px; height: 280px; }
+      .vinyl-grooves { width: 260px; height: 260px; }
+      .social-grid { grid-template-columns: 1fr; }
+      .poster-footer { flex-direction: column; gap: 16px; }
+      .poster-venue { text-align: left; }
+      .palette-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ===== DECORATIVE ELEMENTS ===== */
+    .corner-mark {
+      position: absolute;
+      width: 20px; height: 20px;
+      border-color: var(--electric-purple);
+      opacity: 0.3;
+    }
+    .corner-mark.tl { top: 0; left: 0; border-top: 1px solid; border-left: 1px solid; }
+    .corner-mark.tr { top: 0; right: 0; border-top: 1px solid; border-right: 1px solid; }
+    .corner-mark.bl { bottom: 0; left: 0; border-bottom: 1px solid; border-left: 1px solid; }
+    .corner-mark.br { bottom: 0; right: 0; border-bottom: 1px solid; border-right: 1px solid; }
+
+    .glitch-line {
+      position: absolute;
+      height: 1px;
+      background: var(--gradient-main);
+      opacity: 0.1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scanline Overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="nav-logo">VOID<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#brand">Brand</a></li>
+      <li><a href="#palette">Palette</a></li>
+      <li><a href="#event">Event</a></li>
+      <li><a href="#social">Social</a></li>
+      <li><a href="#vinyl">Vinyl</a></li>
+      <li><a href="#type">Type</a></li>
+    </ul>
+  </nav>
+
+  <!-- ==================== HERO / BRAND HEADER ==================== -->
+  <section class="hero" id="brand">
+    <div class="logo-container">
+      <div class="logo-grid"></div>
+      <div class="logo-outer"></div>
+      <div class="logo-inner"></div>
+      <div class="logo-core"></div>
+      <div class="logo-void">V</div>
+    </div>
+
+    <h1><span class="gradient-text">VOID</span></h1>
+    <div class="hero-subtitle">R E C O R D I N G S</div>
+
+    <div class="tagline">Sound Beyond <em>Silence</em></div>
+  </section>
+
+  <!-- ==================== COLOR PALETTE ==================== -->
+  <section class="section" id="palette">
+    <div class="section-label">01 — Color System</div>
+    <h2 class="section-title">PALETTE</h2>
+    <p class="section-desc">
+      A controlled spectrum of darkness and electric intensity. Every color serves the atmosphere —
+      deep blacks for the void, electric purples for the frequency, hot pink for the pulse.
+    </p>
+
+    <div class="palette-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #0A0A0A;" data-hex="#0A0A0A"></div>
+        <div class="color-info">
+          <div class="color-name">Deep Black</div>
+          <div class="color-role">Primary Background</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #8B5CF6;" data-hex="#8B5CF6"></div>
+        <div class="color-info">
+          <div class="color-name">Electric Purple</div>
+          <div class="color-role">Brand Accent</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FF2D78;" data-hex="#FF2D78"></div>
+        <div class="color-info">
+          <div class="color-name">Hot Pink</div>
+          <div class="color-role">Energy Accent</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #C0C0C0;" data-hex="#C0C0C0"></div>
+        <div class="color-info">
+          <div class="color-name">Silver</div>
+          <div class="color-role">Body Text</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #FFFFFF;" data-hex="#FFFFFF"></div>
+        <div class="color-info">
+          <div class="color-name">White</div>
+          <div class="color-role">Headlines &amp; UI</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: linear-gradient(135deg, #8B5CF6, #FF2D78);" data-hex="Gradient"></div>
+        <div class="color-info">
+          <div class="color-name">Void Gradient</div>
+          <div class="color-role">CTAs &amp; Highlights</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EVENT POSTER ==================== -->
+  <section class="section" id="event">
+    <div class="section-label">02 — Event Design</div>
+    <h2 class="section-title">VOID NIGHT</h2>
+    <p class="section-desc">
+      Festival poster for VOID NIGHT — an immersive underground electronic music experience.
+      Geometric abstraction meets club culture aesthetics.
+    </p>
+
+    <div class="poster-wrapper">
+      <div class="poster">
+        <div class="poster-bg"></div>
+        <div class="poster-shapes">
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+          <div class="shape"></div>
+        </div>
+        <div class="poster-border"></div>
+        <div class="poster-content">
+          <div class="poster-header">VOID Recordings Presents</div>
+
+          <div class="poster-main">
+            <div class="poster-title">
+              <span class="void">VOID</span>
+              <span class="night">NIGHT</span>
+            </div>
+            <div class="poster-date">14 · 08 · 2026 — 22:00 TIL DAWN</div>
+          </div>
+
+          <div class="poster-footer">
+            <ul class="poster-lineup">
+              <li class="headliner">NEURAL DRIFT</li>
+              <li>PHANTOM CIRCUIT</li>
+              <li>AXIOM</li>
+              <li>DARK MATTER COLLECTIVE</li>
+              <li>SYNAPSE</li>
+            </ul>
+            <div class="poster-venue">
+              <div class="poster-venue-name">WAREHOUSE 9</div>
+              <div class="poster-venue-addr">Industrial District<br>Brooklyn, NY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOCIAL MEDIA TEMPLATES ==================== -->
+  <section class="section" id="social">
+    <div class="section-label">03 — Social Media</div>
+    <h2 class="section-title">DIGITAL PRESENCE</h2>
+    <p class="section-desc">
+      Three core content templates for social channels — new releases, events, and artist features.
+      Consistent dark aesthetic across all touchpoints.
+    </p>
+
+    <div class="social-grid">
+      <!-- New Release Post -->
+      <div>
+        <div class="social-card social-new-release">
+          <div class="social-bg"></div>
+          <div class="release-vinyl"></div>
+          <div class="social-content">
+            <span class="social-badge">New Release</span>
+            <div>
+              <div class="social-main-title">ECHOES<br>OF <span class="gradient-text">VOID</span></div>
+              <div class="social-main-sub">Neural Drift — EP.003</div>
+            </div>
+            <div class="social-bottom">
+              <span class="social-handle">@voidrecordings</span>
+              <span class="social-cta">Listen Now</span>
+            </div>
+          </div>
+        </div>
+        <div class="social-template-label">New Release Template</div>
+      </div>
+
+      <!-- Event Post -->
+      <div>
+        <div class="social-card social-event">
+          <div class="event-stripe"></div>
+          <div class="event-grid-bg"></div>
+          <div class="social-content">
+            <span class="social-badge pink">Event</span>
+            <div style="text-align: center;">
+              <div style="font-family: 'Bebas Neue'; font-size: 80px; letter-spacing: 8px; line-height: 0.85;">
+                <span class="gradient-text">VOID</span><br>
+                <span style="font-size: 0.45em; letter-spacing: 20px; color: #fff;">NIGHT</span>
+              </div>
+              <div style="font-family: 'JetBrains Mono'; font-size: 11px; color: var(--hot-pink); letter-spacing: 4px; margin-top: 16px;">
+                14.08.2026 · WAREHOUSE 9
+              </div>
+              <div style="font-family: 'Outfit'; font-weight: 200; font-size: 12px; color: var(--silver); letter-spacing: 3px; margin-top: 8px; text-transform: uppercase;">
+                5 Artists · All Night
+              </div>
+            </div>
+            <div class="social-bottom">
+              <span class="social-handle">@voidrecordings</span>
+              <span class="social-cta">Get Tickets</span>
+            </div>
+          </div>
+        </div>
+        <div class="social-template-label">Event Template</div>
+      </div>
+
+      <!-- Artist Spotlight Post -->
+      <div>
+        <div class="social-card social-spotlight">
+          <div class="spotlight-ring"></div>
+          <div class="social-content">
+            <span class="social-badge">Artist Spotlight</span>
+            <div style="text-align: center;">
+              <div class="artist-avatar"></div>
+              <div style="font-family: 'Bebas Neue'; font-size: 36px; letter-spacing: 6px; margin-top: 20px;">NEURAL DRIFT</div>
+              <div style="font-family: 'Outfit'; font-weight: 200; font-size: 12px; letter-spacing: 4px; color: var(--silver); text-transform: uppercase; margin-top: 4px;">
+                Berlin-based · Techno / Ambient
+              </div>
+              <div style="font-family: 'Inter'; font-weight: 300; font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.8; max-width: 280px; margin-left: auto; margin-right: auto;">
+                Exploring the space between silence and chaos. Three EPs deep, shaping the future of dark electronic.
+              </div>
+            </div>
+            <div class="social-bottom">
+              <span class="social-handle">@neuraldrift</span>
+              <span class="social-cta">Follow</span>
+            </div>
+          </div>
+        </div>
+        <div class="social-template-label">Artist Spotlight Template</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VINYL RECORD MOCKUP ==================== -->
+  <section class="section" id="vinyl">
+    <div class="section-label">04 — Physical Media</div>
+    <h2 class="section-title">VINYL</h2>
+    <p class="section-desc">
+      12" vinyl pressing with gradient label. The tactile anchor of the label —
+      where digital sound meets physical form.
+    </p>
+
+    <div class="vinyl-showcase">
+      <div class="vinyl-container">
+        <div class="vinyl-record">
+          <div class="vinyl-grooves"></div>
+          <div class="vinyl-label-text">
+            <div class="label-title">VOID</div>
+            <div class="label-sub">RECORDINGS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vinyl-sleeve">
+        <div class="sleeve-content">
+          <div class="sleeve-cat">VOID-003 · 12" VINYL · 180G</div>
+          <div class="sleeve-title">ECHOES<br>OF VOID</div>
+          <div class="sleeve-artist">Neural Drift</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TYPOGRAPHY ==================== -->
+  <section class="section" id="type">
+    <div class="section-label">05 — Typography</div>
+    <h2 class="section-title">TYPE SYSTEM</h2>
+    <p class="section-desc">
+      A curated set of four typefaces — each serving a distinct purpose in the VOID visual language.
+      From high-impact display to precise technical detail.
+    </p>
+
+    <div class="type-showcase">
+      <!-- Display: Bebas Neue -->
+      <div class="type-item">
+        <div class="type-meta">
+          <span class="type-name">Bebas Neue</span>
+          <span class="type-use">Display · Headlines · Posters</span>
+        </div>
+        <div class="type-specimen-bebas">
+          VOID RECORDINGS
+        </div>
+        <div class="type-specimen-bebas" style="margin-top: 8px; font-size: 48px; color: var(--electric-purple);">
+          A B C D E F G H I J K L M
+        </div>
+        <div class="type-specimen-bebas" style="font-size: 48px; color: var(--hot-pink);">
+          N O P Q R S T U V W X Y Z
+        </div>
+        <div class="type-specimen-bebas" style="font-size: 48px; color: var(--silver);">
+          0 1 2 3 4 5 6 7 8 9
+        </div>
+      </div>
+
+      <!-- Heading: Space Grotesk -->
+      <div class="type-item">
+        <div class="type-meta">
+          <span class="type-name">Space Grotesk</span>
+          <span class="type-use">Subheadings · UI · Navigation</span>
+        </div>
+        <div class="type-specimen-space">
+          The frequency of the void resonates
+        </div>
+        <div class="type-specimen-space" style="font-weight: 300; color: var(--silver); margin-top: 8px;">
+          through every beat, every silence between.
+        </div>
+        <div class="type-weights">
+          <span class="type-weight">Light 300</span>
+          <span class="type-weight">Regular 400</span>
+          <span class="type-weight">Medium 500</span>
+          <span class="type-weight" style="color: var(--electric-purple);">SemiBold 600</span>
+          <span class="type-weight" style="color: var(--hot-pink);">Bold 700</span>
+        </div>
+      </div>
+
+      <!-- Body: Outfit -->
+      <div class="type-item">
+        <div class="type-meta">
+          <span class="type-name">Outfit</span>
+          <span class="type-use">Body · Descriptions · Taglines</span>
+        </div>
+        <div class="type-specimen-outfit">
+          Sound Beyond Silence
+        </div>
+        <div style="font-family: 'Outfit'; font-weight: 300; font-size: 15px; color: var(--silver); line-height: 2; margin-top: 16px; max-width: 600px;">
+          VOID Recordings exists at the intersection of darkness and light. We champion artists who push
+          the boundaries of electronic music — from deep ambient textures to relentless techno rhythms.
+          Every release is a journey into the unknown.
+        </div>
+        <div class="type-weights">
+          <span class="type-weight">Thin 100</span>
+          <span class="type-weight">ExtraLight 200</span>
+          <span class="type-weight" style="color: var(--electric-purple);">Light 300</span>
+          <span class="type-weight">Regular 400</span>
+          <span class="type-weight">Medium 500</span>
+          <span class="type-weight">SemiBold 600</span>
+          <span class="type-weight" style="color: var(--hot-pink);">Bold 700</span>
+        </div>
+      </div>
+
+      <!-- Mono: JetBrains Mono -->
+      <div class="type-item">
+        <div class="type-meta">
+          <span class="type-name">JetBrains Mono</span>
+          <span class="type-use">Technical · Metadata · Labels</span>
+        </div>
+        <div class="type-specimen-mono">
+          CATALOG: VOID-001 &nbsp;&nbsp; FORMAT: 12" VINYL / DIGITAL<br>
+          RELEASE: 2026-08-14 &nbsp;&nbsp; BPM: 128 &nbsp;&nbsp; KEY: Am<br>
+          ARTIST: NEURAL DRIFT &nbsp;&nbsp; TITLE: ECHOES OF VOID<br>
+          TRACKS: 04 &nbsp;&nbsp; DURATION: 32:17 &nbsp;&nbsp; MASTERED: BERLIN<br>
+          <br>
+          <span style="color: var(--electric-purple);">// void_recordings © 2026</span><br>
+          <span style="color: var(--hot-pink);">// all frequencies reserved</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="footer-logo">VOID RECORDINGS</div>
+    <div class="footer-copy">
+      CONCEPT PROJECT · BRAND IDENTITY SYSTEM · 2026<br><br>
+      <span style="color: var(--electric-purple);">◆</span>
+      SOUND BEYOND SILENCE
+      <span style="color: var(--hot-pink);">◆</span>
+    </div>
+  </footer>
+
+</body>
+</html>

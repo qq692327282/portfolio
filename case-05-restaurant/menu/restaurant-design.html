@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KINOME — Restaurant Design Concept</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #FAF8F5; color: #2A2520; font-family: 'DM Sans', sans-serif; }
+
+/* === CASE HEADER === */
+.case-header { background: #2A2520; color: #FAF8F5; padding: 100px 40px; text-align: center; position: relative; overflow: hidden; }
+.case-header::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 300px; border: 1px solid rgba(255,255,255,0.03); border-radius: 50%; }
+.case-header .tag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #8B7E6A; position: relative; }
+.case-header h1 { font-family: 'Noto Serif JP', serif; font-size: 64px; font-weight: 200; letter-spacing: 16px; margin-top: 20px; position: relative; }
+.case-header .sub { font-size: 14px; color: #8B7E6A; margin-top: 16px; letter-spacing: 2px; position: relative; }
+.case-meta { display: flex; justify-content: center; gap: 60px; margin-top: 50px; position: relative; }
+.case-meta .item { text-align: center; }
+.case-meta .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6B5E4A; }
+.case-meta .value { font-size: 14px; margin-top: 6px; color: #A89880; }
+
+/* === SECTION DIVIDER === */
+.section-divider { max-width: 1000px; margin: 80px auto; text-align: center; }
+.section-divider .num { font-size: 11px; letter-spacing: 4px; color: #C8B8A0; }
+.section-divider h3 { font-family: 'Noto Serif JP', serif; font-size: 28px; font-weight: 300; margin-top: 12px; letter-spacing: 4px; }
+.section-divider .desc { font-size: 14px; color: #A89880; margin-top: 8px; }
+
+/* === MENU DESIGN === */
+.menu-section { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+.menu-page { background: #fff; padding: 60px; border: 1px solid #E8E0D6; margin-bottom: 40px; position: relative; }
+.menu-page::before { content: ''; position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 1px solid rgba(0,0,0,0.03); pointer-events: none; }
+.menu-header { text-align: center; margin-bottom: 50px; }
+.menu-header .jp { font-family: 'Noto Serif JP', serif; font-size: 36px; font-weight: 200; letter-spacing: 12px; color: #2A2520; }
+.menu-header .en { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #A89880; margin-top: 8px; }
+.menu-header .line { width: 40px; height: 1px; background: #2A2520; margin: 20px auto 0; }
+.menu-category { margin-bottom: 40px; }
+.menu-category-title { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.menu-category-title .jp-title { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 400; letter-spacing: 4px; }
+.menu-category-title .en-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A89880; }
+.menu-category-title .line { flex: 1; height: 1px; background: #E8E0D6; }
+.menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.03); }
+.menu-item:last-child { border-bottom: none; }
+.menu-item .name-col { flex: 1; }
+.menu-item .name { font-size: 15px; font-weight: 400; }
+.menu-item .desc { font-size: 12px; color: #A89880; margin-top: 4px; line-height: 1.6; }
+.menu-item .price { font-family: 'Noto Serif JP', serif; font-size: 16px; font-weight: 300; color: #2A2520; margin-left: 20px; }
+.menu-footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #E8E0D6; }
+.menu-footer p { font-size: 11px; color: #A89880; letter-spacing: 1px; }
+
+/* === POSTER === */
+.poster-section { background: #2A2520; padding: 80px 40px; }
+.poster-grid { max-width: 1000px; margin: 40px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.poster { aspect-ratio: 3/4; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; position: relative; overflow: hidden; }
+.poster.p1 { background: linear-gradient(180deg, #3D3530 0%, #2A2520 100%); }
+.poster.p2 { background: linear-gradient(180deg, #8B7E6A 0%, #6B5E4A 100%); }
+.poster .poster-label { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.poster .poster-jp { font-family: 'Noto Serif JP', serif; font-size: 48px; font-weight: 200; color: #FAF8F5; letter-spacing: 8px; margin-top: 20px; line-height: 1.4; }
+.poster .poster-en { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 16px; }
+.poster .poster-date { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 30px; letter-spacing: 2px; }
+.poster .poster-circle { position: absolute; width: 200px; height: 200px; border: 1px solid rgba(255,255,255,0.05); border-radius: 50%; }
+.poster.p1 .poster-circle { top: -50px; right: -50px; }
+.poster.p2 .poster-circle { bottom: -60px; left: -60px; }
+
+/* === SOCIAL MEDIA === */
+.social-section { max-width: 1100px; margin: 80px auto; padding: 0 40px; }
+.social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 40px 0; }
+.social-card { aspect-ratio: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 24px; position: relative; overflow: hidden; }
+.social-card .card-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5; }
+.social-card h4 { font-family: 'Noto Serif JP', serif; font-size: 22px; font-weight: 300; margin-top: 10px; letter-spacing: 2px; line-height: 1.4; }
+.social-card .card-sub { font-size: 10px; margin-top: 8px; opacity: 0.5; }
+.social-card .card-handle { font-size: 9px; letter-spacing: 1px; margin-top: 16px; opacity: 0.4; }
+.sc-1 { background: #2A2520; color: #FAF8F5; }
+.sc-2 { background: #FAF8F5; color: #2A2520; border: 1px solid #E8E0D6; }
+.sc-3 { background: #8B7E6A; color: #FAF8F5; }
+.sc-4 { background: #F0ECE6; color: #2A2520; }
+
+/* === BRANDED ITEMS === */
+.items-section { background: #F0ECE6; padding: 80px 40px; }
+.items-grid { max-width: 1000px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.brand-item { text-align: center; }
+.item-shape { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; position: relative; }
+.item-shape.chopstick { background: #E8E0D6; border-radius: 4px; }
+.item-shape.napkin { background: #fff; border: 1px solid #E8E0D6; border-radius: 2px; }
+.item-shape.card { background: #2A2520; border-radius: 2px; }
+.item-shape.bag { background: #D4C8B8; border-radius: 0 0 20px 20px; }
+.item-inner { font-family: 'Noto Serif JP', serif; font-size: 24px; font-weight: 200; letter-spacing: 4px; }
+.item-shape.chopstick .item-inner { color: #2A2520; }
+.item-shape.napkin .item-inner { color: #2A2520; }
+.item-shape.card .item-inner { color: #FAF8F5; }
+.item-shape.bag .item-inner { color: #2A2520; }
+.item-name { font-size: 14px; font-weight: 400; }
+.item-desc { font-size: 11px; color: #A89880; margin-top: 4px; }
+
+/* === FOOTER === */
+.case-footer { text-align: center; padding: 60px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #C8B8A0; }
+</style>
+</head>
+<body>
+
+<!-- CASE HEADER -->
+<div class="case-header">
+  <div class="tag">Restaurant Brand Design Concept</div>
+  <h1>木 根 芽</h1>
+  <div class="sub">KINOME — Modern Japanese Dining</div>
+  <div class="case-meta">
+    <div class="item"><div class="label">Industry</div><div class="value">Restaurant</div></div>
+    <div class="item"><div class="label">Scope</div><div class="value">Menu + Poster + Social</div></div>
+    <div class="item"><div class="label">Style</div><div class="value">Japanese Minimal</div></div>
+    <div class="item"><div class="label">Year</div><div class="value">2026</div></div>
+  </div>
+</div>
+
+<!-- 1. MENU -->
+<div class="section-divider">
+  <div class="num">01</div>
+  <h3>Menu Design</h3>
+  <div class="desc">Elegant typography with Japanese-English bilingual layout</div>
+</div>
+
+<div class="menu-section">
+  <div class="menu-page">
+    <div class="menu-header">
+      <div class="jp">木 根 芽</div>
+      <div class="en">KINOME — Modern Japanese Dining</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">
+        <div class="jp-title">前菜</div>
+        <div class="en-title">Appetizers</div>
+        <div class="line"></div>
+      </div>
+      <div class="menu-item">
+        <div class="name-col">
+          <div class="name">枝豆 · Edamame</div>
+          <div class="desc">海盐 · 柚子胡椒</div>
+        </div>
+        <div class="price">$8</div>
+      </div>
+      <div class="menu-item">
+        <div class="name-col">
+          <div class="name">揚げ出し豆腐 · Agedashi Tofu</div>
+          <div class="desc">出汁 · 萝卜泥 · 海苔</div>
+        </div>
+        <div class="price">$12</div>
+      </div>
+      <div class="menu-item">
+        <div class="name-col">
+          <div class="name">刺身三点盛 · Sashimi Moriawase</div>
+          <div class="desc">金枪鱼 · 三文鱼 · �的鲷 · 季节配菜</div>
+        </div>
+        <div class="price">$28</div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">
+        <div class="jp-title">主菜</div>
+        <div class="en-title">Main Course</div>
+        <div class="line"></div>
+      </div>
+      <div class="menu-item">
+        <div class="name-col">
+          <div class="name">銀鱈西京焼き · Gindara Saikyo Yaki</div>
+          <div class="desc">西京味噌腌制银鳕鱼 · 季节蔬菜</div>
+        </div>
+        <div class="price">$36</div>
+      </div>
+      <div class="menu-item">
+        <div class="name-col">
+          <div class="name">和牛ステーキ · Wagyu Steak</div>
+          <div class="desc">A5 和牛 · 山葵 · 蒜片 · 季节配菜</div>
+        </div>
+        <div class="price">$68</div>
+      </div>
+      <div class="menu-item">
+        <div class="name-col">
+          <div class="name">天ぷら盛り合わせ · Tempura Moriawase</div>
+          <div class="desc">虾 · 季节蔬菜 · 天汁 · 盐</div>
+        </div>
+        <div class="price">$32</div>
+      </div>
+    </div>
+
+    <div class="menu-category">
+      <div class="menu-category-title">
+        <div class="jp-title">寿司</div>
+        <div class="en-title">Sushi</div>
+        <div class="line"></div>
+      </div>
+      <div class="menu-item">
+        <div class="name-col">
+          <div class="name">おまかせ Omakase · Chef's Selection</div>
+          <div class="desc">12 贯 · 季节精选 · 含前菜和甜品</div>
+        </div>
+        <div class="price">$120</div>
+      </div>
+    </div>
+
+    <div class="menu-footer">
+      <p>All prices are in USD · Tax not included · Please inform us of any allergies</p>
+    </div>
+  </div>
+</div>
+
+<!-- 2. POSTER -->
+<div class="poster-section">
+  <div style="max-width:1000px; margin:0 auto;">
+    <div class="section-divider" style="margin-top:0;">
+      <div class="num" style="color:#6B5E4A;">02</div>
+      <h3 style="color:#FAF8F5;">Event Posters</h3>
+      <div class="desc" style="color:#8B7E6A;">Seasonal events and special dining experiences</div>
+    </div>
+  </div>
+  <div class="poster-grid">
+    <div class="poster p1">
+      <div class="poster-circle"></div>
+      <div class="poster-label">Special Event</div>
+      <div class="poster-jp">春の<br>懐石</div>
+      <div class="poster-en">Spring Kaiseki Dinner</div>
+      <div class="poster-date">March 21 — April 6 · Reservations Required</div>
+    </div>
+    <div class="poster p2">
+      <div class="poster-circle"></div>
+      <div class="poster-label">Limited Season</div>
+      <div class="poster-jp">初鰹<br>祭り</div>
+      <div class="poster-en">First Bonito Festival</div>
+      <div class="poster-date">May 1 — May 15 · À La Carte Available</div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. SOCIAL MEDIA -->
+<div class="social-section">
+  <div class="section-divider" style="margin-bottom:20px;">
+    <div class="num">03</div>
+    <h3>Social Media</h3>
+    <div class="desc">Instagram / 小红书 content templates</div>
+  </div>
+  <div class="social-grid">
+    <div class="social-card sc-1">
+      <div class="card-label">Today's Special</div>
+      <h4>銀鱈<br>西京焼き</h4>
+      <div class="card-sub">Saikyo Miso Black Cod</div>
+      <div class="card-handle">@kinome.dining</div>
+    </div>
+    <div class="social-card sc-2">
+      <div class="card-label">Behind the Scenes</div>
+      <h4>板前<br>仕事</h4>
+      <div class="card-sub">A Day with Our Chef</div>
+      <div class="card-handle">@kinome.dining</div>
+    </div>
+    <div class="social-card sc-3">
+      <div class="card-label">Seasonal</div>
+      <h4>春の<br>食材</h4>
+      <div class="card-sub">Spring Ingredients Arrived</div>
+      <div class="card-handle">@kinome.dining</div>
+    </div>
+    <div class="social-card sc-4">
+      <div class="card-label">Reservation</div>
+      <h4>今週末<br>空席あり</h4>
+      <div class="card-sub">Weekend Tables Available</div>
+      <div class="card-handle">@kinome.dining</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. BRANDED ITEMS -->
+<div class="items-section">
+  <div style="max-width:1000px; margin:0 auto;">
+    <div class="section-divider" style="margin-top:0; margin-bottom:20px;">
+      <div class="num">04</div>
+      <h3>Branded Items</h3>
+      <div class="desc">Business cards, packaging, and table accessories</div>
+    </div>
+  </div>
+  <div class="items-grid">
+    <div class="brand-item">
+      <div class="item-shape chopstick">
+        <div class="item-inner">木根芽</div>
+      </div>
+      <div class="item-name">Chopstick Sleeves</div>
+      <div class="item-desc">Washi paper · Letterpress</div>
+    </div>
+    <div class="brand-item">
+      <div class="item-shape napkin">
+        <div class="item-inner">木根芽</div>
+      </div>
+      <div class="item-name">Linen Napkins</div>
+      <div class="item-desc">Embroidered logo · Natural</div>
+    </div>
+    <div class="brand-item">
+      <div class="item-shape card">
+        <div class="item-inner">木根芽</div>
+      </div>
+      <div class="item-name">Business Card</div>
+      <div class="item-desc">Black card · Gold foil</div>
+    </div>
+    <div class="brand-item">
+      <div class="item-shape bag">
+        <div class="item-inner">木根芽</div>
+      </div>
+      <div class="item-name">Takeaway Bag</div>
+      <div class="item-desc">Kraft paper · Stamp logo</div>
+    </div>
+  </div>
+</div>
+
+<div class="case-footer">
+  KINOME — Restaurant Brand Design Concept — Concept Project by Ezreal
+</div>
+
+</body>
+</html>

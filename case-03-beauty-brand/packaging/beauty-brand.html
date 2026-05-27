@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUNAE — Beauty Brand Design Concept</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #FDFAF6; color: #2D2926; font-family: 'Outfit', sans-serif; }
+
+/* === CASE HEADER === */
+.case-header { background: linear-gradient(135deg, #F8F0E8 0%, #EDE4DB 100%); padding: 100px 40px; text-align: center; position: relative; overflow: hidden; }
+.case-header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.4) 0%, transparent 50%); }
+.case-header .tag { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #A89880; position: relative; }
+.case-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; letter-spacing: 12px; margin-top: 20px; position: relative; color: #2D2926; }
+.case-header .sub { font-size: 14px; color: #A89880; margin-top: 16px; letter-spacing: 2px; position: relative; }
+.case-meta { display: flex; justify-content: center; gap: 60px; margin-top: 50px; position: relative; }
+.case-meta .item { text-align: center; }
+.case-meta .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #B8A898; }
+.case-meta .value { font-size: 14px; margin-top: 6px; color: #6B5B4B; }
+
+/* === BRAND IDENTITY === */
+.brand-section { max-width: 1000px; margin: 80px auto; padding: 0 40px; }
+.section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #B8A898; margin-bottom: 40px; padding-bottom: 12px; border-bottom: 1px solid #EDE4DB; }
+
+/* Color Palette */
+.colors { display: flex; gap: 0; margin: 40px 0; }
+.color-swatch { flex: 1; height: 140px; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; }
+.color-swatch span { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+.color-swatch .hex { font-weight: 500; margin-top: 4px; font-size: 12px; }
+
+/* Typography */
+.type-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 40px 0; }
+.type-item h2 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; margin-bottom: 8px; }
+.type-item .name { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #A89880; }
+.type-item .usage { font-size: 13px; color: #B8A898; margin-top: 12px; line-height: 1.6; }
+.type-item.sans h2 { font-family: 'Outfit', sans-serif; font-weight: 200; letter-spacing: 4px; }
+
+/* === PACKAGING === */
+.packaging-section { background: #F8F0E8; padding: 80px 40px; }
+.packaging-grid { max-width: 1000px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.product-bottle { text-align: center; }
+.bottle-shape { margin: 0 auto 24px; position: relative; }
+.bottle-shape.serum { width: 80px; height: 200px; background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(240,235,228,0.9) 100%); border-radius: 8px 8px 4px 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+.bottle-shape.serum::before { content: ''; position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 20px; height: 24px; background: #D4C8B8; border-radius: 2px 2px 0 0; }
+.bottle-shape.serum::after { content: ''; position: absolute; top: -30px; left: 50%; transform: translateX(-50%); width: 6px; height: 14px; background: #B8A898; border-radius: 3px; }
+.bottle-shape.cream { width: 120px; height: 100px; background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(240,235,228,0.95) 100%); border-radius: 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+.bottle-shape.cream::before { content: ''; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 60px; height: 12px; background: #D4C8B8; border-radius: 6px; }
+.bottle-shape.cleanser { width: 70px; height: 180px; background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(240,235,228,0.9) 100%); border-radius: 20px 20px 8px 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+.bottle-shape.cleanser::before { content: ''; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 18px; background: #D4C8B8; border-radius: 4px; }
+.bottle-label { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); text-align: center; width: 80%; }
+.bottle-label .brand { font-family: 'Cormorant Garamond', serif; font-size: 14px; letter-spacing: 3px; color: #2D2926; }
+.bottle-label .product { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #A89880; margin-top: 4px; }
+.bottle-label .ml { font-size: 8px; color: #B8A898; margin-top: 8px; }
+.product-name { font-size: 15px; font-weight: 400; }
+.product-type { font-size: 12px; color: #A89880; margin-top: 4px; }
+.product-price { font-size: 14px; color: #6B5B4B; margin-top: 8px; }
+
+/* === SOCIAL MEDIA === */
+.social-section { max-width: 1100px; margin: 80px auto; padding: 0 40px; }
+.social-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin: 40px 0; }
+.social-card { aspect-ratio: 9/16; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; position: relative; overflow: hidden; }
+.social-card .overlay { position: absolute; inset: 0; }
+.social-card .content { position: relative; z-index: 1; }
+.social-card .label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; }
+.social-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; margin-top: 8px; line-height: 1.3; }
+.social-card .sub { font-size: 10px; margin-top: 6px; opacity: 0.6; }
+.social-card .handle { font-size: 9px; letter-spacing: 1px; margin-top: 12px; opacity: 0.5; }
+
+/* Card Variants */
+.sc-1 { background: linear-gradient(180deg, #F8F0E8 0%, #EDE4DB 100%); color: #2D2926; }
+.sc-2 { background: #2D2926; color: #F8F0E8; }
+.sc-3 { background: linear-gradient(135deg, #D4C8B8 0%, #B8A898 100%); color: #2D2926; }
+.sc-4 { background: #FDFAF6; color: #2D2926; border: 1px solid #EDE4DB; }
+.sc-5 { background: linear-gradient(180deg, #8B9B7A 0%, #6B7B5A 100%); color: #FDFAF6; }
+
+/* Product illustrations on cards */
+.card-product { position: absolute; top: 20%; left: 50%; transform: translateX(-50%); }
+.card-product .mini-bottle { width: 40px; height: 100px; background: rgba(255,255,255,0.3); border-radius: 6px; margin: 0 auto; }
+.card-product .mini-jar { width: 60px; height: 50px; background: rgba(255,255,255,0.3); border-radius: 24px; margin: 0 auto; }
+
+/* === UNBOXING === */
+.unboxing-section { background: #F8F0E8; padding: 80px 40px; }
+.unboxing-grid { max-width: 1000px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.unbox-item { text-align: center; }
+.unbox-shape { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.unbox-shape.box { background: #EDE4DB; border-radius: 4px; }
+.unbox-shape.card { background: #fff; border: 1px solid #EDE4DB; border-radius: 2px; }
+.unbox-shape.sticker { background: #D4C8B8; border-radius: 50%; }
+.unbox-shape.bag { background: #EDE4DB; border-radius: 0 0 20px 20px; }
+.unbox-inner { width: 60%; height: 60%; border: 1px dashed rgba(0,0,0,0.1); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #A89880; letter-spacing: 1px; }
+.unbox-name { font-size: 13px; font-weight: 400; }
+.unbox-desc { font-size: 11px; color: #A89880; margin-top: 4px; }
+
+/* === FOOTER === */
+.case-footer { text-align: center; padding: 60px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #B8A898; }
+</style>
+</head>
+<body>
+
+<!-- CASE HEADER -->
+<div class="case-header">
+  <div class="tag">Beauty Brand Design Concept</div>
+  <h1>LUNAE</h1>
+  <div class="sub">Clean Beauty · Minimal Packaging · Maximum Impact</div>
+  <div class="case-meta">
+    <div class="item"><div class="label">Industry</div><div class="value">Skincare</div></div>
+    <div class="item"><div class="label">Scope</div><div class="value">Packaging + Social</div></div>
+    <div class="item"><div class="label">Style</div><div class="value">Clean Minimal</div></div>
+    <div class="item"><div class="label">Year</div><div class="value">2026</div></div>
+  </div>
+</div>
+
+<!-- BRAND IDENTITY -->
+<div class="brand-section">
+  <div class="section-label">Brand Identity</div>
+  
+  <!-- Color Palette -->
+  <div class="colors">
+    <div class="color-swatch" style="background:#2D2926; color:#F8F0E8;">
+      <span>Espresso</span>
+      <span class="hex">#2D2926</span>
+    </div>
+    <div class="color-swatch" style="background:#6B5B4B; color:#F8F0E8;">
+      <span>Warm Brown</span>
+      <span class="hex">#6B5B4B</span>
+    </div>
+    <div class="color-swatch" style="background:#D4C8B8; color:#2D2926;">
+      <span>Sand</span>
+      <span class="hex">#D4C8B8</span>
+    </div>
+    <div class="color-swatch" style="background:#F8F0E8; color:#2D2926;">
+      <span>Cream</span>
+      <span class="hex">#F8F0E8</span>
+    </div>
+    <div class="color-swatch" style="background:#8B9B7A; color:#fff;">
+      <span>Sage</span>
+      <span class="hex">#8B9B7A</span>
+    </div>
+  </div>
+
+  <!-- Typography -->
+  <div class="type-row">
+    <div class="type-item">
+      <div class="name">Cormorant Garamond — Display</div>
+      <h2>Aa Bb Cc</h2>
+      <div class="usage">用于品牌名、标题、大字排版。细衬线传递高级感和优雅感。</div>
+    </div>
+    <div class="type-item sans">
+      <div class="name">Outfit — Body</div>
+      <h2>Aa Bb Cc</h2>
+      <div class="usage">用于正文、说明文字、UI元素。轻量无衬线保证现代感和可读性。</div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGING -->
+<div class="packaging-section">
+  <div style="max-width:1000px; margin:0 auto;">
+    <div class="section-label" style="color:#6B5B4B;">Product Packaging</div>
+  </div>
+  <div class="packaging-grid">
+    <div class="product-bottle">
+      <div class="bottle-shape serum">
+        <div class="bottle-label">
+          <div class="brand">LUNAE</div>
+          <div class="product">Radiance Serum</div>
+          <div class="ml">30ml / 1.0 fl oz</div>
+        </div>
+      </div>
+      <div class="product-name">Radiance Serum</div>
+      <div class="product-type">Vitamin C + Hyaluronic Acid</div>
+      <div class="product-price">$68.00</div>
+    </div>
+    <div class="product-bottle">
+      <div class="bottle-shape cream">
+        <div class="bottle-label">
+          <div class="brand">LUNAE</div>
+          <div class="product">Cloud Cream</div>
+          <div class="ml">50ml / 1.7 fl oz</div>
+        </div>
+      </div>
+      <div class="product-name">Cloud Cream</div>
+      <div class="product-type">Moisturizer · All Skin Types</div>
+      <div class="product-price">$52.00</div>
+    </div>
+    <div class="product-bottle">
+      <div class="bottle-shape cleanser">
+        <div class="bottle-label">
+          <div class="brand">LUNAE</div>
+          <div class="product">Gentle Cleanse</div>
+          <div class="ml">150ml / 5.0 fl oz</div>
+        </div>
+      </div>
+      <div class="product-name">Gentle Cleanse</div>
+      <div class="product-type">Gel Cleanser · Sensitive Skin</div>
+      <div class="product-price">$38.00</div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="social-section">
+  <div class="section-label">Social Media Templates</div>
+  <div class="social-grid">
+    <div class="social-card sc-1">
+      <div class="card-product"><div class="mini-bottle"></div></div>
+      <div class="content">
+        <div class="label">New Launch</div>
+        <h4>Radiance<br>Serum</h4>
+        <div class="sub">Vitamin C + HA</div>
+        <div class="handle">@lunaeskincare</div>
+      </div>
+    </div>
+    <div class="social-card sc-2">
+      <div class="card-product"><div class="mini-jar"></div></div>
+      <div class="content">
+        <div class="label">Ingredients</div>
+        <h4>What's<br>Inside</h4>
+        <div class="sub">Clean · Effective · Safe</div>
+        <div class="handle">@lunaeskincare</div>
+      </div>
+    </div>
+    <div class="social-card sc-3">
+      <div class="content">
+        <div class="label">Routine</div>
+        <h4>Morning<br>Ritual</h4>
+        <div class="sub">3 Steps · 5 Minutes</div>
+        <div class="handle">@lunaeskincare</div>
+      </div>
+    </div>
+    <div class="social-card sc-4">
+      <div class="content">
+        <div class="label">Results</div>
+        <h4>Before &<br>After</h4>
+        <div class="sub">28 Days · Real Results</div>
+        <div class="handle">@lunaeskincare</div>
+      </div>
+    </div>
+    <div class="social-card sc-5">
+      <div class="content">
+        <div class="label">Sustainability</div>
+        <h4>Our<br>Promise</h4>
+        <div class="sub">Refillable · Recyclable</div>
+        <div class="handle">@lunaeskincare</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UNBOXING -->
+<div class="unboxing-section">
+  <div style="max-width:1000px; margin:0 auto;">
+    <div class="section-label" style="color:#6B5B4B;">Unboxing Experience</div>
+  </div>
+  <div class="unboxing-grid">
+    <div class="unbox-item">
+      <div class="unbox-shape box">
+        <div class="unbox-inner">OUTER BOX</div>
+      </div>
+      <div class="unbox-name">Rigid Box</div>
+      <div class="unbox-desc">Matte finish · Embossed logo</div>
+    </div>
+    <div class="unbox-item">
+      <div class="unbox-shape card">
+        <div class="unbox-inner" style="border-color:rgba(0,0,0,0.08);">CARD</div>
+      </div>
+      <div class="unbox-name">Thank You Card</div>
+      <div class="unbox-desc">Cotton paper · Letterpress</div>
+    </div>
+    <div class="unbox-item">
+      <div class="unbox-shape sticker">
+        <div class="unbox-inner" style="border-radius:50%; border-color:rgba(0,0,0,0.08);">STICKER</div>
+      </div>
+      <div class="unbox-name">Brand Sticker</div>
+      <div class="unbox-desc">Die-cut · Holographic</div>
+    </div>
+    <div class="unbox-item">
+      <div class="unbox-shape bag">
+        <div class="unbox-inner" style="border-radius:0 0 10px 10px; border-color:rgba(0,0,0,0.08);">TISSUE</div>
+      </div>
+      <div class="unbox-name">Tissue Paper</div>
+      <div class="unbox-desc">Custom print · Seed paper</div>
+    </div>
+  </div>
+</div>
+
+<div class="case-footer">
+  LUNAE — Beauty Brand Design Concept — Concept Project by Ezreal
+</div>
+
+</body>
+</html>

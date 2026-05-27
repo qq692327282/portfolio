@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAWS & CO — Premium Pet Brand Identity</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --warm-brown: #8B6F47;
+    --cream: #FFF8F0;
+    --sage-green: #7A9E7E;
+    --charcoal: #2D2D2D;
+    --blush-pink: #F5D5C8;
+    --light-brown: #C4A87C;
+    --dark-sage: #5A7E5E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+  }
+
+  /* ===== NAVIGATION BAR ===== */
+  .top-nav {
+    background: var(--charcoal);
+    color: white;
+    padding: 12px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .top-nav span { opacity: 0.5; }
+  .top-nav a { color: var(--blush-pink); text-decoration: none; font-weight: 600; }
+
+  /* ===== SECTION DIVIDER ===== */
+  .section-divider {
+    text-align: center;
+    padding: 80px 40px 30px;
+    position: relative;
+  }
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--warm-brown);
+  }
+  .section-divider h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    font-weight: 400;
+  }
+  .section-divider p {
+    font-size: 11px;
+    color: var(--light-brown);
+    margin-top: 6px;
+    letter-spacing: 1px;
+  }
+
+  /* ===== HERO / BRAND HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--charcoal) 0%, #3d3d3d 100%);
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(138,111,71,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(122,158,126,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .paw-logo {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .paw-main {
+    width: 100px; height: 100px;
+    background: var(--warm-brown);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+  }
+  .paw-pad {
+    width: 40px; height: 36px;
+    background: var(--cream);
+    border-radius: 50% 50% 50% 50%;
+    position: relative;
+  }
+  .paw-pad::before {
+    content: '';
+    position: absolute;
+    top: -18px; left: 3px;
+    width: 10px; height: 10px;
+    background: var(--cream);
+    border-radius: 50%;
+    box-shadow:
+      13px 4px 0 var(--cream),
+      26px 0px 0 var(--cream),
+      -6px -4px 0 3px var(--cream);
+  }
+  /* Toe beans using individual elements inside .paw-toes */
+  .paw-toes {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 20px;
+  }
+  .paw-toes span {
+    position: absolute;
+    width: 13px; height: 13px;
+    background: var(--cream);
+    border-radius: 50%;
+    top: 0;
+  }
+  .paw-toes span:nth-child(1) { left: 0px; }
+  .paw-toes span:nth-child(2) { left: 13px; top: -4px; }
+  .paw-toes span:nth-child(3) { left: 26px; top: -4px; }
+  .paw-toes span:nth-child(4) { left: 37px; top: 0px; }
+  .paw-big-pad {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px; height: 26px;
+    background: var(--cream);
+    border-radius: 50%;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    color: var(--cream);
+    letter-spacing: 12px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .ampersand {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--warm-brown);
+    font-size: 80px;
+  }
+  .hero .tagline {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: var(--light-brown);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero .sub-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: rgba(255,248,240,0.6);
+    font-style: italic;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-nav a {
+    color: rgba(255,248,240,0.5);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .hero-nav a:hover { color: var(--warm-brown); }
+
+  /* ===== COLOR PALETTE ===== */
+  .palette-section {
+    padding: 60px;
+    background: white;
+  }
+  .palette-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    flex-wrap: wrap;
+  }
+  .palette-swatch {
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+  }
+  .swatch-circle {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border: 4px solid white;
+    position: relative;
+  }
+  .swatch-circle::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .palette-swatch h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+  }
+  .palette-swatch p {
+    font-size: 11px;
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .palette-swatch .hex {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--warm-brown);
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  /* ===== TYPOGRAPHY SHOWCASE ===== */
+  .typography-section {
+    padding: 60px;
+    background: var(--cream);
+  }
+  .type-samples {
+    max-width: 800px;
+    margin: 40px auto 0;
+  }
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(139,111,71,0.1);
+  }
+  .type-label {
+    width: 160px;
+    flex-shrink: 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage-green);
+    font-weight: 700;
+  }
+  .type-display-playfair {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--charcoal);
+    font-weight: 700;
+  }
+  .type-display-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--warm-brown);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .type-display-nunito {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ===== PRODUCT SHOWCASE ===== */
+  .products-section {
+    padding: 80px 60px;
+    background: white;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 50px auto 0;
+  }
+  .product-card {
+    text-align: center;
+    padding: 50px 30px 40px;
+    border-radius: 20px;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .product-card:hover { transform: translateY(-6px); }
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .product-card:nth-child(1)::before { background: var(--warm-brown); }
+  .product-card:nth-child(2)::before { background: var(--sage-green); }
+  .product-card:nth-child(3)::before { background: var(--blush-pink); }
+
+  .product-badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .product-card:nth-child(1) .product-badge {
+    background: rgba(139,111,71,0.12);
+    color: var(--warm-brown);
+  }
+  .product-card:nth-child(2) .product-badge {
+    background: rgba(122,158,126,0.12);
+    color: var(--dark-sage);
+  }
+  .product-card:nth-child(3) .product-badge {
+    background: rgba(245,213,200,0.4);
+    color: #C4887A;
+  }
+
+  /* CSS Shape: Treat Bag */
+  .shape-treats {
+    width: 120px; height: 150px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+  .treat-bag {
+    width: 100px; height: 120px;
+    background: linear-gradient(160deg, var(--warm-brown) 0%, #A07D55 100%);
+    border-radius: 6px 6px 12px 12px;
+    margin: 20px auto 0;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(139,111,71,0.2);
+  }
+  .treat-bag::before {
+    content: '';
+    position: absolute;
+    top: -20px; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 24px;
+    border: 3px solid var(--warm-brown);
+    border-bottom: none;
+    border-radius: 30px 30px 0 0;
+    background: transparent;
+  }
+  .treat-bag-label {
+    position: absolute;
+    top: 25px; left: 50%;
+    transform: translateX(-50%);
+    width: 60px; height: 50px;
+    background: var(--cream);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .treat-bag-label span {
+    font-size: 7px;
+    color: var(--warm-brown);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .treat-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+  }
+  .treat-dots span {
+    width: 8px; height: 8px;
+    background: var(--cream);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  /* CSS Shape: Toy */
+  .shape-toy {
+    width: 140px; height: 140px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+  .toy-ball {
+    width: 90px; height: 90px;
+    background: linear-gradient(135deg, var(--sage-green) 0%, #93B997 50%, var(--sage-green) 100%);
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 
+      inset -10px -10px 20px rgba(0,0,0,0.1),
+      0 10px 30px rgba(122,158,126,0.3);
+    overflow: hidden;
+  }
+  .toy-ball::before {
+    content: '';
+    position: absolute;
+    top: 12px; left: 18px;
+    width: 20px; height: 16px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    transform: rotate(-30deg);
+  }
+  .toy-ball-stripe {
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    right: -5px;
+    height: 12px;
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-50%);
+  }
+  .toy-ball-stripe:nth-child(2) {
+    top: 25%;
+  }
+  .toy-ball-stripe:nth-child(3) {
+    top: 75%;
+  }
+  .toy-string {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 25px;
+    background: var(--sage-green);
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+  .toy-string::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: -4px;
+    width: 11px;
+    height: 11px;
+    border: 2px solid var(--sage-green);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  /* CSS Shape: Bed */
+  .shape-bed {
+    width: 160px; height: 120px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+  .bed-base {
+    width: 140px; height: 50px;
+    background: linear-gradient(180deg, var(--blush-pink) 0%, #E8C0B0 100%);
+    border-radius: 25px 25px 20px 20px;
+    margin: 50px auto 0;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(245,213,200,0.4);
+  }
+  .bed-rim {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    right: 10px;
+    height: 30px;
+    border: 6px solid var(--blush-pink);
+    border-bottom: none;
+    border-radius: 30px 30px 0 0;
+    background: transparent;
+  }
+  .bed-pillow {
+    position: absolute;
+    top: 10px; left: 50%;
+    transform: translateX(-50%);
+    width: 50px; height: 20px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+  }
+  .bed-paw-print {
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    opacity: 0.3;
+  }
+  .bed-paw-print span {
+    display: block;
+    width: 6px; height: 6px;
+    background: var(--charcoal);
+    border-radius: 50%;
+    position: absolute;
+  }
+  .bed-paw-print span:nth-child(1) { top: 0; left: 0; }
+  .bed-paw-print span:nth-child(2) { top: 0; left: 8px; width: 5px; height: 5px; }
+  .bed-paw-print span:nth-child(3) { top: 6px; left: 12px; width: 5px; height: 5px; }
+  .bed-paw-print span:nth-child(4) { top: 8px; left: 2px; width: 8px; height: 7px; }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+  .product-desc {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .product-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--warm-brown);
+    font-weight: 600;
+  }
+  .product-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 28px;
+    border: 1.5px solid var(--warm-brown);
+    border-radius: 30px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: transparent;
+  }
+  .product-btn:hover {
+    background: var(--warm-brown);
+    color: white;
+  }
+
+  /* ===== SOCIAL MEDIA TEMPLATES ===== */
+  .social-section {
+    padding: 80px 60px;
+    background: var(--cream);
+  }
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 50px auto 0;
+  }
+  .social-post {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+  }
+  .social-post:hover { transform: translateY(-5px); }
+
+  .social-canvas {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Post 1: Product Feature */
+  .social-post-1 .social-canvas {
+    background: linear-gradient(160deg, var(--charcoal) 0%, #3d3d3d 100%);
+  }
+  .social-post-1 .social-canvas::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(139,111,71,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .social-mini-bag {
+    width: 70px; height: 85px;
+    background: linear-gradient(160deg, var(--warm-brown) 0%, #A07D55 100%);
+    border-radius: 4px 4px 8px 8px;
+    position: relative;
+    margin-bottom: 20px;
+    z-index: 1;
+  }
+  .social-mini-bag::before {
+    content: '';
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 16px;
+    border: 2px solid var(--warm-brown);
+    border-bottom: none;
+    border-radius: 20px 20px 0 0;
+  }
+  .social-mini-bag-label {
+    position: absolute;
+    top: 16px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 34px;
+    background: var(--cream);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-mini-bag-label span {
+    font-size: 5px;
+    color: var(--warm-brown);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .social-post-1 h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+  }
+  .social-post-1 .social-cta {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    margin-top: 12px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  .social-post-1 .social-tag {
+    position: absolute;
+    bottom: 16px;
+    font-size: 10px;
+    color: rgba(255,248,240,0.3);
+    letter-spacing: 1px;
+  }
+
+  /* Post 2: Pet Lifestyle */
+  .social-post-2 .social-canvas {
+    background: linear-gradient(180deg, var(--sage-green) 0%, #5A7E5E 100%);
+    color: white;
+  }
+  .social-post-2 .social-canvas::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.15));
+  }
+  .lifestyle-illustration {
+    position: relative;
+    width: 160px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  .dog-silhouette {
+    width: 60px; height: 50px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50% 60% 40% 50%;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .dog-silhouette::before {
+    content: '';
+    position: absolute;
+    top: -12px; left: -8px;
+    width: 25px; height: 22px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50% 50% 40% 40%;
+  }
+  .dog-silhouette::after {
+    content: '';
+    position: absolute;
+    top: -5px; left: -20px;
+    width: 12px; height: 20px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-20deg);
+  }
+  .grass-line {
+    position: absolute;
+    bottom: 0; left: -20px; right: -20px;
+    height: 30px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 50% 50% 0 0;
+  }
+  .sun-circle {
+    position: absolute;
+    top: 5px; right: 10px;
+    width: 35px; height: 35px;
+    background: rgba(255,248,240,0.2);
+    border-radius: 50%;
+  }
+  .heart-float {
+    position: absolute;
+    top: 15px; left: 25px;
+    font-size: 16px;
+    opacity: 0.5;
+  }
+  .cloud {
+    position: absolute;
+    top: 8px; left: 5px;
+    width: 30px; height: 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+  }
+  .cloud::before {
+    content: '';
+    position: absolute;
+    top: -6px; left: 6px;
+    width: 14px; height: 14px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+  }
+
+  .social-post-2 h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    line-height: 1.4;
+  }
+  .social-post-2 .social-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 8px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .social-post-2 .social-tag {
+    position: absolute;
+    bottom: 16px;
+    font-size: 10px;
+    opacity: 0.4;
+    letter-spacing: 1px;
+    z-index: 1;
+  }
+
+  /* Post 3: Tips */
+  .social-post-3 .social-canvas {
+    background: var(--cream);
+    align-items: flex-start;
+    padding: 30px;
+  }
+  .social-post-3 .social-canvas::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(245,213,200,0.5) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .tip-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .tip-icon {
+    width: 36px; height: 36px;
+    background: var(--sage-green);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .tip-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage-green);
+    font-weight: 700;
+  }
+  .tip-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    color: rgba(139,111,71,0.08);
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-weight: 700;
+  }
+  .social-post-3 h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 1;
+  }
+  .tip-list {
+    list-style: none;
+    position: relative;
+    z-index: 1;
+  }
+  .tip-list li {
+    font-size: 12px;
+    color: #777;
+    padding: 6px 0;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .tip-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px; height: 8px;
+    background: var(--blush-pink);
+    border-radius: 50%;
+  }
+  .social-post-3 .social-tag {
+    position: absolute;
+    bottom: 16px;
+    left: 30px;
+    font-size: 10px;
+    color: #ccc;
+    letter-spacing: 1px;
+  }
+
+  /* Social footer */
+  .social-footer {
+    padding: 14px 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(0,0,0,0.04);
+  }
+  .social-footer-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .social-avatar {
+    width: 28px; height: 28px;
+    background: var(--warm-brown);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-avatar-paw {
+    width: 12px; height: 10px;
+    background: var(--cream);
+    border-radius: 50% 50% 50% 50%;
+    position: relative;
+  }
+  .social-avatar-paw::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: 1px;
+    width: 3px; height: 3px;
+    background: var(--cream);
+    border-radius: 50%;
+    box-shadow: 4px 1px 0 var(--cream), 7px 0 0 var(--cream);
+  }
+  .social-handle {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+  .social-actions {
+    display: flex;
+    gap: 12px;
+    color: #bbb;
+    font-size: 14px;
+  }
+
+  /* ===== PACKAGING MOCKUP ===== */
+  .packaging-section {
+    padding: 80px 60px;
+    background: white;
+  }
+  .packaging-showcase {
+    max-width: 1000px;
+    margin: 50px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+
+  .package-mockup {
+    perspective: 800px;
+  }
+  .treat-package {
+    width: 240px;
+    height: 340px;
+    background: linear-gradient(180deg, var(--warm-brown) 0%, #6B5535 100%);
+    border-radius: 10px 10px 16px 16px;
+    position: relative;
+    box-shadow: 
+      20px 20px 60px rgba(0,0,0,0.15),
+      -5px -5px 20px rgba(255,255,255,0.1);
+    overflow: hidden;
+    transform: rotateY(-5deg) rotateX(2deg);
+  }
+  .treat-package::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 35px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 10px 10px 0 0;
+  }
+  .package-seal {
+    position: absolute;
+    top: 6px; left: 50%;
+    transform: translateX(-50%);
+    width: 24px; height: 24px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .package-seal-inner {
+    width: 14px; height: 14px;
+    background: var(--warm-brown);
+    border-radius: 50%;
+  }
+  .package-tear {
+    position: absolute;
+    top: 28px; left: 0; right: 0;
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 4px,
+      rgba(0,0,0,0.1) 4px,
+      rgba(0,0,0,0.1) 8px
+    );
+    z-index: 1;
+  }
+  .package-content {
+    padding: 50px 25px 25px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .package-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,248,240,0.4);
+    margin-bottom: 20px;
+  }
+  .package-paw-small {
+    width: 50px; height: 50px;
+    background: rgba(255,248,240,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .package-paw-inner {
+    width: 20px; height: 18px;
+    background: var(--cream);
+    border-radius: 50%;
+    position: relative;
+  }
+  .package-paw-inner::before {
+    content: '';
+    position: absolute;
+    top: -7px; left: 2px;
+    width: 4px; height: 4px;
+    background: var(--cream);
+    border-radius: 50%;
+    box-shadow: 5px 1px 0 var(--cream), 10px 0 0 var(--cream), 14px 2px 0 var(--cream);
+  }
+  .package-product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--cream);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .package-product-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: rgba(255,248,240,0.6);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .package-divider {
+    width: 40px; height: 1px;
+    background: rgba(255,248,240,0.2);
+    margin-bottom: 20px;
+  }
+  .package-details {
+    font-size: 10px;
+    color: rgba(255,248,240,0.4);
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+  .package-weight {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: rgba(255,248,240,0.6);
+    margin-top: auto;
+    padding-top: 20px;
+  }
+  .package-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px;
+    background: rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .package-bottom span {
+    font-size: 7px;
+    color: rgba(255,248,240,0.25);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .package-organic-badge {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    width: 50px; height: 50px;
+    background: var(--sage-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(122,158,126,0.3);
+  }
+  .package-organic-badge span:first-child {
+    font-size: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+  }
+  .package-organic-badge span:last-child {
+    font-size: 8px;
+    color: white;
+    font-weight: 700;
+  }
+
+  .packaging-info {
+    max-width: 350px;
+  }
+  .packaging-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .packaging-info p {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .packaging-features {
+    list-style: none;
+  }
+  .packaging-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-size: 13px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .packaging-features li .feat-dot {
+    width: 6px; height: 6px;
+    background: var(--sage-green);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ===== BRAND PATTERNS / ELEMENTS ===== */
+  .elements-section {
+    padding: 80px 60px;
+    background: var(--cream);
+  }
+  .elements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 50px auto 0;
+  }
+  .element-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+  }
+  .element-card h4 {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--warm-brown);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  /* Pattern: Paw print pattern */
+  .pattern-paws {
+    width: 80px; height: 80px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--cream);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .pattern-paws::before,
+  .pattern-paws::after {
+    content: '🐾';
+    position: absolute;
+    font-size: 18px;
+    opacity: 0.3;
+  }
+  .pattern-paws::before { top: 8px; left: 8px; transform: rotate(-20deg); }
+  .pattern-paws::after { bottom: 8px; right: 8px; transform: rotate(15deg); }
+
+  /* Pattern: Stripes */
+  .pattern-stripes {
+    width: 80px; height: 80px;
+    margin: 0 auto;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--cream),
+      var(--cream) 4px,
+      rgba(139,111,71,0.06) 4px,
+      rgba(139,111,71,0.06) 8px
+    );
+    border-radius: 12px;
+  }
+
+  /* Pattern: Dots */
+  .pattern-dots {
+    width: 80px; height: 80px;
+    margin: 0 auto;
+    background: radial-gradient(circle, var(--blush-pink) 2px, transparent 2px);
+    background-size: 12px 12px;
+    border-radius: 12px;
+  }
+
+  /* Pattern: Waves */
+  .pattern-waves {
+    width: 80px; height: 80px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--cream);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .wave-line {
+    position: absolute;
+    left: -10px; right: -10px;
+    height: 2px;
+    background: rgba(122,158,126,0.15);
+    border-radius: 50%;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--charcoal);
+    padding: 60px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--cream);
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+  }
+  .footer-brand .amp {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--warm-brown);
+  }
+  .footer-tagline {
+    font-size: 11px;
+    color: rgba(255,248,240,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  .footer-links a {
+    color: rgba(255,248,240,0.4);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--warm-brown); }
+  .footer-copy {
+    font-size: 10px;
+    color: rgba(255,248,240,0.15);
+    letter-spacing: 1px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .products-grid, .social-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .elements-grid { grid-template-columns: repeat(2, 1fr); }
+    .packaging-showcase { flex-direction: column; gap: 40px; }
+    .hero h1 { font-size: 48px; }
+    .hero { padding: 60px 30px; }
+    .palette-grid { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Nav Bar -->
+<div class="top-nav">
+  <span>Portfolio Concept Project</span>
+  <span>Brand Identity Design</span>
+  <a href="#">PAWS & CO</a>
+</div>
+
+<!-- ===== HERO / BRAND HEADER ===== -->
+<section class="hero">
+  <div class="paw-logo">
+    <div class="paw-main">
+      <div class="paw-toes">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="paw-big-pad"></div>
+    </div>
+  </div>
+  <h1>PAWS <span class="ampersand">&</span> CO</h1>
+  <p class="tagline">Premium Pet Essentials</p>
+  <p class="sub-tagline">"Crafted with love, designed for life."</p>
+  <nav class="hero-nav">
+    <a href="#">Shop</a>
+    <a href="#">Our Story</a>
+    <a href="#">Ingredients</a>
+    <a href="#">Journal</a>
+    <a href="#">Contact</a>
+  </nav>
+</section>
+
+<!-- ===== COLOR PALETTE ===== -->
+<div class="section-divider">
+  <h2>Color Palette</h2>
+  <p>Warm, natural tones that evoke trust and comfort</p>
+</div>
+<section class="palette-section">
+  <div class="palette-grid">
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #8B6F47;"></div>
+      <h4>Warm Brown</h4>
+      <p>Primary</p>
+      <span class="hex">#8B6F47</span>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #FFF8F0; border-color: #eee;"></div>
+      <h4>Cream</h4>
+      <p>Background</p>
+      <span class="hex">#FFF8F0</span>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #7A9E7E;"></div>
+      <h4>Sage Green</h4>
+      <p>Accent</p>
+      <span class="hex">#7A9E7E</span>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #2D2D2D;"></div>
+      <h4>Charcoal</h4>
+      <p>Text</p>
+      <span class="hex">#2D2D2D</span>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #F5D5C8;"></div>
+      <h4>Blush Pink</h4>
+      <p>Highlight</p>
+      <span class="hex">#F5D5C8</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TYPOGRAPHY ===== -->
+<div class="section-divider">
+  <h2>Typography</h2>
+  <p>A refined typographic system balancing elegance with warmth</p>
+</div>
+<section class="typography-section">
+  <div class="type-samples">
+    <div class="type-row">
+      <span class="type-label">Display</span>
+      <span class="type-display-playfair">Playfair Display</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Accent</span>
+      <span class="type-display-cormorant">Cormorant Garamond</span>
+    </div>
+    <div class="type-row">
+      <span class="type-label">Body</span>
+      <span class="type-display-nunito">Nunito — Gentle, rounded letterforms that feel approachable and warm, perfect for connecting with pet parents who care deeply.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT SHOWCASE ===== -->
+<div class="section-divider">
+  <h2>Product Collection</h2>
+  <p>Thoughtfully crafted essentials for your furry family</p>
+</div>
+<section class="products-section">
+  <div class="products-grid">
+
+    <!-- Product 1: Organic Treats -->
+    <div class="product-card">
+      <span class="product-badge">Best Seller</span>
+      <div class="shape-treats">
+        <div class="treat-bag">
+          <div class="treat-bag-label">
+            <span>Organic<br>Treats</span>
+          </div>
+          <div class="treat-dots">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <h3 class="product-name">Organic Treats</h3>
+      <p class="product-desc">All-natural, grain-free bites made with real chicken and sweet potato</p>
+      <span class="product-price">$18.00</span>
+      <br>
+      <button class="product-btn">Add to Cart</button>
+    </div>
+
+    <!-- Product 2: Interactive Toy -->
+    <div class="product-card">
+      <span class="product-badge">New Arrival</span>
+      <div class="shape-toy">
+        <div class="toy-ball">
+          <div class="toy-ball-stripe"></div>
+          <div class="toy-ball-stripe"></div>
+          <div class="toy-ball-stripe"></div>
+        </div>
+        <div class="toy-string"></div>
+      </div>
+      <h3 class="product-name">Sage Rope Toy</h3>
+      <p class="product-desc">Durable organic cotton rope toy, gentle on gums, built for play</p>
+      <span class="product-price">$14.00</span>
+      <br>
+      <button class="product-btn">Add to Cart</button>
+    </div>
+
+    <!-- Product 3: Cozy Bed -->
+    <div class="product-card">
+      <span class="product-badge">Fan Favorite</span>
+      <div class="shape-bed">
+        <div class="bed-base">
+          <div class="bed-rim"></div>
+          <div class="bed-pillow"></div>
+          <div class="bed-paw-print">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+      <h3 class="product-name">Cloud Nine Bed</h3>
+      <p class="product-desc">Memory foam pet bed with washable blush cotton cover</p>
+      <span class="product-price">$89.00</span>
+      <br>
+      <button class="product-btn">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SOCIAL MEDIA TEMPLATES ===== -->
+<div class="section-divider">
+  <h2>Social Media</h2>
+  <p>Consistent brand presence across every touchpoint</p>
+</div>
+<section class="social-section">
+  <div class="social-grid">
+
+    <!-- Post 1: Product Feature -->
+    <div class="social-post social-post-1">
+      <div class="social-canvas">
+        <div class="social-mini-bag">
+          <div class="social-mini-bag-label">
+            <span>Organic<br>Treats</span>
+          </div>
+        </div>
+        <h3>Nature's Best<br>For Your Best Friend</h3>
+        <span class="social-cta">Shop Now →</span>
+        <span class="social-tag">@pawsandco</span>
+      </div>
+      <div class="social-footer">
+        <div class="social-footer-left">
+          <div class="social-avatar">
+            <div class="social-avatar-paw"></div>
+          </div>
+          <span class="social-handle">pawsandco</span>
+        </div>
+        <div class="social-actions">♡ ◎ ↗</div>
+      </div>
+    </div>
+
+    <!-- Post 2: Pet Lifestyle -->
+    <div class="social-post social-post-2">
+      <div class="social-canvas">
+        <div class="lifestyle-illustration">
+          <div class="sun-circle"></div>
+          <div class="cloud"></div>
+          <div class="heart-float">♡</div>
+          <div class="dog-silhouette"></div>
+          <div class="grass-line"></div>
+        </div>
+        <h3>Every Day is an Adventure</h3>
+        <span class="social-quote">"with you by my side"</span>
+        <span class="social-tag">#PawsAndCoLife</span>
+      </div>
+      <div class="social-footer">
+        <div class="social-footer-left">
+          <div class="social-avatar">
+            <div class="social-avatar-paw"></div>
+          </div>
+          <span class="social-handle">pawsandco</span>
+        </div>
+        <div class="social-actions">♡ ◎ ↗</div>
+      </div>
+    </div>
+
+    <!-- Post 3: Tips -->
+    <div class="social-post social-post-3">
+      <div class="social-canvas">
+        <div class="tip-number">5</div>
+        <div class="tip-header">
+          <div class="tip-icon">🌿</div>
+          <span class="tip-label">Pet Wellness Tips</span>
+        </div>
+        <h3>5 Signs Your Pup Needs More Playtime</h3>
+        <ul class="tip-list">
+          <li>Excessive chewing on furniture</li>
+          <li>Restlessness at night</li>
+          <li>Weight gain or lethargy</li>
+          <li>Attention-seeking behavior</li>
+          <li>Destructive tendencies</li>
+        </ul>
+        <span class="social-tag">Save this post ↗</span>
+      </div>
+      <div class="social-footer">
+        <div class="social-footer-left">
+          <div class="social-avatar">
+            <div class="social-avatar-paw"></div>
+          </div>
+          <span class="social-handle">pawsandco</span>
+        </div>
+        <div class="social-actions">♡ ◎ ↗</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PACKAGING MOCKUP ===== -->
+<div class="section-divider">
+  <h2>Packaging Design</h2>
+  <p>Premium packaging that stands out on any shelf</p>
+</div>
+<section class="packaging-section">
+  <div class="packaging-showcase">
+
+    <div class="package-mockup">
+      <div class="treat-package">
+        <div class="package-seal">
+          <div class="package-seal-inner"></div>
+        </div>
+        <div class="package-tear"></div>
+        <div class="package-organic-badge">
+          <span>100%</span>
+          <span>ORGANIC</span>
+        </div>
+        <div class="package-content">
+          <span class="package-brand">PAWS & CO</span>
+          <div class="package-paw-small">
+            <div class="package-paw-inner"></div>
+          </div>
+          <div class="package-product-name">Organic<br>Treats</div>
+          <div class="package-product-sub">Chicken & Sweet Potato</div>
+          <div class="package-divider"></div>
+          <div class="package-details">
+            GRAIN FREE · ALL NATURAL<br>
+            NO ARTIFICIAL PRESERVATIVES
+          </div>
+          <div class="package-weight">12 oz / 340g</div>
+        </div>
+        <div class="package-bottom">
+          <span>www.pawsandco.com</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="packaging-info">
+      <h3>Designed to Delight, Built to Last</h3>
+      <p>Our packaging reflects the care we put into every product. From the warm brown kraft-inspired finish to the sage green organic badge, every detail communicates quality and trust.</p>
+      <ul class="packaging-features">
+        <li><span class="feat-dot"></span> Eco-friendly recyclable materials</li>
+        <li><span class="feat-dot"></span> Resealable zip-lock freshness seal</li>
+        <li><span class="feat-dot"></span> Matte finish with spot UV logo</li>
+        <li><span class="feat-dot"></span> FDA-compliant food-safe inks</li>
+        <li><span class="feat-dot"></span> Window cut-out to showcase product</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== BRAND ELEMENTS ===== -->
+<div class="section-divider">
+  <h2>Brand Elements</h2>
+  <p>Patterns and textures for cohesive brand expression</p>
+</div>
+<section class="elements-section">
+  <div class="elements-grid">
+    <div class="element-card">
+      <h4>Paw Print</h4>
+      <div class="pattern-paws"></div>
+    </div>
+    <div class="element-card">
+      <h4>Diagonal Lines</h4>
+      <div class="pattern-stripes"></div>
+    </div>
+    <div class="element-card">
+      <h4>Soft Dots</h4>
+      <div class="pattern-dots"></div>
+    </div>
+    <div class="element-card">
+      <h4>Gentle Waves</h4>
+      <div class="pattern-waves">
+        <div class="wave-line" style="top: 15px;"></div>
+        <div class="wave-line" style="top: 28px;"></div>
+        <div class="wave-line" style="top: 41px;"></div>
+        <div class="wave-line" style="top: 54px;"></div>
+        <div class="wave-line" style="top: 67px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-brand">PAWS <span class="amp">&</span> CO</div>
+  <p class="footer-tagline">Premium Pet Essentials</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Pinterest</a>
+    <a href="#">TikTok</a>
+    <a href="#">Newsletter</a>
+  </div>
+  <p class="footer-copy">© 2026 PAWS & CO — Portfolio Concept by Design Studio</p>
+</footer>
+
+</body>
+</html>
